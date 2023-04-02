@@ -1,5 +1,6 @@
 <script>
-import {results} from '../assets/results.json';
+import { nextTick } from 'vue';
+import { results } from '../assets/results.json';
 
 export default {
 	data() {
@@ -10,11 +11,15 @@ export default {
 
 	mounted() {
 		const title = this.$route.params.title;
-		console.log(results);
 		this.result = results.find(res => res.title === title);
-		console.log(this.result);
+		nextTick(() => {
+			const article = document.querySelector('article');
+			setTimeout(() => {
+				article.classList.add('is-active');
+			}, 10);
+		})
 	},
-	
+
 	computed: {
 		imageSrc() {
 			console.log(this.result.image);
@@ -22,7 +27,7 @@ export default {
 			console.log(url);
 			return url;
 		}
-  }
+	}
 }
 </script>
 
@@ -34,7 +39,7 @@ export default {
 			<img :src="imageSrc">
 			<figcaption><a v-if="result.url" :href="result.url" target="_blank">{{ result.urlText }}</a></figcaption>
 		</figure>
-	
+
 		<div class="description" v-html="result.description"></div>
 
 		<div class="links">
@@ -43,33 +48,43 @@ export default {
 			<a href="https://t.me/apersonaluniverse" class="button" target="_blank">Подпишись на канал твоей вселенной</a>
 		</div>
 	</article>
-	
 </template>
 
 <style lang="scss" scoped>
-	figure {
-		width: 100vw;
-		max-height: 100vh;
-    	margin-left: calc((100vw - 100%)/(-2));
-		aspect-ratio: 1.33;
+article {
+	opacity: 0;
+	transition: opacity 3s cubic-bezier(0.075, 0.82, 0.165, 1);
 
-		img {
-			object-fit: cover;
-			width: 100%;
-			height: 100%;
-		}
-
-		figcaption {
-			font-family: 'El Messiri', serif;
-			padding: 0 calc((100vw - min(100vw - var(--base-padding) * 2, 60rem - var(--base-padding) * 2))/(2));
-			font-size: .8em;
-			text-align: right;
-		}
-
-		.sharethis-inline-share-buttons {
-			div {
-				display: inline-block!important;
-			}
-		}
+	&.is-active {
+		opacity: 1;
 	}
+}
+
+figure {
+	width: 100vw;
+	max-height: 100vh;
+	margin-left: calc((100vw - 100%)/(-2));
+	aspect-ratio: 1.33;
+
+	img {
+		object-fit: cover;
+		width: 100%;
+		height: 100%;
+	}
+
+	figcaption {
+		font-family: 'El Messiri', serif;
+		padding: 0 calc((100vw - min(100vw - var(--base-padding) * 2, 60rem - var(--base-padding) * 2))/(2));
+		font-size: .8em;
+		text-align: right;
+	}
+}
+
+.st-inline-share-buttons {
+	min-height: 40px;
+
+	div {
+		display: inline-block !important;
+	}
+}
 </style>

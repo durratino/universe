@@ -1,7 +1,10 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-  </div>
+  <section class="about">
+    <h1>О создателях "Твоей Вселенной"</h1>
+    <p>
+      ???
+    </p>
+  </section>
 </template>
 
 <style>

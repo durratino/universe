@@ -17,7 +17,8 @@ export default {
   <header>
     <nav>
       <RouterLink to="/" @click="reloadPage">Тест</RouterLink>
-      <RouterLink to="/about">О нас</RouterLink>
+      <a href="https://t.me/apersonaluniverse" target="_blank">Канал Твоей вселенной</a>
+      <!-- <RouterLink to="/about">О нас</RouterLink> -->
     </nav>
   </header>
   <main>

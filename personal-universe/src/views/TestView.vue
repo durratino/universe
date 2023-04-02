@@ -30,26 +30,24 @@ export default {
 			return questions[this.currentQuestionIndex];
 		},
 		startTest() {
-			console.log("test started");
 			this.isTestActive = true;
-			console.log(this.currentQuestionIndex);
 		},
 		goToNextQuestion(i, a) {
-			console.log('answer', i, a);
-			console.log(this.responses);
 			this.responses.push(a);
-			console.log(this.responses);
 			this.currentQuestionIndex++;
+			window.scrollTo(0,0);
 
 			if (this.currentQuestionIndex > 3 - 1) {
 				this.userResult = this.getResult();
 				this.$router.push('result/' + this.userResult);
+				setTimeout(() => {
+					location.reload();
+				}, 10)
 			}
 		},
 		goToPrevQuestion(i) {
 			if (this.currentQuestionIndex) {
 				this.responses.pop();
-				console.log('GOING TO PREV', this.responses);
 				this.currentQuestionIndex--;
 				return;
 			}
@@ -63,8 +61,7 @@ export default {
 				else responsesCount[response]++;
 			});
 
-			const resSlug = Object.keys(responsesCount).reduce((a, b) => responsesCount[a] > responsesCount[b] ? a : b) || 'res12';
-			
+			const resSlug = Object.keys(responsesCount).reduce((a, b) => responsesCount[a] > responsesCount[b] ? a : b) || 'res12';		
 			return responsesCount[resSlug] > 2 ? resultsTitles[resSlug] : 'your-own';
 		}
 	}
