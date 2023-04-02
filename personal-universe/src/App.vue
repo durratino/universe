@@ -1,20 +1,23 @@
 <script>
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   components: {
-    HelloWorld
+
   },
+  methods: {
+    reloadPage(e) {
+      if (location.href === e.target.href) location.reload();
+    }
+  }
 }
 </script>
 
 <template>
   <header>
     <nav>
-      <RouterLink to="/">Home</RouterLink>
-      <RouterLink to="/about">About</RouterLink>
-      <RouterLink to="/test">TEST</RouterLink>
+      <RouterLink to="/" @click="reloadPage">Тест</RouterLink>
+      <RouterLink to="/about">О нас</RouterLink>
     </nav>
   </header>
   <main>
@@ -22,9 +25,123 @@ export default {
   </main>
 </template>
 
-<style scoped lang="scss">
-#app {
-  display: grid;
-  
+<style lang="scss">
+nav {
+  display: flex;
+  justify-content: flex-end;
+  gap: calc(var(--base-padding) / 2);
+
+  @media (min-width: 48rem) {
+    // 768px
+    gap: var(--base-padding);
+  }
 }
-</style>
+
+main {
+  margin: auto 0;
+  padding: calc(var(--base-padding) / 2) 0;
+  line-height: 1.32;
+
+  @media (min-width: 48rem) {
+    // 768px
+    padding: var(--base-padding) 0;
+    font-size: 1.2rem;
+    line-height: 1.42;
+  }
+}
+
+a,
+.link {
+  color: var(--color-accent);
+  cursor: pointer;
+  transition: color .2s ease-in-out;
+
+  &:hover {
+    color: var(--color-accent-bright);
+  }
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+  gap: .5em;
+
+  &-info {
+    font-family: 'El Messiri', serif;
+    font-size: .8em;
+  }
+
+  .button {
+    margin-top: 2em;
+  }
+}
+
+button,
+.button {
+  display: inline-flex;
+  align-items: center;
+  height: 3rem;
+  padding: 1em;
+  border: 1px solid var(--color-text);
+  border-radius: .2rem;
+  font: inherit;
+  text-decoration: none;
+  color: var(--color-text);
+  background: transparent;
+  cursor: pointer;
+  transition: all .3s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+  &:hover {
+    color: var(--color-text);
+    background: var(--color-contrast);
+    border-color: var(--color-contrast);
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+label,
+figure {
+  margin: 1rem 0;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'El Messiri', serif;
+}
+
+h1 {
+  line-height: 1;
+
+  @media (min-width: 48rem) {
+    // 768px
+    font-size: 3rem;
+  }
+}
+
+h3 {
+  line-height: 1.1;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}</style>
