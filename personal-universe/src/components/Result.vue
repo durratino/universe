@@ -44,7 +44,7 @@ export default {
 
 		<div class="links">
 			<span class="links-info">Поделись своим результатом</span>
-			<div class="sharethis-inline-share-buttons"></div>
+			<!-- ShareThis BEGIN --><div class="sharethis-inline-share-buttons"></div><!-- ShareThis END -->
 			<a href="https://t.me/apersonaluniverse" class="button" target="_blank">Подпишись на канал твоей вселенной</a>
 		</div>
 	</article>
