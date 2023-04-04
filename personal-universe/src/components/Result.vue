@@ -53,7 +53,7 @@ export default {
 <style lang="scss" scoped>
 article {
 	opacity: 0;
-	transition: opacity 3s cubic-bezier(0.075, 0.82, 0.165, 1);
+	transition: opacity 5s cubic-bezier(0.075, 0.82, 0.165, 1);
 
 	&.is-active {
 		opacity: 1;
