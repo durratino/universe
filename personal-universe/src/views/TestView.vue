@@ -40,9 +40,9 @@ export default {
 			if (this.currentQuestionIndex > 3 - 1) {
 				this.userResult = this.getResult();
 				this.$router.push('result/' + this.userResult);
-				// setTimeout(() => {
-				// 	location.reload();
-				// }, 10)
+				setTimeout(() => {
+					location.reload();
+				}, 0)
 			}
 		},
 		goToPrevQuestion(i) {
