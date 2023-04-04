@@ -16,7 +16,7 @@ export default {
 			const article = document.querySelector('article');
 			setTimeout(() => {
 				article.classList.add('is-active');
-			}, 10);
+			}, 100);
 		})
 	},
 
