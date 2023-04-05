@@ -22,9 +22,7 @@ export default {
 
 	computed: {
 		imageSrc() {
-			console.log(this.result.image);
 			const url = new URL(`../assets/images/${this.result.image}.jpg`, import.meta.url).href
-			console.log(url);
 			return url;
 		}
 	}

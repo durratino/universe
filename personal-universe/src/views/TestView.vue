@@ -4,7 +4,6 @@ import Question from '../components/Question.vue';
 import Result from '../components/Result.vue';
 import {questions} from '../assets/questions.json';
 import {resultsTitles} from '../assets/results.json';
-import router from '../router';
 
 
 export default {
@@ -37,8 +36,9 @@ export default {
 			this.currentQuestionIndex++;
 			window.scrollTo(0,0);
 
-			if (this.currentQuestionIndex > 3 - 1) {
+			if (this.currentQuestionIndex > questions.length - 1) {
 				this.userResult = this.getResult();
+				
 				this.$router.push('result/' + this.userResult);
 				setTimeout(() => {
 					location.reload();
@@ -61,7 +61,7 @@ export default {
 				else responsesCount[response]++;
 			});
 
-			const resSlug = Object.keys(responsesCount).reduce((a, b) => responsesCount[a] > responsesCount[b] ? a : b) || 'res12';		
+			const resSlug = Object.keys(responsesCount).reduce((a, b) => responsesCount[a] > responsesCount[b] ? a : b) || 'res12';	
 			return responsesCount[resSlug] > 2 ? resultsTitles[resSlug] : 'your-own';
 		}
 	}
