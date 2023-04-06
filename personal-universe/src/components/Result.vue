@@ -14,10 +14,23 @@ export default {
 		this.result = results.find(res => res.title === title);
 		nextTick(() => {
 			const article = document.querySelector('article');
-			setTimeout(() => {
+			this.loadShareScript().then(() => {
 				article.classList.add('is-active');
-			}, 100);
+			})
 		})
+	},
+
+	methods: {
+		loadShareScript() {
+			return new Promise((resolve, reject) => {
+				const script = document.createElement('script');
+				document.body.appendChild(script);
+				script.onload = resolve;
+				script.onerror = reject;
+				script.async = true;
+				script.src = 'https://platform-api.sharethis.com/js/sharethis.js#property=6426b8c75d783b00125f1b5a&product=inline-share-buttons';
+			});
+		}
 	},
 
 	computed: {
@@ -42,7 +55,8 @@ export default {
 
 		<div class="links">
 			<span class="links-info">Поделись своим результатом</span>
-			<!-- ShareThis BEGIN --><div class="sharethis-inline-share-buttons"></div><!-- ShareThis END -->
+			<!-- ShareThis BEGIN -->
+			<div class="sharethis-inline-share-buttons"></div><!-- ShareThis END -->
 			<a href="https://t.me/apersonaluniverse" class="button" target="_blank">Подпишись на канал твоей вселенной</a>
 		</div>
 	</article>
