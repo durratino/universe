@@ -39,13 +39,14 @@ nav {
 }
 
 main {
-  margin: auto 0;
-  padding: calc(var(--base-padding) / 2) 0;
+  max-width: 60rem;
+  margin: auto;
+  padding: calc(var(--base-padding) / 2);
   line-height: 1.32;
 
   @media (min-width: 48rem) {
     // 768px
-    padding: var(--base-padding) 0;
+    padding: var(--base-padding);
     font-size: 1.2rem;
     line-height: 1.42;
   }
@@ -112,7 +113,7 @@ ul,
 ol,
 label,
 figure {
-  margin: 1rem 0;
+  margin: 1em 0;
 
   &:first-child {
     margin-top: 0;
