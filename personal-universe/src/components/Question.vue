@@ -39,13 +39,16 @@ export default {
 </script>
 
 <template>
-	<span class="link" @click="goBack(index)">
-		←
-	</span>
-
 	<h3>
 		<slot></slot>
 	</h3>
+
+	<nav>
+		<span class="link" @click="goBack(index)">
+			←
+		</span>
+		<span class="step">{{ index + 1 }} / 10</span>
+	</nav>
 
 	<label v-for="answer in answersRandomized">
 		<input type="radio" :name="questionId" :value="answer.result" @change="addAnswer(index, answer.result)">
@@ -54,16 +57,33 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-.link {
+nav {
 	position: absolute;
-	top: calc(-1 * var(--base-padding));
 	left: 0;
+	top: calc(-1 * var(--base-padding));
+	display: flex;
+	align-items: center;
+
+	@media (min-width: 64rem) {
+		top: calc(-1 * var(--base-padding) / 2);
+	}
+}
+.link {
 	font-size: 2em;
 
 	@media (min-width: 64rem) {
-    	right: calc(100% + 20px);
-		left: auto;
+		position: absolute;
+		right: calc(100% + 20px);
 		top: var(--base-padding);
+	}
+}
+
+.step {
+	font-family: 'El Messiri', serif;
+	color: rgba(var(--color-text-rgb), .6);
+
+	&::first-letter {
+		color: rgba(var(--color-text-rgb), .9);
 	}
 }
 

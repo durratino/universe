@@ -41,12 +41,12 @@ nav {
 main {
   max-width: 60rem;
   margin: auto;
-  padding: calc(var(--base-padding) / 2);
+  padding: calc(var(--base-padding) / 2) 0;
   line-height: 1.32;
 
   @media (min-width: 48rem) {
     // 768px
-    padding: var(--base-padding);
+    padding: var(--base-padding) 0;
     font-size: 1.2rem;
     line-height: 1.42;
   }
