@@ -39,6 +39,7 @@ nav {
 }
 
 main {
+  width: 100%;
   max-width: 60rem;
   margin: auto;
   padding: calc(var(--base-padding) / 2) 0;

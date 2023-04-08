@@ -64,6 +64,7 @@ export default {
 
 <style lang="scss" scoped>
 article {
+	width: 100%;
 	opacity: 0;
 	transition: opacity 5s cubic-bezier(0.075, 0.82, 0.165, 1);
 
@@ -75,7 +76,7 @@ article {
 figure {
 	width: 100vw;
 	max-height: 100vh;
-	margin-left: calc((100vw - 100%)/(-2));
+	margin-left: calc((100vw - 100%) / (-2));
 	aspect-ratio: 1.33;
 
 	img {
