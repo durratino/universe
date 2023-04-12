@@ -15,6 +15,7 @@ export default {
 			meta: [ 
 				{ name: 'og:title', content: this.result ? this.result.shareTitle : 'Подсчитываем результат...' }, 
 				{ name: 'og:description', content: this.result ? this.result.shareDescription : 'Подсчитываем результат...' }, 
+				{ name: 'og:image', content: 'https://imgbox.com/UQwc2dto'},
 				{ name: 'og:image:secure_url', content: 'https://imgbox.com/UQwc2dto'},
 				{ name: 'og:site_name', content: 'Твоя вселенная'},
 				{ name: 'og:url', content: 'https://apersonaluniverse.netlify.app/'},
