@@ -14,7 +14,7 @@ export default {
 			title: this.result ? this.result.titleStr : 'Подсчитываем результат...',
 			meta: [ 
 				{ name: 'og:title', content: this.result ? this.result.shareTitle : 'Подсчитываем результат...' }, 
-				{ name: 'og:image', content: this.imageSrc ? this.imageSrc : ''},
+				{ name: 'og:image:secure_url', content: this.imageSrc ? this.imageSrc : ''},
 				{ name: 'og:site_name', content: 'Твоя вселенная'},
 			],
 		}
