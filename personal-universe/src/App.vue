@@ -68,16 +68,13 @@ a,
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 2rem;
+  margin-top: 3rem;
   gap: .5em;
+  text-align: center;
 
   &-info {
     font-family: 'El Messiri', serif;
     font-size: .8em;
-  }
-
-  .button {
-    margin-top: 2em;
   }
 }
 
@@ -142,6 +139,7 @@ h1 {
 
 h3 {
   line-height: 1.1;
+  font-weight: normal;
 }
 
 img {

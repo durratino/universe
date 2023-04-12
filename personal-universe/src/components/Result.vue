@@ -15,8 +15,7 @@ export default {
 			meta: [ 
 				{ name: 'og:title', content: this.result ? this.result.shareTitle : 'Подсчитываем результат...' }, 
 				{ name: 'og:description', content: this.result ? this.result.shareDescription : 'Подсчитываем результат...' }, 
-				{ name: 'og:image', content: 'https://imgbox.com/UQwc2dto'},
-				{ name: 'og:image:secure_url', content: 'https://imgbox.com/UQwc2dto'},
+				{ name: 'og:image:secure_url', content: this.imageSrc ? this.imageSrc : ''},
 				{ name: 'og:site_name', content: 'Твоя вселенная'},
 				{ name: 'og:url', content: 'https://apersonaluniverse.netlify.app/'},
 			],
@@ -28,11 +27,12 @@ export default {
 		this.result = results.find(res => res.title === title);
 		nextTick(() => {
 			const article = document.querySelector('article');
-			this.loadShareScript().then(() => {
-				article.classList.add('is-active');
-			});
+			article.classList.add('is-active');
+			// this.loadShareScript().then(() => {
+			// 	article.classList.add('is-active');
+			// });
 
-			setTimeout(() => {if (!article.classList.contains('is-active')) article.classList.add('is-active')}, 2000);
+			// setTimeout(() => {if (!article.classList.contains('is-active')) article.classList.add('is-active')}, 2000);
 		})
 	},
 
@@ -74,9 +74,7 @@ export default {
 		<div class="description" v-html="result.description"></div>
 
 		<div class="links">
-			<span class="links-info">Поделись своим результатом</span>
-			<!-- ShareThis BEGIN -->
-			<div class="sharethis-inline-share-buttons"></div><!-- ShareThis END -->
+			<span class="links-info">Сделай скриншот и поделись своим результатом<br>у себя в соцсетях или в комментариях на канале твоей вселенной ♥</span>
 			<a href="https://t.me/apersonaluniverse" class="button" target="_blank">Подпишись на канал твоей вселенной</a>
 		</div>
 	</article>
