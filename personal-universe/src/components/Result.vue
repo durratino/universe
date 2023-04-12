@@ -9,6 +9,15 @@ export default {
 		}
 	},
 
+	head() {
+		return {
+			title: this.result ? this.result.titleStr : 'Подсчитываем результат...',
+			meta: [ 
+				{ name: 'og:title', content: this.result ? this.result.titleStr : 'Подсчитываем результат...' }, 
+			],
+		}
+	},
+
 	mounted() {
 		const title = this.$route.params.title;
 		this.result = results.find(res => res.title === title);
@@ -16,7 +25,9 @@ export default {
 			const article = document.querySelector('article');
 			this.loadShareScript().then(() => {
 				article.classList.add('is-active');
-			})
+			});
+
+			setTimeout(() => {if (!article.classList.contains('is-active')) article.classList.add('is-active')}, 2000);
 		})
 	},
 

@@ -9,20 +9,67 @@ const router = createRouter({
     {
       path: '/',
       name: 'test',
-      component: TestView
+      component: TestView,
+      meta: {
+        title: 'Тест: Из какой ты вселенной?',
+        metaTags: [
+          {
+            name: 'description',
+            content: 'Тест: Из какой ты вселенной?'
+          },
+          {
+            property: 'og:title',
+            content: 'Тест: Из какой ты вселенной?'
+          },
+          {
+            property: 'og:description',
+            content: 'Пройди этот тест, чтобы узнать, из какой вселенной ты родом.'
+          },
+          {
+            property: 'og:site_name',
+            content: 'Твоя Вселенная'
+          },
+          {
+            property: 'og:image',
+            content: ''
+          },
+        ]
+      }
     },
     {
       path: '/about',
       name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
       component: () => import('../views/AboutView.vue')
     },
     {
       path: '/result/:title',
       name: 'result',
-      component: Result
+      component: Result,
+      meta: {
+        title: '',
+        metaTags: [
+          {
+            name: 'description',
+            content: 'Тест: Из какой ты вселенной?'
+          },
+          {
+            property: 'og:title',
+            content: 'Тест: Из какой ты вселенной?'
+          },
+          {
+            property: 'og:description',
+            content: 'Пройди этот тест, чтобы узнать, из какой вселенной ты родом.'
+          },
+          {
+            property: 'og:site_name',
+            content: 'Твоя Вселенная'
+          },
+          {
+            property: 'og:image',
+            content: ''
+          },
+        ]
+      }
     }
   ]
 })

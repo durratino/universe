@@ -2,8 +2,8 @@
 import TestDescription from '../components/TestDescription.vue';
 import Question from '../components/Question.vue';
 import Result from '../components/Result.vue';
-import {questions} from '../assets/questions.json';
-import {resultsTitles} from '../assets/results.json';
+import { questions } from '../assets/questions.json';
+import { resultsTitles } from '../assets/results.json';
 
 
 export default {
@@ -13,7 +13,12 @@ export default {
 			isTestActive: false,
 			currentQuestionIndex: 0,
 			responses: [],
-			userResult: null
+			userResult: null,
+		}
+	},
+	head() {
+		return {
+			title: 'Тест: Из какой ты вселенной?'
 		}
 	},
 	components: {
@@ -22,7 +27,7 @@ export default {
 		Result
 	},
 	mounted() {
-		
+
 	},
 	methods: {
 		setCurrentQuestion() {
@@ -34,11 +39,11 @@ export default {
 		goToNextQuestion(i, a) {
 			this.responses.push(a);
 			this.currentQuestionIndex++;
-			window.scrollTo(0,0);
+			window.scrollTo(0, 0);
 
 			if (this.currentQuestionIndex > questions.length - 1) {
 				this.userResult = this.getResult();
-				
+
 				this.$router.push('result/' + this.userResult);
 			}
 		},
@@ -58,7 +63,7 @@ export default {
 				else responsesCount[response]++;
 			});
 
-			const resSlug = Object.keys(responsesCount).reduce((a, b) => responsesCount[a] > responsesCount[b] ? a : b) || 'res12';	
+			const resSlug = Object.keys(responsesCount).reduce((a, b) => responsesCount[a] > responsesCount[b] ? a : b) || 'res12';
 			return responsesCount[resSlug] > 2 ? resultsTitles[resSlug] : 'your-own';
 		}
 	}
@@ -66,21 +71,12 @@ export default {
 </script>
 
 <template>
-	<TestDescription
-		v-if="!isTestActive && !currentQuestionIndex"
-		@testStarted="startTest" 
-	/>
+	<TestDescription v-if="!isTestActive && !currentQuestionIndex" @testStarted="startTest" />
 
-	<template v-for="(question, index) in questions" >
+	<template v-for="(question, index) in questions">
 		<!-- TODO: show last question + result link -->
-		<Question 
-			v-if="isTestActive && index === currentQuestionIndex"
-			:key="index"
-			:index="index" 
-			:answers="question.answers" 
-			@answerClicked="goToNextQuestion"
-			@backButtonClicked="goToPrevQuestion"
-		>
+		<Question v-if="isTestActive && index === currentQuestionIndex" :key="index" :index="index"
+			:answers="question.answers" @answerClicked="goToNextQuestion" @backButtonClicked="goToPrevQuestion">
 			{{ question.question }}
 		</Question>
 	</template>
