@@ -13,7 +13,9 @@ export default {
 		return {
 			title: this.result ? this.result.titleStr : 'Подсчитываем результат...',
 			meta: [ 
-				{ name: 'og:title', content: this.result ? this.result.shareStr : 'Подсчитываем результат...' }, 
+				{ name: 'og:title', content: this.result ? this.result.shareTitle : 'Подсчитываем результат...' }, 
+				{ name: 'og:image', content: this.imageSrc ? this.imageSrc : ''},
+				{ name: 'og:site_name', content: 'Твоя вселенная'},
 			],
 		}
 	},
@@ -46,8 +48,12 @@ export default {
 
 	computed: {
 		imageSrc() {
-			const url = new URL(`../assets/images/${this.result.image}.jpg`, import.meta.url).href
-			return url;
+			try {
+				const url = new URL(`../assets/images/${this.result.image}.jpg`, import.meta.url).href
+				return url;
+			} catch (error) {
+				return '';
+			}
 		}
 	}
 }
