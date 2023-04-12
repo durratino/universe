@@ -27,6 +27,10 @@ export default {
 </template>
 
 <style lang="scss">
+header {
+  padding-bottom: (var(--base-padding));
+}
+
 nav {
   display: flex;
   justify-content: flex-end;
