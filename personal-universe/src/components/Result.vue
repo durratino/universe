@@ -74,7 +74,7 @@ export default {
 		<div class="description" v-html="result.description"></div>
 
 		<div class="links">
-			<span class="links-info">Сделай скриншот и поделись своим результатом<br>у себя в соцсетях или в комментариях на канале твоей вселенной ♥</span>
+			<span class="links-info">Сделай скриншот и поделись своим результатом у&nbsp;себя в&nbsp;соцсетях или&nbsp;в&nbsp;комментариях на&nbsp;канале твоей&nbsp;вселенной ♥</span>
 			<a href="https://t.me/apersonaluniverse" class="button" target="_blank">Подпишись на канал твоей вселенной</a>
 		</div>
 	</article>

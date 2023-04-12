@@ -68,8 +68,9 @@ a,
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 3rem;
-  gap: .5em;
+  max-width: 500px;
+  margin: 3rem auto 0;
+  gap: .7em;
   text-align: center;
 
   &-info {
