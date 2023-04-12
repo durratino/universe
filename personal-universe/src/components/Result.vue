@@ -13,7 +13,7 @@ export default {
 		return {
 			title: this.result ? this.result.titleStr : 'Подсчитываем результат...',
 			meta: [ 
-				{ name: 'og:title', content: this.result ? this.result.titleStr : 'Подсчитываем результат...' }, 
+				{ name: 'og:title', content: this.result ? this.result.shareStr : 'Подсчитываем результат...' }, 
 			],
 		}
 	},
