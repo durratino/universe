@@ -69,7 +69,7 @@ a,
   flex-direction: column;
   align-items: center;
   max-width: 500px;
-  margin: 3rem auto 0;
+  margin: 3rem auto;
   gap: .7em;
   text-align: center;
 
