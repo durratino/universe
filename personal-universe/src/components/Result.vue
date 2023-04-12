@@ -14,8 +14,10 @@ export default {
 			title: this.result ? this.result.titleStr : 'Подсчитываем результат...',
 			meta: [ 
 				{ name: 'og:title', content: this.result ? this.result.shareTitle : 'Подсчитываем результат...' }, 
-				{ name: 'og:image:secure_url', content: this.imageSrc ? this.imageSrc : ''},
+				{ name: 'og:description', content: this.result ? this.result.shareDescription : 'Подсчитываем результат...' }, 
+				{ name: 'og:image:secure_url', content: 'https://imgbox.com/UQwc2dto'},
 				{ name: 'og:site_name', content: 'Твоя вселенная'},
+				{ name: 'og:url', content: 'https://apersonaluniverse.netlify.app/'},
 			],
 		}
 	},
