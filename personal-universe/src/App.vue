@@ -81,6 +81,10 @@ a,
     font-family: 'El Messiri', serif;
     font-size: .8em;
   }
+
+  .button {
+    margin-top: 2em;
+  }
 }
 
 button,
