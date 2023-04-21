@@ -10,10 +10,11 @@
 	main > & {
 		max-width: 42rem;
 		margin: var(--base-padding) auto;
+		font-size: 1.15em;
 
 		@media (min-width: 64rem) {
 			margin: calc(var(--base-padding) * 2) auto;
-			font-size: 1.15em;
+			
 		}
 	}
 }

@@ -47,7 +47,6 @@ export default {
 .banner {
 	display: flex;
 	flex-direction: column;
-	height: 90vh;
 	width: 100vw;
 	margin-left: calc((100vw - 100%) / (-2));
 	margin-top: var(--margin, 0);
@@ -61,7 +60,12 @@ export default {
 	&-media {
 		flex: 0 0 50%;
 		overflow: hidden;
-		max-height: 100%;
+		max-height: 60vh;
+
+		@media (min-width: 64rem) {
+			max-height: 100%;
+		}
+		
 
 		img {
 			object-fit: cover;
