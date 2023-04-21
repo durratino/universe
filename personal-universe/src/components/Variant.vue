@@ -18,14 +18,7 @@ export default {
 		}
 	},
 	computed: {
-		imageSrc() {
-			try {
-				const url = new URL(`../assets/images/${this.image}.jpg`, import.meta.url).href
-				return url;
-			} catch (error) {
-				return '';
-			}
-		}
+		
 	},
 	methods: {
 
@@ -35,9 +28,9 @@ export default {
 
 <template>
 	<article class="variant">
-		<header>
+		<!-- <header>
 			<img v-if="image" src="imageSrc" alt="">
-		</header>
+		</header> -->
 		<div class="variant-text">
 			<h3>
 				{{ name }}

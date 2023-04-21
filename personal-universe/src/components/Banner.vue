@@ -23,7 +23,6 @@ export default {
 		imageSrc() {
 			try {
 				const url = new URL(`../assets/images/${this.image}.jpg`, import.meta.url).href;
-				console.log(this.image, url)
 				return url;
 			} catch (error) {
 				return '';

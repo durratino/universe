@@ -15,10 +15,8 @@ export default {
 			this.images.forEach(image => {
 				image.src = this.imageSrc(image.image);
 			});
-			console.log(this.images)
 		},
 		imageSrc(name) {
-			console.log('hello')
 			try {
 				const url = new URL(`../assets/images/${name}.jpg`, import.meta.url).href
 				return url;
