@@ -5,11 +5,11 @@
   flex-direction: column;
   min-height: 100vh;
   margin: auto;
-  padding: calc(var(--base-padding) / 2);
+  /* padding: calc(var(--base-padding) / 2); */
 }
 
 @media (min-width: 48rem) {
   #app {
-    padding: var(--base-padding);
+    /* padding: var(--base-padding); */
   }
 }

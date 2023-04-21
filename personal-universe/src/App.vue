@@ -1,5 +1,8 @@
 <script>
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterLink, RouterView } from 'vue-router';
+import { register } from 'swiper/element/bundle';
+
+register();
 
 export default {
   components: {
@@ -18,7 +21,8 @@ export default {
     <nav>
       <RouterLink to="/" @click="reloadPage">Тест</RouterLink>
       <a href="https://t.me/apersonaluniverse" target="_blank">Канал Твоей вселенной</a>
-      <!-- <RouterLink to="/about">О нас</RouterLink> -->
+
+      <RouterLink to="/course">КУРС</RouterLink>
     </nav>
   </header>
   <main>
@@ -28,7 +32,13 @@ export default {
 
 <style lang="scss">
 header {
-  padding-bottom: (var(--base-padding));
+  position: relative;
+  z-index: 2;
+  padding: calc(var(--base-padding) / 2) calc(var(--base-padding) / 2) (var(--base-padding));
+
+  @media (min-width: 48rem) {
+    padding-top: (var(--base-padding));
+  }
 }
 
 nav {
@@ -46,12 +56,12 @@ main {
   width: 100%;
   max-width: 60rem;
   margin: auto;
-  padding: calc(var(--base-padding) / 2) 0;
+  padding: calc(var(--base-padding) / 2);
   line-height: 1.32;
 
   @media (min-width: 48rem) {
     // 768px
-    padding: var(--base-padding) 0;
+    padding: var(--base-padding);
     font-size: 1.2rem;
     line-height: 1.42;
   }
@@ -139,6 +149,7 @@ h3 {
 
 h1 {
   line-height: 1;
+  font-size: 2em;
 
   @media (min-width: 48rem) {
     // 768px
@@ -154,4 +165,5 @@ h3 {
 img {
   max-width: 100%;
   height: auto;
-}</style>
+}
+</style>
