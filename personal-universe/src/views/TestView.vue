@@ -18,7 +18,13 @@ export default {
 	},
 	head() {
 		return {
-			title: 'Тест: Из какой ты вселенной?'
+			title: 'Тест: Из какой ты вселенной?',
+			meta: [ 
+				{ name: 'og:title', content: 'Курс "Твоя Вселенная' }, 
+				{ name: 'og:description', content: 'Пройди этот тест, чтобы узнать, из какой вселенной ты родом. Всего несколько вопросов помогут тебе понять свое скрытое происхождение и открыть фантастический мир, который действительно созвучен твоей душе.' }, 
+				{ name: 'og:site_name', content: 'Твоя вселенная'},
+				{ name: 'og:url', content: 'https://apersonaluniverse.netlify.app/'},
+			],
 		}
 	},
 	components: {
