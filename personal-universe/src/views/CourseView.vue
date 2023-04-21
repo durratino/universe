@@ -14,7 +14,13 @@ export default {
 	},
 	head() {
 		return {
-			title: 'Курс "Твоя Вселенная"'
+			title: 'Курс "Твоя Вселенная"',
+			meta: [ 
+				{ name: 'og:title', content: 'Курс "Твоя Вселенная' }, 
+				{ name: 'og:description', content: 'Авторский курс по созданию своего собственного мира. У каждого внутри есть своя вселенная. Как выглядит твоя?' }, 
+				{ name: 'og:site_name', content: 'Твоя вселенная'},
+				{ name: 'og:url', content: 'https://apersonaluniverse.netlify.app/course'},
+			],
 		}
 	},
 	components: {
