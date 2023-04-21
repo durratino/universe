@@ -117,7 +117,7 @@ export default {
 	<!-- <Program></Program> -->
 </template>
 
-<style>
+<style scoped lang="scss">
 .links {
 	.button {
 		margin-top: 0;
