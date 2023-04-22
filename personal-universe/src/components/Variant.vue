@@ -77,7 +77,7 @@ export default {
 
 	&-price {
 		margin-top: calc(var(--base-padding) / 2);
-		padding: calc(var(--base-padding) / 1) calc(var(--base-padding) / 2) 0;
+		padding: var(--base-padding) calc(var(--base-padding) / 2) 0;
 		text-align: center;
 		font-size: 1.5em;
 

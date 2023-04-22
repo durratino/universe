@@ -38,6 +38,18 @@ export default {
 			return results
 				.filter(result => result.image !== 'your-own')
 				.map(result => { return { image: result.image, url: result.url, urlText: result.urlText } });
+		},
+		testimonials() {
+			return [
+				{image: 'lera'},
+				{
+					image: 'polina'
+				},
+				{image: 'natasha'},
+				{image: 'katya'},
+				{image: 'masha'},
+				{image: 'nata'},
+			]
 		}
 	},
 	methods: {
@@ -121,6 +133,8 @@ export default {
 	</div>
 	
 		</FlyingText>
+
+		<Gallery :images="testimonials" heading="Отзывы наших выпускников"></Gallery>
 
 	<!-- <Program></Program> -->
 </template>

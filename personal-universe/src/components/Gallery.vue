@@ -23,19 +23,19 @@ export default {
 			} catch (error) {
 				return '';
 			}
-		}
+		},
 	},
 	created() {
 		this.addSrcs();
 	},
 	mounted() {
-		const swiperEl = document.querySelector('swiper-container');
-console.log(swiperEl);
+		const swiperEls = document.querySelectorAll('swiper-container');
 
-  const params = {
-    // array with CSS styles
-    injectStyles: [
-      `
+		swiperEls.forEach(swiperEl => {
+			const params = {
+				// array with CSS styles
+				injectStyles: [
+					`
       :root {
 		--swiper-pagination-bottom: -3px;
 		--swiper-pagination-color: #2AFC98;
@@ -43,12 +43,15 @@ console.log(swiperEl);
 		--swiper-navigation-color: #58A4B0;
 	  }
       `,
-    ],
-  };
+				],
+			};
 
-  Object.assign(swiperEl, params);
+			Object.assign(swiperEl, params);
 
-  swiperEl.initialize();
+			swiperEl.initialize();
+		})
+
+
 
 	}
 }
@@ -56,29 +59,21 @@ console.log(swiperEl);
 
 <template>
 	<h3 v-if="heading">{{ heading }}</h3>
- <swiper-container init="false"
-    :slides-per-view="1"
-	:spaceBetween="30"
-    :loop="true"
-    :centered-slides="true"
-    :pagination="{
-      clickable: true,
-    }"
-	:navigation="true"
-    :breakpoints="{
-      768: {
-        slidesPerView: 3,
-      },
-    }"
-    @progress="onProgress"
-  >
 
-    <swiper-slide v-for="image in images">
-		<!-- {{image}} -->
-		<img :src="image.src" alt="">
-		<span>{{ image.urlText }}</span>
-	</swiper-slide>
-  </swiper-container>
+	<swiper-container init="false" :slides-per-view="1" :spaceBetween="30" :loop="true" :pagination="{
+			clickable: true
+		}" :navigation="true" :breakpoints="{
+			768: {
+				slidesPerView: 3,
+			},
+		}">
+
+		<swiper-slide v-for="image in images">
+			<!-- {{image}} -->
+			<img :src="image.src" alt="">
+			<span v-if="image.urlText">{{ image.urlText }}</span>
+		</swiper-slide>
+	</swiper-container>
 </template>
 
 <style lang="scss" scoped>
@@ -88,6 +83,7 @@ swiper-container {
 	margin-left: calc((100vw - 100%) / (-2));
 	margin-top: var(--margin, 0);
 }
+
 h3 {
 	max-width: 42rem;
 	margin-left: auto;
@@ -104,14 +100,13 @@ span {
 }
 
 span.swiper-pagination-bullet.swiper-pagination-bullet-active {
-  background-color: red;
-  opacity: 1;
+	background-color: red;
+	opacity: 1;
 }
 
 /* target all bullets */
 .swiper-pagination-bullet {
-  background-color: green;
-  opacity: 1;
+	background-color: green;
+	opacity: 1;
 }
-
 </style>
