@@ -41,14 +41,19 @@ export default {
 		},
 		testimonials() {
 			return [
+				
 				{image: 'lera'},
+				{image: 'katyi'},
+				{image: 'natasha'},
 				{
 					image: 'polina'
 				},
-				{image: 'natasha'},
+				
 				{image: 'katya'},
 				{image: 'masha'},
 				{image: 'nata'},
+				{image: 'masha2'},
+				{image: 'natavol'}
 			]
 		}
 	},
