@@ -10,6 +10,9 @@ export default {
 		},
 		price: {
 			type: String
+		},
+		priceFull: {
+			type: String
 		}
 	},
 	data() {
@@ -39,8 +42,8 @@ export default {
 
 			</slot>
 		</div>
-
-		<div class="variant-price">{{ price }}</div>
+		<div class="variant-price variant-price--full">{{ priceFull }}</div>
+		<div class="variant-price variant-price--new">{{ price }}</div>
 	</article>
 </template>
 
@@ -70,11 +73,24 @@ export default {
 
 	}
 
+	
+
 	&-price {
-		margin-top: auto;
-		padding: calc(var(--base-padding) / 2) calc(var(--base-padding) / 2) 0;
+		margin-top: calc(var(--base-padding) / 2);
+		padding: calc(var(--base-padding) / 1) calc(var(--base-padding) / 2) 0;
 		text-align: center;
 		font-size: 1.5em;
+
+		&--new {
+			padding-top: 0;
+			color: var(--color-accent-bright);
+		}
+	}
+
+	&-price--full {
+		margin-top: auto;
+		text-decoration: line-through;
+		font-size: 1em;
 	}
 }
 </style>
