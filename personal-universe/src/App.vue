@@ -17,14 +17,14 @@ export default {
 </script>
 
 <template>
-  <header.header>
+  <header class="header">
     <nav>
       <RouterLink to="/" @click="reloadPage">Тест</RouterLink>
       <a href="https://t.me/apersonaluniverse" target="_blank">Канал Твоей вселенной</a>
 
       <RouterLink to="/course">КУРС</RouterLink>
     </nav>
-  </header.header>
+  </header>
   <main>
     <RouterView />
   </main>

@@ -42,7 +42,6 @@ export default {
 		this.addSrcs();
 	},
 	mounted() {
-		setTimeout(this.setGalleryPosition, 2000)
 		this.setGalleryPosition();
 
 		const swiperEls = document.querySelectorAll('swiper-container');
