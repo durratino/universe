@@ -27,7 +27,7 @@ export default {
 			<img v-if="image" src="imageSrc" alt="">
 		</header> -->
 		<header>
-			<img v-if="image" src="imageSrc" alt="">
+			<!-- <img v-if="image" src="imageSrc" alt=""> -->
 			<h3>
 				{{ name }}
 			</h3>
