@@ -5,6 +5,9 @@ export default {
 			type: String,
 			required: true
 		},
+		duration: {
+			type: String
+		},
 		image: {
 			type: String
 		},
@@ -15,17 +18,6 @@ export default {
 			type: String
 		}
 	},
-	data() {
-		return {
-			questionId: 'q' + this.index
-		}
-	},
-	computed: {
-		
-	},
-	methods: {
-
-	}
 }
 </script>
 
@@ -34,10 +26,17 @@ export default {
 		<!-- <header>
 			<img v-if="image" src="imageSrc" alt="">
 		</header> -->
-		<div class="variant-text">
+		<header>
+			<img v-if="image" src="imageSrc" alt="">
 			<h3>
 				{{ name }}
 			</h3>
+			<h4>
+				длительность: {{ duration }}
+			</h4>
+		</header>
+		<div class="variant-text">
+			
 			<slot>
 
 			</slot>
@@ -62,11 +61,21 @@ export default {
 
 	header {
 		padding: 0;
+		margin-bottom: 2rem;
+		text-align: center;
 	}
 
 	h3 {
+		margin: 0;
 		text-align: center;
 		font-size: 2em;
+		color: var(--color-accent);
+	}
+
+	h4 {
+		margin-top: .5rem;
+		font-family: 'El Messiri', serif;
+		font-weight: normal;
 	}
 
 	&-text {
@@ -76,7 +85,6 @@ export default {
 	
 
 	&-price {
-		margin-top: calc(var(--base-padding) / 2);
 		padding: var(--base-padding) calc(var(--base-padding) / 2) 0;
 		text-align: center;
 		font-size: 1.5em;

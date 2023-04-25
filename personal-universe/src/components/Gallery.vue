@@ -8,6 +8,10 @@ export default {
 		},
 		heading: {
 			type: String,
+		},
+		type: {
+			type: String,
+			default: 'slider'
 		}
 	},
 	methods: {
@@ -24,11 +28,23 @@ export default {
 				return '';
 			}
 		},
+		setGalleryPosition() {
+			const slides = this.$el.querySelectorAll('.gallery-stack-slide');
+			slides.forEach(slide => {
+				const img = slide.querySelector('img');
+				img.addEventListener('load', () => {
+					slide.style.setProperty('--slide-position', (window.innerHeight - slide.clientHeight) / 2 + 'px');
+				});
+			})
+		}
 	},
 	created() {
 		this.addSrcs();
 	},
 	mounted() {
+		setTimeout(this.setGalleryPosition, 2000)
+		this.setGalleryPosition();
+
 		const swiperEls = document.querySelectorAll('swiper-container');
 
 		swiperEls.forEach(swiperEl => {
@@ -58,11 +74,13 @@ export default {
 </script>
 
 <template>
+	<section class="gallery" :class="type === 'slider'? 'gallery--slider' : 'gallery--stack'">
 	<h3 v-if="heading">{{ heading }}</h3>
 
-	<swiper-container init="false" :slides-per-view="1" :spaceBetween="30" :loop="true" :pagination="{
-			clickable: true
-		}" :navigation="true" :breakpoints="{
+	<swiper-container v-if="type === 'slider'" init="false" :slides-per-view="1" :spaceBetween="30" :loop="true"
+		:pagination="{
+				clickable: true
+			}" :navigation="true" :breakpoints="{
 			768: {
 				slidesPerView: 3,
 			},
@@ -74,9 +92,23 @@ export default {
 			<span v-if="image.urlText">{{ image.urlText }}</span>
 		</swiper-slide>
 	</swiper-container>
+
+	<div v-if="type === 'stack'" class="gallery-stack">
+		<div class="gallery-stack-slide" v-for="image in images">
+			<img :src="image.src" alt="">
+			<span v-if="image.urlText">{{ image.urlText }}</span>
+		</div>
+	</div>
+</section>
 </template>
 
 <style lang="scss" scoped>
+.gallery {
+	&:last-child {
+		margin-bottom: 5rem;
+	}
+}
+
 swiper-container {
 	width: 100vw;
 	padding-bottom: 10px;
@@ -89,6 +121,11 @@ h3 {
 	margin-left: auto;
 	margin-right: auto;
 	font-size: 1.34em;
+
+	.gallery--stack & {
+		position: sticky;
+		top: 30px;
+	}
 }
 
 span {
@@ -99,14 +136,58 @@ span {
 	// font-style: italic;
 }
 
-span.swiper-pagination-bullet.swiper-pagination-bullet-active {
-	background-color: red;
-	opacity: 1;
-}
+.gallery-stack {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: 100px;
 
-/* target all bullets */
-.swiper-pagination-bullet {
-	background-color: green;
-	opacity: 1;
+	&-slide {
+		position: sticky;
+		top: var(--slide-position, 100px);
+		margin: auto;
+		// box-shadow: 0 0 50px black;
+
+		// img {
+		// 	display: block;
+		// 	// width: 500px;
+			
+		// }
+
+		&:nth-child(6n + 2) {
+			
+				transform: rotate(3deg);
+			
+		}
+
+		&:nth-child(6n + 3) {
+			
+				transform: rotate(-2deg);
+			
+		}
+
+		&:nth-child(6n + 4) {
+			
+				transform: rotate(1.5deg);
+			
+		}
+
+		&:nth-child(6n + 5) {
+			
+				transform: rotate(-4deg);
+			
+		}
+
+		img {
+			display: block;
+			max-height: calc(100vh - 200px);
+		}
+
+		span {
+			position: absolute;
+			bottom: 10px;
+			right: 10px;
+		}
+	}
 }
 </style>

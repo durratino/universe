@@ -1,5 +1,17 @@
+<script>
+
+export default {
+	props: {
+		type: {
+			type: String,
+		}
+	}
+}
+</script>
+
+
 <template>
-	<section class="text">
+	<section class="text" :class="'text--'+type">
 		<slot></slot>
 	</section>
 </template>

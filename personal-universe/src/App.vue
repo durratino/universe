@@ -17,21 +17,21 @@ export default {
 </script>
 
 <template>
-  <header>
+  <header.header>
     <nav>
       <RouterLink to="/" @click="reloadPage">Тест</RouterLink>
       <a href="https://t.me/apersonaluniverse" target="_blank">Канал Твоей вселенной</a>
 
       <RouterLink to="/course">КУРС</RouterLink>
     </nav>
-  </header>
+  </header.header>
   <main>
     <RouterView />
   </main>
 </template>
 
 <style lang="scss">
-header {
+.header {
   position: relative;
   z-index: 2;
   padding: calc(var(--base-padding) / 2) calc(var(--base-padding) / 2) (var(--base-padding));
@@ -160,6 +160,10 @@ h1 {
 h3 {
   line-height: 1.1;
   font-weight: normal;
+}
+
+h5, h6 {
+  font-weight: 300;
 }
 
 img {

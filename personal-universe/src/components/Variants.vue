@@ -22,25 +22,26 @@ export default {
 	<h2 v-if="heading">{{ heading }}</h2>
 	<section class="variants">
 		
-		<Variant name="Мечтатель" price="4500 Р" priceFull="4900 Р">
+		<Variant name="Мечтатель" duration="6 недель" price="4500 Р" priceFull="4900 Р">
 			<ul>
 				<li>доступ к телеграм-каналу с заданиями, практиками и видео </li>
-				<li>чат участников-Мечтателей с участием организаторов</li>
+				<li>чат студентов с участием организаторов</li>
 				<li>вебинар с экспертами по созданию карт</li>
 				<li>выпускной созвон с защитами своих Вселенных</li>
 			</ul>
 		</Variant>
 
-		<Variant name="Волшебник" price="9900 Р" priceFull="10900 Р">
+		<Variant name="Волшебник" duration="8 недель" price="9900 Р" priceFull="10900 Р">
 			<ul>
 				<li>доступ к телеграм-каналу с заданиями, практиками и видео</li>
 				<li>дополнительные задания на проработку сюжета и персонажей</li>
-				<li>чат участников-Волшебников с участием организаторов</li>
-				<li>обратная связь по всем заданиям и практикам</li>
-				<li>2 мастермайнда</li>
-				<li>2 групповых арт-терапевтических практики</li>
+				<li>чат студентов с участием организаторов</li>
 				<li>вебинар с экспертами по созданию карт</li>
 				<li>выпускной созвон с защитами своих Вселенных</li>
+				<li class="highlight">обратная связь по всем заданиям и практикам</li>
+				<li class="highlight">2 мастермайнда</li>
+				<li class="highlight">2 групповых арт-терапевтических практики</li>
+				
 			</ul>
 		</Variant>
 
@@ -72,7 +73,6 @@ h2 {
 
 ul { 
 	padding-left: calc(var(--base-padding) / 2);
-	
 	list-style-type: "✩"; 
 
 	@media (min-width: 64rem) {
@@ -82,9 +82,14 @@ ul {
 
 li {
 	padding-left: 10px;
+	color: var(--color-powder-blue);
 
 	& + & {
 		margin-top: calc(var(--base-padding) / 4);
+	}
+
+	&.highlight {
+		color: var(--color-text);
 	}
 }
 
