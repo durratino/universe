@@ -8,6 +8,9 @@ export default {
 		duration: {
 			type: String
 		},
+		exercises: {
+			type: String
+		},
 		image: {
 			type: String
 		},
@@ -31,9 +34,11 @@ export default {
 			<h3>
 				{{ name }}
 			</h3>
-			<h4>
+			<h4 class="variant-subtitle">
 				длительность: {{ duration }}
+				
 			</h4>
+			<h4 class="variant-subtitle">{{ exercises }}</h4>
 		</header>
 		<div class="variant-text">
 			
@@ -72,14 +77,29 @@ export default {
 		color: var(--color-accent);
 	}
 
-	h4 {
-		margin-top: .5rem;
+	&-subtitle {
+		margin: .5rem 0 0;
 		font-family: 'El Messiri', serif;
 		font-weight: normal;
-	}
+		
 
-	&-text {
+		& + & {
+			position: relative;
+			font-size: .9em;
+			margin-top: .1rem;
 
+			&::before {
+				content: '';
+				position: absolute;
+				left: 50%;
+				top: -3px;
+				transform: translateX(-50%);
+				height: 1px;
+				width: 30%;
+				background-color: var(--color-accent);
+				opacity: 0;
+			}
+		}
 	}
 
 	
