@@ -20,7 +20,7 @@ export default {
   <header class="header">
     <nav>
       <RouterLink to="/" @click="reloadPage">Тест</RouterLink>
-      <a href="https://t.me/apersonaluniverse" target="_blank">Канал Твоей вселенной</a>
+      <a href="https://t.me/+Nnjp9AUn7oQ1MmEy" target="_blank">Канал Твоей вселенной</a>
 
       <RouterLink to="/course">КУРС</RouterLink>
     </nav>
@@ -169,5 +169,27 @@ h5, h6 {
 img {
   max-width: 100%;
   height: auto;
+}
+
+ul { 
+	padding-left: calc(var(--base-padding) / 2);
+	list-style-type: "✩"; 
+
+	@media (min-width: 64rem) {
+		padding-left: var(--base-padding);
+	}
+}
+
+li {
+	padding-left: 10px;
+	color: var(--color-powder-blue);
+
+	& + & {
+		margin-top: calc(var(--base-padding) / 4);
+	}
+
+	&.highlight {
+		color: var(--color-text);
+	}
 }
 </style>

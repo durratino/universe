@@ -16,7 +16,7 @@ export default {
 		return {
 			title: 'Курс "Твоя Вселенная"',
 			meta: [
-				{ name: 'og:title', content: 'Курс "Твоя Вселенная' },
+				{ name: 'og:title', content: 'Курс "Твоя Вселенная"' },
 				{ name: 'og:description', content: 'Авторский курс по созданию своего собственного мира. У каждого внутри есть своя вселенная. Как выглядит твоя?' },
 				{ name: 'og:site_name', content: 'Твоя вселенная' },
 				{ name: 'og:url', content: 'https://apersonaluniverse.netlify.app/course' },
@@ -69,6 +69,8 @@ export default {
 		<a href="https://forms.gle/JEdn86QVGE4yJrww6" target="_blank" class="button">Записаться на курс</a>
 		<p><em>Старт нового потока в середине мая!</em></p>
 	</Banner>
+
+	<Program />
 
 	<FlyingText>
 		<p>Мы зовем вас в путешествие по неизведанным землям — по вашим собственным мирам, которые уже живут внутри и ждут,
