@@ -97,6 +97,18 @@ a,
   }
 }
 
+.buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: calc(var(--base-padding) / 2);
+
+  @media (min-width: 64rem) {
+    flex-direction: row;
+  }
+
+}
+
 button,
 .button {
   display: inline-flex;
@@ -116,6 +128,11 @@ button,
     color: var(--color-text);
     background: var(--color-contrast);
     border-color: var(--color-contrast);
+  }
+
+  &--cta {
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
   }
 }
 

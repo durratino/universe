@@ -43,62 +43,37 @@ export default {
 	},
 	mounted() {
 		this.setGalleryPosition();
-
-		const swiperEls = document.querySelectorAll('swiper-container');
-
-		swiperEls.forEach(swiperEl => {
-			const params = {
-				// array with CSS styles
-				injectStyles: [
-					`
-      :root {
-		--swiper-pagination-bottom: -3px;
-		--swiper-pagination-color: #2AFC98;
-		--swiper-pagination-bullet-inactive-color: #58A4B0;
-		--swiper-navigation-color: #58A4B0;
-	  }
-      `,
-				],
-			};
-
-			Object.assign(swiperEl, params);
-
-			swiperEl.initialize();
-		})
-
-
-
 	}
 }
 </script>
 
 <template>
-	<section class="gallery" :class="type === 'slider'? 'gallery--slider' : 'gallery--stack'">
-	<h3 v-if="heading">{{ heading }}</h3>
+	<section class="gallery" :class="type === 'slider' ? 'gallery--slider' : 'gallery--stack'">
+		<h2 v-if="heading">{{ heading }}</h2>
 
-	<swiper-container v-if="type === 'slider'" init="false" :slides-per-view="1" :spaceBetween="30" :loop="true"
-		:pagination="{
-				clickable: true
-			}" :navigation="true" :breakpoints="{
+		<swiper-container v-if="type === 'slider'" init="false" :slides-per-view="1" :spaceBetween="30" :loop="true"
+			:pagination="{
+					clickable: true
+				}" :navigation="true" :breakpoints="{
 			768: {
 				slidesPerView: 3,
 			},
 		}">
 
-		<swiper-slide v-for="image in images">
-			<!-- {{image}} -->
-			<img :src="image.src" alt="">
-			<span v-if="image.urlText">{{ image.urlText }}</span>
-		</swiper-slide>
-	</swiper-container>
+			<swiper-slide v-for="image in images">
+				<!-- {{image}} -->
+				<img :src="image.src" alt="">
+				<span v-if="image.urlText">{{ image.urlText }}</span>
+			</swiper-slide>
+		</swiper-container>
 
-	<div v-if="type === 'stack'" class="gallery-stack">
-		<div class="gallery-stack-slide" v-for="image in images">
-			<img :src="image.src" alt="">
-			<span v-if="image.urlText">{{ image.urlText }}</span>
+		<div v-if="type === 'stack'" class="gallery-stack">
+			<div class="gallery-stack-slide" v-for="image in images">
+				<img :src="image.src" alt="">
+				<span v-if="image.urlText">{{ image.urlText }}</span>
+			</div>
 		</div>
-	</div>
-</section>
+	</section>
 </template>
 
 <style lang="scss" scoped>
@@ -110,16 +85,18 @@ export default {
 
 swiper-container {
 	width: 100vw;
-	padding-bottom: 10px;
 	margin-left: calc((100vw - 100%) / (-2));
+	padding-bottom: 10px;
 	margin-top: var(--margin, 0);
 }
 
-h3 {
+h2 {
+
 	max-width: 42rem;
 	margin-left: auto;
 	margin-right: auto;
-	font-size: 1.34em;
+	font-size: 1.5em;
+	text-align: center;
 
 	.gallery--stack & {
 		position: sticky;
@@ -150,31 +127,31 @@ span {
 		// img {
 		// 	display: block;
 		// 	// width: 500px;
-			
+
 		// }
 
 		&:nth-child(6n + 2) {
-			
-				transform: rotate(3deg);
-			
+
+			transform: rotate(3deg);
+
 		}
 
 		&:nth-child(6n + 3) {
-			
-				transform: rotate(-2deg);
-			
+
+			transform: rotate(-2deg);
+
 		}
 
 		&:nth-child(6n + 4) {
-			
-				transform: rotate(1.5deg);
-			
+
+			transform: rotate(1.5deg);
+
 		}
 
 		&:nth-child(6n + 5) {
-			
-				transform: rotate(-4deg);
-			
+
+			transform: rotate(-4deg);
+
 		}
 
 		img {

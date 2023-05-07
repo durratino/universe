@@ -31,7 +31,54 @@ export default {
 		Variants
 	},
 	mounted() {
+		const swiperEls = document.querySelectorAll('swiper-container');
 
+		swiperEls.forEach(swiperEl => {
+			const params = {
+				// array with CSS styles
+				injectStyles: [
+					`
+:root {
+--swiper-pagination-bottom: -3px;
+--swiper-pagination-color: #2AFC98;
+--swiper-pagination-bullet-inactive-color: #58A4B0;
+--swiper-navigation-color: #58A4B0;
+--swiper-navigation-sides-offset: 5px;
+--swiper-navigation-size: 1.5rem;
+}
+.swiper-button-next,
+.swiper-button-prev {
+	background: white;
+    padding: 5px;
+    border-radius: 15px;
+    width: 40px;
+    height: 40px;
+	font-weight: bold;
+	opacity: .8;
+	transition: opacity .1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.swiper-button-next {
+	padding-right: 3px;
+}
+.swiper-button-prev {
+	padding-left: 3px;
+}
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+	opacity: .98;
+}
+.swiper-button-next.swiper-button-disabled,
+.swiper-button-prev.swiper-button-disabled {
+	opacity: 0;
+}
+`,
+				],
+			};
+
+			Object.assign(swiperEl, params);
+
+			swiperEl.initialize();
+		})
 	},
 	computed: {
 		images() {
@@ -66,11 +113,13 @@ export default {
 	<Banner image="banner">
 		<h1>Твоя Вселенная</h1>
 		<h2>У каждого внутри есть своя Вселенная.<br>Как выглядит <em>твоя</em>?</h2>
-		<a href="https://forms.gle/JEdn86QVGE4yJrww6" target="_blank" class="button">Записаться на курс</a>
+		<div class="buttons">
+			<a href="https://forms.gle/JEdn86QVGE4yJrww6" target="_blank" class="button button--cta">Записаться на курс</a>
+			<a href="#program" class="button">Посмотреть программу</a>
+		</div>
+
 		<p><em>Старт нового потока в середине мая!</em></p>
 	</Banner>
-
-	<Program />
 
 	<FlyingText>
 		<p>Мы зовем вас в путешествие по неизведанным землям — по вашим собственным мирам, которые уже живут внутри и ждут,
@@ -81,7 +130,7 @@ export default {
 
 	</FlyingText>
 
-	<Gallery :images="images" heading="Кусочки Вселенных наших участников" type="slider"></Gallery>
+	<Gallery :images="images" heading="Миры наших выпускников" type="slider"></Gallery>
 
 	<FlyingText>
 		<p>В конце каждого блока курса вас ждут два основных задания — на рисунок и на текст, — которые помогут вам раскрыть
@@ -94,9 +143,11 @@ export default {
 			новые Вселенные…</p>
 	</FlyingText>
 
+	<Program heading="План нашего путешествия" />
+
 	<Variants heading="Варианты участия в курсе"></Variants>
 
-	<FlyingText type="program">
+	<FlyingText type="program" v-if="short">
 		<h3>План нашего путешествия</h3>
 
 		<h4>Блок 0: Слет Странников</h4>
@@ -155,6 +206,8 @@ export default {
 		</div>
 
 	</FlyingText>
+
+
 
 	<Gallery :images="testimonials" heading="Отзывы наших выпускников" type="stack"></Gallery>
 

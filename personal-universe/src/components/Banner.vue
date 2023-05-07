@@ -51,7 +51,7 @@ export default {
 	margin-left: calc((100vw - 100%) / (-2));
 	margin-top: var(--margin, 0);
 
-	@media (min-width: 64rem) {
+	@media (min-width: 48rem) {
 		height: 100vh;
 		flex-direction: row;
 		align-items: center;
@@ -62,7 +62,7 @@ export default {
 		overflow: hidden;
 		max-height: 60vh;
 
-		@media (min-width: 64rem) {
+		@media (min-width: 48rem) {
 			max-height: 100%;
 		}
 		
@@ -80,6 +80,8 @@ export default {
 		@media (min-width: 64rem) {
 			padding: var(--base-padding);
 		}
+
+		
 	}
 }
 </style>

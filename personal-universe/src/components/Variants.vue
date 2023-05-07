@@ -71,28 +71,6 @@ h2 {
 	}
 }
 
-ul { 
-	padding-left: calc(var(--base-padding) / 2);
-	list-style-type: "✩"; 
-
-	@media (min-width: 64rem) {
-		padding-left: var(--base-padding);
-	}
-}
-
-li {
-	padding-left: 10px;
-	color: var(--color-powder-blue);
-
-	& + & {
-		margin-top: calc(var(--base-padding) / 4);
-	}
-
-	&.highlight {
-		color: var(--color-text);
-	}
-}
-
 .links {
 	.button {
 		margin-top: 0;

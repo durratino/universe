@@ -35,6 +35,10 @@
   position: relative;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   min-height: 100vh;
   color: var(--color-text, #D8DBE2);

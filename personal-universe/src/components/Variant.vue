@@ -36,12 +36,12 @@ export default {
 			</h3>
 			<h4 class="variant-subtitle">
 				длительность: {{ duration }}
-				
+
 			</h4>
 			<h4 class="variant-subtitle">{{ exercises }}</h4>
 		</header>
 		<div class="variant-text">
-			
+
 			<slot>
 
 			</slot>
@@ -66,8 +66,20 @@ export default {
 
 	header {
 		padding: 0;
-		margin-bottom: 2rem;
+		margin-bottom: 1rem;
+		padding-bottom: 1rem;
 		text-align: center;
+
+		&::after {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			transform: translateX(-50%);
+			width: 100px;
+			border: dotted var(--color-accent);
+			border-width: 3px 0 0 0;
+		}
 	}
 
 	h3 {
@@ -81,28 +93,16 @@ export default {
 		margin: .5rem 0 0;
 		font-family: 'El Messiri', serif;
 		font-weight: normal;
-		
 
-		& + & {
+
+		&+& {
 			position: relative;
 			font-size: .9em;
 			margin-top: .1rem;
-
-			&::before {
-				content: '';
-				position: absolute;
-				left: 50%;
-				top: -3px;
-				transform: translateX(-50%);
-				height: 1px;
-				width: 30%;
-				background-color: var(--color-accent);
-				opacity: 0;
-			}
 		}
 	}
 
-	
+
 
 	&-price {
 		padding: var(--base-padding) calc(var(--base-padding) / 2) 0;
