@@ -4,6 +4,7 @@ import FlyingText from '../components/FlyingText.vue';
 import Gallery from '../components/Gallery.vue';
 import Program from '../components/Program.vue';
 import Variants from '../components/Variants.vue';
+import Authors from '../components/Authors.vue';
 import { results } from '../assets/results.json';
 
 export default {
@@ -28,7 +29,8 @@ export default {
 		FlyingText,
 		Gallery,
 		Program,
-		Variants
+		Variants,
+		Authors
 	},
 	mounted() {
 		const swiperEls = document.querySelectorAll('swiper-container');
@@ -207,6 +209,8 @@ export default {
 
 	</FlyingText>
 
+	<Authors heading="Создатели курса"></Authors>
+	
 
 
 	<Gallery :images="testimonials" heading="Отзывы наших выпускников" type="stack"></Gallery>
