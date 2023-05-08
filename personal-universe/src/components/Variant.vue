@@ -19,6 +19,9 @@ export default {
 		},
 		priceFull: {
 			type: String
+		},
+		priceMarathon: {
+			type: String
 		}
 	},
 }
@@ -47,7 +50,12 @@ export default {
 			</slot>
 		</div>
 		<div class="variant-price variant-price--full">{{ priceFull }}</div>
-		<div class="variant-price variant-price--new">{{ price }}</div>
+		<div class="variant-prices">
+			<div class="variant-price variant-price--new">{{ price }}</div>
+			<span class="variant-priceTag">или</span>
+		<div class="variant-price variant-price--marathon">{{ priceMarathon }}<sup class="variant-priceTag">*</sup></div>
+		</div>
+		
 	</article>
 </template>
 
@@ -102,23 +110,33 @@ export default {
 		}
 	}
 
-
+	&-prices {
+		display: flex;
+		justify-content: center;
+		align-items: flex-end;
+	}
 
 	&-price {
-		padding: var(--base-padding) calc(var(--base-padding) / 2) 0;
+		padding: 0 calc(var(--base-padding) / 2);
 		text-align: center;
 		font-size: 1.5em;
 
-		&--new {
+		&--marathon {
 			padding-top: 0;
 			color: var(--color-accent-bright);
 		}
+
+		&--full {
+			margin-top: auto;
+			padding-top: var(--base-padding);
+			text-decoration: line-through;
+			font-size: 1em;
+		}
 	}
 
-	&-price--full {
-		margin-top: auto;
-		text-decoration: line-through;
-		font-size: 1em;
+	&-priceTag {
+		font-size: .7em;
+		color: var(--color-text);
 	}
 }
 </style>

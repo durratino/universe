@@ -21,8 +21,9 @@ export default {
 <template>
 	<h2 v-if="heading">{{ heading }}</h2>
 	<section class="variants">
-		
-		<Variant name="Мечтатель" duration="6 недель" price="4500 Р" priceFull="4900 Р" exercises="около 15 разных инструментов и практик">
+
+		<Variant name="Мечтатель" duration="6 недель" price="4500 Р" priceFull="4900 Р" priceMarathon="3800 Р"
+			exercises="около 15 разных инструментов и практик">
 			<ul>
 				<li>доступ к телеграм-каналу с заданиями, практиками и видео </li>
 				<li>чат студентов с участием организаторов</li>
@@ -31,7 +32,8 @@ export default {
 			</ul>
 		</Variant>
 
-		<Variant name="Волшебник" duration="8 недель" price="9900 Р" priceFull="10900 Р" exercises="около 30 разных инструментов и практик">
+		<Variant name="Волшебник" duration="8 недель" price="9900 Р" priceFull="10900 Р" priceMarathon="8400 Р"
+			exercises="около 30 разных инструментов и практик">
 			<ul>
 				<li>доступ к телеграм-каналу с заданиями, практиками и видео</li>
 				<li>дополнительные задания на проработку сюжета и персонажей</li>
@@ -41,25 +43,27 @@ export default {
 				<li class="highlight">обратная связь по всем заданиям и практикам</li>
 				<li class="highlight">2 мастермайнда</li>
 				<li class="highlight">2 групповых арт-терапевтических практики</li>
-				
+
 			</ul>
 		</Variant>
 
 
 	</section>
 	<div class="links">
+		<span class="priceTag">* при участии в марафоне</span>
 		<a href="https://forms.gle/JEdn86QVGE4yJrww6" target="_blank" class="button">Записаться на курс</a>
 	</div>
 </template>
 
 <style lang="scss" scoped>
 h2 {
-		max-width: 42rem;
+	max-width: 42rem;
 	margin-left: auto;
 	margin-right: auto;
 	font-size: 1.5em;
 	text-align: center;
-	}
+}
+
 .variants {
 	display: flex;
 	flex-direction: column;
@@ -71,9 +75,15 @@ h2 {
 	}
 }
 
+.priceTag {
+	font-size: .7em;
+	text-align: right;
+	margin-bottom: 1rem;
+	font-style: italic;
+}
+
 .links {
 	.button {
 		margin-top: 0;
 	}
-}
-</style>
+}</style>
