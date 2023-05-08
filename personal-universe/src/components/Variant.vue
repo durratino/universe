@@ -113,7 +113,7 @@ export default {
 	&-prices {
 		display: flex;
 		justify-content: center;
-		align-items: flex-end;
+		align-items: center;
 	}
 
 	&-price {
