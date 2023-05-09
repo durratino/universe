@@ -90,8 +90,9 @@ export default {
 		},
 		testimonials() {
 			return [
-
+				{ image: 'lena' },
 				{ image: 'lera' },
+				{ image: 'elena' },
 				{ image: 'katyi' },
 				{ image: 'natasha' },
 				{ image: 'polina' },
