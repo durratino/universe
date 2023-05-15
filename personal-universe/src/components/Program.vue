@@ -148,14 +148,21 @@ export default {
 </script>
 
 <template>
+	<h2 v-if="heading" id="program">{{ heading }}</h2>
 	<section class="program">
-		<h2 v-if="heading" id="program">{{ heading }}</h2>
+		
 
 		<swiper-container init="false" :slides-per-view="1" :spaceBetween="30" :navigation="true" :breakpoints="{
 				768: {
 					slidesPerView: 3,
 					spaceBetween: 30
 				},
+				1400: {
+					slidesPerView: 4
+				},
+				2200: {
+					slidesPerView: 5
+				}
 			}">
 
 			<swiper-slide v-for="item in programItems">
@@ -198,13 +205,5 @@ swiper-slide {
 		padding: var(--base-padding);
 		border-radius: var(--base-padding);
 	}
-}
-
-h2 {
-	max-width: 42rem;
-	margin-left: auto;
-	margin-right: auto;
-	font-size: 1.5em;
-	text-align: center;
 }
 </style>

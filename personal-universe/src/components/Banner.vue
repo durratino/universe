@@ -1,4 +1,5 @@
 <script>
+
 export default {
 	props: {
 		image: {
@@ -43,7 +44,7 @@ export default {
 	</section>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .banner {
 	display: flex;
 	flex-direction: column;
@@ -81,7 +82,16 @@ export default {
 			padding: var(--base-padding);
 		}
 
-		
+		h1 {
+			margin: 0 0 .6em; 
+			font-size: 3em;
+		}
+
+		h2 {
+			margin: 1.5em 0;
+			text-align: left;
+			font-size: 1.5em;
+		}
 	}
 }
 </style>

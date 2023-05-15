@@ -56,13 +56,6 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-h2 {
-	max-width: 42rem;
-	margin-left: auto;
-	margin-right: auto;
-	font-size: 1.5em;
-	text-align: center;
-}
 
 .variants {
 	display: flex;

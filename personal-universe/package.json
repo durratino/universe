@@ -17,6 +17,8 @@
     "@vitejs/plugin-vue": "^4.0.0",
     "@vitejs/plugin-vue-jsx": "^3.0.0",
     "sass": "^1.59.3",
-    "vite": "^4.1.4"
+    "vite": "^4.1.4",
+    "vite-imagetools": "^5.0.4",
+    "vite-plugin-imagemin": "^0.6.1"
   }
 }

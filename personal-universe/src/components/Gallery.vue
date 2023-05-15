@@ -58,6 +58,9 @@ export default {
 			768: {
 				slidesPerView: 3,
 			},
+			1200: {
+				slidesPerView: 4
+			}
 		}">
 
 			<swiper-slide v-for="image in images">
@@ -91,11 +94,12 @@ swiper-container {
 }
 
 h2 {
-
 	max-width: 42rem;
+	margin-top: 3em;
+	line-height: 1;
 	margin-left: auto;
 	margin-right: auto;
-	font-size: 1.5em;
+	font-size: 2em;
 	text-align: center;
 
 	.gallery--stack & {
