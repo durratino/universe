@@ -49,7 +49,7 @@ export default {
 
 			</slot>
 		</div>
-		<div class="variant-price variant-price--full">{{ priceFull }}</div>
+		<div class="variant-price variant-price--full" v-if="priceFull">{{ priceFull }}</div>
 		<div class="variant-prices">
 			<div class="variant-price variant-price--new">{{ price }}</div>
 			<span class="variant-priceTag">или</span>
@@ -114,6 +114,8 @@ export default {
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		margin-top: auto;
+		padding-top: var(--base-padding);
 	}
 
 	&-price {

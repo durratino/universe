@@ -22,7 +22,7 @@ export default {
 	<h2 v-if="heading">{{ heading }}</h2>
 	<section class="variants">
 
-		<Variant name="Мечтатель" duration="6 недель" price="4500 Р" priceFull="4900 Р" priceMarathon="3800 Р"
+		<Variant name="Мечтатель" duration="6 недель" price="4900 Р" priceMarathon="4200 Р"
 			exercises="около 15 разных инструментов и практик">
 			<ul>
 				<li>доступ к телеграм-каналу с заданиями, практиками и видео </li>
@@ -32,7 +32,7 @@ export default {
 			</ul>
 		</Variant>
 
-		<Variant name="Волшебник" duration="8 недель" price="9900 Р" priceFull="10900 Р" priceMarathon="8400 Р"
+		<Variant name="Волшебник" duration="8 недель" price="10900 Р" priceMarathon="9400 Р"
 			exercises="около 30 разных инструментов и практик">
 			<ul>
 				<li>доступ к телеграм-каналу с заданиями, практиками и видео</li>
