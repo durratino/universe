@@ -126,36 +126,21 @@ span {
 		position: sticky;
 		top: var(--slide-position, 100px);
 		margin: auto;
-		// box-shadow: 0 0 50px black;
-
-		// img {
-		// 	display: block;
-		// 	// width: 500px;
-
-		// }
 
 		&:nth-child(6n + 2) {
-
 			transform: rotate(3deg);
-
 		}
 
 		&:nth-child(6n + 3) {
-
 			transform: rotate(-2deg);
-
 		}
 
 		&:nth-child(6n + 4) {
-
 			transform: rotate(1.5deg);
-
 		}
 
 		&:nth-child(6n + 5) {
-
 			transform: rotate(-4deg);
-
 		}
 
 		img {

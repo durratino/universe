@@ -60,6 +60,7 @@ export default {
 	font-weight: bold;
 	opacity: .8;
 	transition: opacity .1s cubic-bezier(0.075, 0.82, 0.165, 1);
+	cursor: pointer;
 }
 .swiper-button-next {
 	padding-right: 3px;
@@ -86,9 +87,10 @@ export default {
 	},
 	computed: {
 		images() {
-			return results
+			const imgs = results
 				.filter(result => result.image !== 'your-own' && result.image !== 'kur-cheret' && result.image !== 'north-sea')
 				.map(result => { return { image: result.image, url: result.url, urlText: result.urlText } });
+			return this.shuffleArray(imgs);
 		},
 		testimonials() {
 			return [
@@ -109,7 +111,13 @@ export default {
 		}
 	},
 	methods: {
-
+		shuffleArray(array) {
+			for (let i = array.length - 1; i > 0; i--) {
+				const j = Math.floor(Math.random() * (i + 1));
+				[array[i], array[j]] = [array[j], array[i]];
+			}
+			return array;
+		}
 	}
 }
 </script>
@@ -180,6 +188,8 @@ export default {
 					долго, как
 					вы сами того захотите — месяц, год и&nbsp;целую жизнь!</strong></p>
 		</FlyingText>
+
+		<Gallery :images="images" heading="Миры наших выпускников" type="slider"></Gallery>
 
 		<Program heading="План нашего путешествия" />
 
@@ -264,9 +274,8 @@ export default {
 
 		</FlyingText>
 
-		<Gallery :images="images" heading="Миры наших выпускников" type="slider"></Gallery>
 
-		<Authors heading="Создатели курса"></Authors>
+		<Authors heading="Авторы и эксперты курса"></Authors>
 
 		<Gallery :images="testimonials" heading="Отзывы наших выпускников" type="stack"></Gallery>
 
