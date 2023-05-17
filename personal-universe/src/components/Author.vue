@@ -5,6 +5,9 @@ export default {
 			type: String,
 			required: true
 		},
+		position: {
+			type: String
+		},
 		description: {
 			type: String
 		},
@@ -32,13 +35,16 @@ export default {
 	<article class="person">
 
 		<img :src="imageSrc">
-			<h4>
-				{{ name }}
-			</h4>
-			<p>
-				{{ description }}
-			</p>
-		
+		<h4>
+			{{ name }}
+		</h4>
+		<h5 v-if="position">
+			{{ position }}
+		</h5>
+		<p v-if="description">
+			{{ description }}
+		</p>
+		<slot></slot>
 	</article>
 </template>
 
@@ -49,18 +55,28 @@ export default {
 	align-items: center;
 	width: 300px;
 	max-width: calc(50% - var(--base-padding) / 2);
-	text-align: center;
+	font-size: 1rem;
+
 
 	img {
 		width: 100%;
 		max-width: 300px;
 		border-radius: var(--base-padding);
+		filter: grayscale(0.1);
 	}
 
 	h4 {
 		font-family: 'El Messiri', sans-serif;
-		font-size: 1.3em;
+		font-size: 1.5em;
 		margin: .8rem 0 0;
+		text-align: center;
+	}
+
+	h5 {
+		margin: .4rem 0;
+		font-size: 1em;
+		font-family: 'El Messiri', sans-serif;
+		// text-align: center;
 	}
 
 	p {
