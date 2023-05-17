@@ -52,15 +52,24 @@ export default {
 	flex-direction: column;
 	align-items: center;
 	width: 300px;
-	max-width: calc(50% - var(--base-padding) / 2);
+
 	font-size: 1rem;
+
+	@media (min-width: 48rem) {
+		
+		max-width: calc(50% - var(--base-padding) / 2);
+	}
 
 
 	img {
 		width: 100%;
-		max-width: 300px;
+		max-width: 200px;
 		border-radius: var(--base-padding);
 		filter: grayscale(0.1);
+
+		@media (min-width: 48rem) {
+			max-width: 300px;
+		}
 	}
 
 	h4 {

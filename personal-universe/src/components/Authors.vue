@@ -76,10 +76,18 @@ h2 {
 
 .authors {
 	display: flex;
+	flex-direction: column;
+	align-items: center;
 	justify-content: center;
 	gap: calc(var(--base-padding));
 
+	@media (min-width: 48rem) {
+		flex-direction: row;
+		align-items: flex-start;
+	}
+
 	@media (min-width: 64rem) {
+		flex-direction: row;
 		gap: calc(var(--base-padding) * 2);
 	}
 
