@@ -9,7 +9,6 @@ export default {
 		imageSrc() {
 			try {
 				const url = new URL(`../assets/images/${this.image}.png`, import.meta.url).href;
-				console.log(url)
 				return url;
 			} catch (error) {
 				console.error(error)

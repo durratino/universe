@@ -17,10 +17,8 @@ export default {
 	},
 	computed: {
 		imageSrc() {
-			console.log('hello')
 			try {
 				const url = new URL(`../assets/images/${this.image}.jpg`, import.meta.url).href;
-				console.log(url)
 				return url;
 			} catch (error) {
 				console.error(error)

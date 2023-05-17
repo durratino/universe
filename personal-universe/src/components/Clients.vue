@@ -52,7 +52,7 @@ export default {
 	</section>
 
 	<div class="links">
-		<a href="https://t.me/+Nnjp9AUn7oQ1MmEy" target="_blank" class="button">Записаться на курс</a>
+		<a href="https://forms.gle/JEdn86QVGE4yJrww6" target="_blank" class="button do-subscribe">Записаться на курс</a>
 	</div>
 </template>
 
