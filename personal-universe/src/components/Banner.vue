@@ -76,7 +76,7 @@ export default {
 	}
 
 	&-text {
-		padding: var(--base-padding) calc(var(--base-padding) / 2);
+		padding: var(--base-padding) var(--base-padding) 0;
 
 		@media (min-width: 64rem) {
 			padding: var(--base-padding);

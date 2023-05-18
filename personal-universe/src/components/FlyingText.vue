@@ -23,11 +23,10 @@ export default {
 		max-width: 42rem;
 		margin: var(--base-padding) auto;
 		font-size: 1.15em;
-		text-align: center;
+		
 
 		@media (min-width: 64rem) {
 			margin: calc(var(--base-padding) * 2) auto;
-			
 		}
 	}
 

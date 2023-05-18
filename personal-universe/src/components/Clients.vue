@@ -71,6 +71,7 @@ export default {
 	@media (min-width: 64rem) {
 		grid-template-columns: repeat(4, 1fr);
 		gap: calc(var(--base-padding) * 2);
+		padding: 0 calc(var(--base-padding) * 2);
 	}
 }
 

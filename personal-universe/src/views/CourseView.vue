@@ -1,4 +1,5 @@
 <script>
+import { results } from '../assets/results.json';
 import Banner from '../components/Banner.vue';
 import FlyingText from '../components/FlyingText.vue';
 import Gallery from '../components/Gallery.vue';
@@ -6,7 +7,7 @@ import Program from '../components/Program.vue';
 import Variants from '../components/Variants.vue';
 import Authors from '../components/Authors.vue';
 import Clients from '../components/Clients.vue';
-import { results } from '../assets/results.json';
+import Reasons from '../components/Reasons.vue';
 
 export default {
 	data() {
@@ -32,7 +33,8 @@ export default {
 		Program,
 		Variants,
 		Authors,
-		Clients
+		Clients,
+		Reasons
 	},
 	mounted() {
 		const swiperEls = document.querySelectorAll('swiper-container');
@@ -83,6 +85,15 @@ export default {
 			Object.assign(swiperEl, params);
 
 			swiperEl.initialize();
+
+			window.addEventListener('scroll', () => {
+				const button = document.querySelector('.button--floating');
+				if (window.scrollY > window.innerHeight * 1.5) {
+					button.classList.add('is-visible');
+				} else {
+					button.classList.remove('is-visible');
+				}
+			});
 		})
 	},
 	computed: {
@@ -124,6 +135,10 @@ export default {
 
 <template>
 	<section class="course">
+		<a href="https://forms.gle/JEdn86QVGE4yJrww6" target="_blank" class="button button--cta do-subscribe button--floating">
+			Записаться на
+			курс</a>
+
 		<Banner image="banner">
 
 			<span class="message">Старт нового потока в конце мая!</span>
@@ -142,8 +157,8 @@ export default {
 				вам
 				заполнить анкету предзаписи. Мы связываемся с&nbsp;вами в&nbsp;течение суток после отправки анкеты
 				и&nbsp;обсуждаем детали.
-				Заполненная анкета не&nbsp;обязывает вас участвовать в&nbsp;курсе, но&nbsp;закрепляет за&nbsp;вами место и
-				стоимость!
+				Заполненная анкета не&nbsp;обязывает вас участвовать в&nbsp;курсе, но&nbsp;закрепляет за&nbsp;вами место
+				и&nbsp;стоимость!
 			</p>
 		</Banner>
 
@@ -152,15 +167,17 @@ export default {
 				Приглашение в&nbsp;ваш&nbsp;мир
 			</h2>
 			<p>
-				Мы зовем вас в путешествие по неизведанным землям — <strong>по вашим собственным мирам</strong>, которые уже
-				живут внутри и ждут,
+				Мы зовем вас в&nbsp;путешествие по&nbsp;неизведанным землям — <strong>по&nbsp;вашим собственным
+					мирам</strong>, которые уже
+				живут внутри и&nbsp;ждут,
 				чтобы проявиться.
 			</p>
 			<p>
-				Это не обучающий курс по рисованию или писательству. Мы берём два главных инструмента — рисунок и текст, —
-				которые сами любим, и показываем вам, как можно <strong>использовать эти виды творчества вместе, чтобы
+				Это не обучающий курс по&nbsp;рисованию или&nbsp;писательству. Мы берём два главных инструмента — рисунок
+				и&nbsp;текст, —
+				которые сами любим, и&nbsp;показываем вам, как можно <strong>использовать эти виды творчества вместе, чтобы
 					бережно достать
-					из себя свой мир и рассказать о нем</strong>.
+					из&nbsp;себя свой мир и&nbsp;рассказать о&nbsp;нем</strong>.
 			</p>
 		</FlyingText>
 
@@ -190,7 +207,7 @@ export default {
 					вы сами того захотите — месяц, год и&nbsp;целую жизнь!</strong></p>
 		</FlyingText>
 
-		<Gallery :images="images" heading="Миры наших выпускников" type="slider"></Gallery>
+		<Reasons heading="Но зачем вообще создавать вселенные?"></Reasons>
 
 		<Program heading="План нашего путешествия" />
 
@@ -210,7 +227,8 @@ export default {
 				творческих ограничений и&nbsp;создадите через медитацию и&nbsp;рисунок <strong>безопасное место</strong>,
 				которое может служить вам
 				местом
-				силы и&nbsp;даже стать новым терапевтичным местом в&nbsp;вашей Вселенной</p>
+				силы и&nbsp;даже стать новым терапевтичным местом в&nbsp;вашей Вселенной
+			</p>
 		</FlyingText>
 
 		<Variants heading="Варианты участия в&nbsp;курсе"></Variants>
@@ -282,13 +300,13 @@ export default {
 		</FlyingText>
 
 
+
 		<Authors heading="Авторы и эксперты курса"></Authors>
 
-		<Gallery :images="testimonials" heading="Отзывы наших выпускников" type="stack"></Gallery>
+		<Gallery :images="images" heading="Миры наших выпускников" type="slider"></Gallery>
 
-		<div class="links">
-			<a href="https://forms.gle/JEdn86QVGE4yJrww6" target="_blank" class="button do-subscribe">Записаться на курс</a>
-		</div>
+		<Gallery :images="testimonials" heading="Отзывы выпускников" type="stack"></Gallery>
+
 	</section>
 
 
@@ -296,10 +314,14 @@ export default {
 </template>
 
 <style lang="scss">
+.course {
+	padding: (calc(var(--base-padding) / 2));
+}
+
 .course,
 .text {
 	&>h2 {
-		max-width: 42rem;
+		// max-width: 42rem;
 		margin-left: auto;
 		margin-right: auto;
 		margin-top: 3em;
@@ -355,4 +377,48 @@ h3 {
 	@media (min-width: 64rem) {
 		font-size: .8em;
 	}
-}</style>
+}
+
+.button {
+	&--floating {
+		position: fixed;
+		z-index: 10;
+		bottom: var(--base-padding);
+		right: var(--base-padding);
+		opacity: .75;
+		transition: all .3s cubic-bezier(0.075, 0.82, 0.165, 1);
+		transform: translateY(calc(var(--base-padding) + 100%));
+
+		&:hover {
+			opacity: 1!important;
+		}
+
+		&.is-visible {
+			transform: translateY(0);
+			animation: button-transparency 10s infinite;
+		}
+	}
+}
+
+@keyframes button-transparency {
+	0% {
+		
+		transform: scale(1);
+	}
+
+	45% {
+		
+		transform: scale(1);
+	}
+
+	50% {
+		
+		transform: scale(1.05);
+	}
+
+	65% {
+		
+		transform: scale(1);
+	}
+}
+</style>

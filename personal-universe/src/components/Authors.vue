@@ -79,7 +79,7 @@ h2 {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	gap: calc(var(--base-padding));
+	gap: calc(var(--base-padding) * 2);
 
 	@media (min-width: 48rem) {
 		flex-direction: row;
@@ -88,14 +88,17 @@ h2 {
 
 	@media (min-width: 64rem) {
 		flex-direction: row;
-		gap: calc(var(--base-padding) * 2);
 	}
 
-	&+& {
-		margin-top: calc(var(--base-padding));
+	& + & {
+		margin-top: calc(var(--base-padding) * 2);
 
 		@media (min-width: 64rem) {
 			margin-top: calc(var(--base-padding) * 2);
+		}
+
+		& > * {
+			flex-shrink: 1;
 		}
 	}
 }

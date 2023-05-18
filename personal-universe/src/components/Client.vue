@@ -76,7 +76,7 @@ export default {
 		margin: 0 20% 0 0;
 
 		@media (min-width: 64rem) {
-			margin: 0;
+			margin: 10% 0 0 0;
 		}
 	}
 

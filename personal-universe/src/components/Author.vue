@@ -51,12 +51,11 @@ export default {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	width: 300px;
-
 	font-size: 1rem;
+	flex-shrink: 0;
 
 	@media (min-width: 48rem) {
-		
+		width: 300px;
 		max-width: calc(50% - var(--base-padding) / 2);
 	}
 
@@ -80,6 +79,7 @@ export default {
 	}
 
 	h5 {
+		width: 100%;
 		margin: .4rem 0;
 		font-size: 1em;
 		font-family: 'El Messiri', sans-serif;

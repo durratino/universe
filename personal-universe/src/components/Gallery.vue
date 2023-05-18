@@ -82,7 +82,7 @@ export default {
 <style lang="scss" scoped>
 .gallery {
 	&:last-child {
-		margin-bottom: 5rem;
+		margin-bottom: 10rem;
 	}
 }
 
