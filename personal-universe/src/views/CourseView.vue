@@ -315,7 +315,7 @@ export default {
 
 <style lang="scss">
 .course {
-	padding: (calc(var(--base-padding) / 2));
+	padding: 0 (calc(var(--base-padding) / 2));
 }
 
 .course,

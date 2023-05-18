@@ -70,8 +70,8 @@ export default {
 			<template #quote>
 				<p>
 					Курс помог мне создать новый волшебный мир, который я&nbsp;полюбила и&nbsp;по&nbsp;которому буду писать книгу. 
-					Также с&nbsp;этими знаниями я&nbsp;смогла грамотно сконструировать мир нынешней книги, сделать его&nbsp;манящим,
-					интересным, необычным.
+					Также с&nbsp;этими знаниями я&nbsp;смогла <strong>грамотно сконструировать мир нынешней книги, сделать его&nbsp;манящим,
+					интересным, необычным</strong>.
 				</p>
 			</template>
 		</Reason>
@@ -92,13 +92,15 @@ export default {
 
 	@media (min-width: 48rem) {
 		grid-template-columns: repeat(2, 1fr);
-		gap: calc(var(--base-padding) * 2);
+		gap: calc(var(--base-padding) * 3);
 		padding: 0 calc(var(--base-padding));
+		font-size: .8em;
 	}
 
 	@media (min-width: 64rem) {
-		gap: calc(var(--base-padding) * 4);
-		padding: 0 calc(var(--base-padding) * 2);
+		gap: calc(var(--base-padding) * 6);
+		padding: 0 calc(var(--base-padding) * 3);
+		font-size: 1em;
 	}
 
 	h4 {
