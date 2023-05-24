@@ -32,7 +32,7 @@ export default {
 <template>
 	<article class="person">
 
-		<img :src="imageSrc">
+		<img :src="imageSrc" loading="lazy">
 		<h4>
 			{{ name }}
 		</h4>
@@ -51,7 +51,6 @@ export default {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	font-size: 1rem;
 	flex-shrink: 0;
 
 	@media (min-width: 48rem) {
