@@ -1,4 +1,5 @@
 <script>
+import Image from './Image.vue';
 
 export default {
 	props: {
@@ -6,6 +7,17 @@ export default {
 			type: String,
 			// required: true
 		},
+	},
+
+	components: {
+		Image
+	},
+
+	data() {
+		return {
+			imageWidth: window.innerWidth > 1023 ? window.innerWidth / 2 : window.innerWidth,
+			imageHeight: window.innerWidth > 1023 ? window.innerHeight : window.innerHeight * 0.6
+		}
 	},
 
 	mounted() {
@@ -19,24 +31,13 @@ export default {
 			this.$el.style.setProperty('--margin', `${- headerHeight - mainPaddingTop}px`);
 		}
 	},
-
-	computed: {
-		imageSrc() {
-			try {
-				const url = new URL(`../assets/images/${this.image}.jpg`, import.meta.url).href;
-				return url;
-			} catch (error) {
-				return '';
-			}
-		}
-	}
 }
 </script>
 
 <template>
 	<section class="banner">
 		<div class="banner-media">
-			<img :src="imageSrc" />
+			<Image image="universe/banner_nbtczh" :width="imageWidth" :height="imageHeight"></Image>
 		</div>
 		<div class="banner-text">
 			<slot></slot>
@@ -52,7 +53,7 @@ export default {
 	margin-left: calc((100vw - 100%) / (-2));
 	margin-top: var(--margin, 0);
 
-	@media (min-width: 48rem) {
+	@media (min-width: 64rem) {
 		height: 100vh;
 		flex-direction: row;
 		align-items: center;
@@ -63,10 +64,10 @@ export default {
 		overflow: hidden;
 		max-height: 60vh;
 
-		@media (min-width: 48rem) {
+		@media (min-width: 64rem) {
 			max-height: 100%;
 		}
-		
+
 
 		img {
 			object-fit: cover;
@@ -83,7 +84,7 @@ export default {
 		}
 
 		h1 {
-			margin: 0 0 .6em; 
+			margin: 0 0 .6em;
 			font-size: 3em;
 		}
 
