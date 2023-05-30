@@ -1,5 +1,5 @@
 <script>
-import Image from './Image.vue';
+import CloudinaryImage from './CloudinaryImage.vue';
 
 export default {
 	props: {
@@ -10,13 +10,13 @@ export default {
 	},
 
 	components: {
-		Image
+		CloudinaryImage
 	},
 
 	data() {
 		return {
-			imageWidth: window.innerWidth > 1023 ? window.innerWidth / 2 : window.innerWidth,
-			imageHeight: window.innerWidth > 1023 ? window.innerHeight : window.innerHeight * 0.6
+			imageWidth: window.innerWidth > 1023 ? Math.round(window.innerWidth / 2) : window.innerWidth,
+			imageHeight: window.innerWidth > 1023 ? window.innerHeight : Math.round(window.innerHeight * 0.6)
 		}
 	},
 
@@ -37,7 +37,7 @@ export default {
 <template>
 	<section class="banner">
 		<div class="banner-media">
-			<Image image="universe/banner_nbtczh" :width="imageWidth" :height="imageHeight"></Image>
+			<CloudinaryImage image="universe/banner_nbtczh" :width="imageWidth" :height="imageHeight"></CloudinaryImage>
 		</div>
 		<div class="banner-text">
 			<slot></slot>

@@ -100,7 +100,7 @@ export default {
 		images() {
 			const imgs = results
 				.filter(result => result.image !== 'your-own' && result.image !== 'kur-cheret' && result.image !== 'north-sea')
-				.map(result => { return { image: result.image, url: result.url, urlText: result.urlText } });
+				.map(result => { return { image: result.cloudinary, url: result.url, urlText: result.urlText } });
 			return this.shuffleArray(imgs);
 		},
 		testimonials() {
@@ -111,10 +111,8 @@ export default {
 				{ image: 'katyi' },
 				{ image: 'natasha' },
 				{ image: 'polina' },
-
 				{ image: 'katya' },
 				{ image: 'masha' },
-
 				{ image: 'masha2' },
 				{ image: 'natavol' },
 				{ image: 'nata' },
@@ -152,13 +150,8 @@ export default {
 			</div>
 
 
-			<p class="sidenote">Мы хотим узнать о&nbsp;наших будущих участниках побольше, поэтому вместо прямой оплаты
-				предлагаем
-				вам
-				заполнить анкету предзаписи. Мы связываемся с&nbsp;вами в&nbsp;течение суток после отправки анкеты
-				и&nbsp;обсуждаем детали.
-				Заполненная анкета не&nbsp;обязывает вас участвовать в&nbsp;курсе, но&nbsp;закрепляет за&nbsp;вами место
-				и&nbsp;стоимость!
+			<p class="sidenote">Мы хотим узнать наших будущих участниках лучше, поэтому вместо прямой оплаты
+				предлагаем вам заполнить анкету предзаписи.
 			</p>
 		</Banner>
 

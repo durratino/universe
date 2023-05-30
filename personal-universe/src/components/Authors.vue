@@ -22,7 +22,7 @@ export default {
 	<h2 v-if="heading">{{ heading }}</h2>
 	<section class="authors">
 
-		<Author name="Оля" position="Художник, создатель миров, наставник творцов" description="" image="olya-photo">
+		<Author name="Оля" position="Художник, создатель миров, наставник творцов" description="" image="universe/olya-photo_haitwk">
 			<p>
 				Любитель организовывать творческие движи, погружаться в&nbsp;миры других людей и&nbsp;помогать творцам
 				продумывать и&nbsp;реализовывать свои&nbsp;проекты. Больше трех лет создаю свой волшебный мир Кюр-Черета
@@ -37,7 +37,7 @@ export default {
 		</Author>
 
 		<Author name="Маша" position="Писатель, исследователь архетипов, наставник творцов" description=""
-			image="masha-photo">
+			image="universe/masha-photo_zr3rjr">
 			<p>
 				Издала книгу “Тёплая Вселенная”, а&nbsp;сейчас создаю мир вокруг Северного моря в&nbsp;своём романе.
 			</p>
@@ -58,16 +58,16 @@ export default {
 	<section class="authors">
 		<Author name="Настя"
 			description="Арт-терапевт, педагог, супервизор и&nbsp;просто превосходная женщина! Под&nbsp;ее&nbsp;чутким руководством вы&nbsp;познакомитесь с&nbsp;Внутренним Самозванцем и&nbsp;узнаете кое-что важное о&nbsp;нем и&nbsp;о&nbsp;себе. А&nbsp;еще&nbsp;Настя проведет вас в&nbsp;по-настоящему Безопасное место, которое может стать главной локацией в&nbsp;вашей Вселенной."
-			image="nastya-photo"></Author>
+			image="universe/nastya-photo_xo8ufe"></Author>
 		<Author name="Сева"
 			description="Вообще-то клинический аналитик... но&nbsp;для&nbsp;нас важно, что&nbsp;он мастер ролевых игр и&nbsp;человек, нарисовавший кучу карт по&nbsp;своему миру. Выступит на&nbsp;вебинаре в&nbsp;последнем блоке курса и&nbsp;поделится своими приемчиками при&nbsp;создании карт фентези и сай-фай миров: как&nbsp;и&nbsp;зачем."
-			image="seva-photo"></Author>
+			image="universe/seva-photo_sto0jf"></Author>
 		<Author name="Полина"
 			description="Практикующий психолог с&nbsp;богатым прошлым художника, дизайнер по&nbsp;первому образованию... и&nbsp;тонко чувствующий этот мир человек. На&nbsp;вебинаре по&nbsp;картам расскажет о&nbsp;художественной стороне вопроса: как&nbsp;сделать красиво и&nbsp;легко."
-			image="polina-photo"></Author>
+			image="universe/polina-photo_ozyn52"></Author>
 		<Author name="Ноэль"
 			description="Нарративный коуч, наставник в работе с&nbsp;внутренними метафорами и&nbsp;мастер ролевых игр живого действия. Как&nbsp;настоящий волшебный помощник, встретит вас в&nbsp;конце пути и&nbsp;поможет разобрать сокровища, которые вы&nbsp;унесете с&nbsp;собой из&nbsp;своей собственной Вселенной."
-			image="noel-photo"></Author>
+			image="universe/noel-photo_emmkgi"></Author>
 	</section>
 </template>
 

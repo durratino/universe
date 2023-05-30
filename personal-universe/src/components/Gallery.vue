@@ -1,4 +1,6 @@
 <script>
+import CloudinaryImage from './CloudinaryImage.vue';
+
 
 export default {
 	props: {
@@ -11,7 +13,7 @@ export default {
 		},
 		type: {
 			type: String,
-			default: 'slider'
+			default: "slider"
 		}
 	},
 	methods: {
@@ -29,13 +31,13 @@ export default {
 			}
 		},
 		setGalleryPosition() {
-			const slides = this.$el.querySelectorAll('.gallery-stack-slide');
+			const slides = this.$el.querySelectorAll(".gallery-stack-slide");
 			slides.forEach(slide => {
-				const img = slide.querySelector('img');
-				img.addEventListener('load', () => {
-					slide.style.setProperty('--slide-position', (window.innerHeight - slide.clientHeight) / 2 + 'px');
+				const img = slide.querySelector("img");
+				img.addEventListener("load", () => {
+					slide.style.setProperty("--slide-position", (window.innerHeight - slide.clientHeight) / 2 + "px");
 				});
-			})
+			});
 		}
 	},
 	created() {
@@ -43,8 +45,11 @@ export default {
 	},
 	mounted() {
 		this.setGalleryPosition();
-	}
-}
+	},
+	components: { CloudinaryImage }
+};
+
+
 </script>
 
 <template>
@@ -53,26 +58,25 @@ export default {
 
 		<swiper-container v-if="type === 'slider'" init="false" :slides-per-view="1" :spaceBetween="30" :loop="true"
 			:pagination="{
-					clickable: true
-				}" :navigation="true" :breakpoints="{
-			768: {
-				slidesPerView: 3,
-			},
-			1200: {
-				slidesPerView: 4
-			}
-		}">
+				clickable: true
+			}" :navigation="true" :breakpoints="{
+	768: {
+		slidesPerView: 3,
+	},
+	1200: {
+		slidesPerView: 4
+	}
+}">
 
 			<swiper-slide v-for="image in images">
-				<!-- {{image}} -->
-				<img :src="image.src" alt="">
+				<CloudinaryImage :image="image.image" :width="imageWidth" :height="imageHeight"></CloudinaryImage>
 				<span v-if="image.urlText">{{ image.urlText }}</span>
 			</swiper-slide>
 		</swiper-container>
 
 		<div v-if="type === 'stack'" class="gallery-stack">
 			<div class="gallery-stack-slide" v-for="image in images">
-				<img :src="image.src" alt="">
+				<img :src="image.src" alt="" loading="lazy">
 				<span v-if="image.urlText">{{ image.urlText }}</span>
 			</div>
 		</div>

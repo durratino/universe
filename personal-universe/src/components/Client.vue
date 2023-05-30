@@ -22,7 +22,7 @@ export default {
 <template>
 	<article class="client">
 
-		<img :src="imageSrc">
+		<img :src="imageSrc" loading="lazy">
 		<div class="client-description">
 			<slot></slot>
 		</div>

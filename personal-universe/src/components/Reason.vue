@@ -25,7 +25,7 @@ export default {
 <template>
 	<article class="reason">
 
-		<img :src="imageSrc">
+		<img :src="imageSrc" loading="lazy">
 		<div class="reason-description">
 			<slot></slot>
 			<blockquote>

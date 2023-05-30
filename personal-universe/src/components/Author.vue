@@ -1,38 +1,31 @@
 <script>
+import CloudinaryImage from './CloudinaryImage.vue';
+
 export default {
-	props: {
-		name: {
-			type: String,
-			required: true
-		},
-		position: {
-			type: String
-		},
-		description: {
-			type: String
-		},
-		image: {
-			type: String
-		}
-	},
-	computed: {
-		imageSrc() {
-			try {
-				const url = new URL(`../assets/images/${this.image}.jpg`, import.meta.url).href;
-				return url;
-			} catch (error) {
-				console.error(error)
-				return '';
-			}
-		}
-	}
+    props: {
+        name: {
+            type: String,
+            required: true
+        },
+        position: {
+            type: String
+        },
+        description: {
+            type: String
+        },
+        image: {
+            type: String
+        }
+    },
+    components: { CloudinaryImage }
 }
 </script>
 
 <template>
 	<article class="person">
 
-		<img :src="imageSrc" loading="lazy">
+		<CloudinaryImage :image="image" width="300" height="300" />
+
 		<h4>
 			{{ name }}
 		</h4>
@@ -58,7 +51,6 @@ export default {
 		max-width: calc(50% - var(--base-padding) / 2);
 	}
 
-
 	img {
 		width: 100%;
 		max-width: 200px;
@@ -82,7 +74,6 @@ export default {
 		margin: .4rem 0;
 		font-size: 1em;
 		font-family: 'El Messiri', sans-serif;
-		// text-align: center;
 	}
 
 	p {

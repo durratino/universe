@@ -9,12 +9,6 @@ export default {
 	components: {
 		Reason,
 	},
-	computed: {
-
-	},
-	methods: {
-
-	}
 }
 </script>
 
