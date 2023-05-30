@@ -141,7 +141,7 @@ export default {
 
 		<Banner image="banner">
 
-			<span class="message">Старт нового потока в конце мая!</span>
+			<span class="message">Старт нового потока в начале июня!</span>
 			<h1>Твоя Вселенная</h1>
 			<h2>У каждого внутри есть своя Вселенная.<br>Как выглядит <em>твоя</em>?</h2>
 			<div class="buttons">
