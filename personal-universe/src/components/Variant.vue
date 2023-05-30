@@ -22,6 +22,9 @@ export default {
 		},
 		priceMarathon: {
 			type: String
+		},
+		priceEuro: {
+			type: String
 		}
 	},
 }
@@ -52,8 +55,8 @@ export default {
 		<div class="variant-price variant-price--full" v-if="priceFull">{{ priceFull }}</div>
 		<div class="variant-prices">
 			<div class="variant-price variant-price--new">{{ price }}</div>
-			<span class="variant-priceTag">или</span>
-		<div class="variant-price variant-price--marathon">{{ priceMarathon }}<sup class="variant-priceTag">*</sup></div>
+			<span class="variant-priceWord">или</span>
+		<div class="variant-price variant-price--new">{{ priceEuro }}<sup class="variant-priceTag">*</sup></div>
 		</div>
 		
 	</article>
@@ -64,12 +67,16 @@ export default {
 	display: flex;
 	flex-direction: column;
 	padding: calc(var(--base-padding) / 2);
-	border: 2px solid var(--color-accent);
+	border: 2px solid rgba(var(--color-accent-rgb), .5);
 	border-radius: calc(var(--base-padding) / 2);
 
 	@media (min-width: 64rem) {
 		padding: var(--base-padding);
 		border-radius: var(--base-padding);
+	}
+
+	&.is-highlighted {
+		border-color: var(--color-accent);
 	}
 
 	header {
@@ -136,9 +143,18 @@ export default {
 		}
 	}
 
+	&-priceWord {
+		font-size: .7em;
+	}
+
 	&-priceTag {
+		display: none;
 		font-size: .7em;
 		color: var(--color-text);
+
+		.is-highlighted & {
+			display: inline;
+		}
 	}
 }
 </style>
