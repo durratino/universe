@@ -74,9 +74,10 @@ export default {
 		<div class="description" v-html="result.description"></div>
 
 		<div class="links">
-			<span class="links-info">Сделай скриншот и поделись своим результатом у&nbsp;себя в&nbsp;соцсетях или&nbsp;в&nbsp;комментариях на&nbsp;канале твоей&nbsp;вселенной ♥</span>
-			<a href="https://t.me/apersonaluniverse" class="button" target="_blank">Подпишись на канал Твоей вселенной</a>
+			<span class="links-info">Сделай скриншот и поделись своим результатом у&nbsp;себя в&nbsp;соцсетях или&nbsp;в&nbsp;комментариях на&nbsp;<a href="https://t.me/+mq4_MMqTmuBhODIy" target="_blank">канале творческой&nbsp;лаборатории</a> ♥</span>
+			
 			<span class="links-info">Миры в результатах теста созданы выпускниками курса «Твоя&nbsp;Вселенная». Хочешь тоже создать свой? Мы&nbsp;знаем&nbsp;как!</span>
+			<a href="https://apersonaluniverse.com/course" class="button">Создай свой мир вместе с нами</a>
 		</div>
 	</article>
 </template>

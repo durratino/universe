@@ -56,18 +56,18 @@ export default {
 
 	</section>
 	<section class="authors">
-		<Author name="Настя"
+		<!-- <Author name="Настя"
 			description="Арт-терапевт, педагог, супервизор и&nbsp;просто превосходная женщина! Под&nbsp;ее&nbsp;чутким руководством вы&nbsp;познакомитесь с&nbsp;Внутренним Самозванцем и&nbsp;узнаете кое-что важное о&nbsp;нем и&nbsp;о&nbsp;себе. А&nbsp;еще&nbsp;Настя проведет вас в&nbsp;по-настоящему Безопасное место, которое может стать главной локацией в&nbsp;вашей Вселенной."
-			image="universe/nastya-photo_xo8ufe"></Author>
+			image="universe/nastya-photo_xo8ufe"></Author> -->
 		<Author name="Сева"
 			description="Вообще-то клинический аналитик... но&nbsp;для&nbsp;нас важно, что&nbsp;он мастер ролевых игр и&nbsp;человек, нарисовавший кучу карт по&nbsp;своему миру. Выступит на&nbsp;вебинаре в&nbsp;последнем блоке курса и&nbsp;поделится своими приемчиками при&nbsp;создании карт фентези и сай-фай миров: как&nbsp;и&nbsp;зачем."
 			image="universe/seva-photo_sto0jf"></Author>
 		<Author name="Полина"
 			description="Практикующий психолог с&nbsp;богатым прошлым художника, дизайнер по&nbsp;первому образованию... и&nbsp;тонко чувствующий этот мир человек. На&nbsp;вебинаре по&nbsp;картам расскажет о&nbsp;художественной стороне вопроса: как&nbsp;сделать красиво и&nbsp;легко."
 			image="universe/polina-photo_ozyn52"></Author>
-		<Author name="Ноэль"
+		<!-- <Author name="Ноэль"
 			description="Нарративный коуч, наставник в работе с&nbsp;внутренними метафорами и&nbsp;мастер ролевых игр живого действия. Как&nbsp;настоящий волшебный помощник, встретит вас в&nbsp;конце пути и&nbsp;поможет разобрать сокровища, которые вы&nbsp;унесете с&nbsp;собой из&nbsp;своей собственной Вселенной."
-			image="universe/noel-photo_emmkgi"></Author>
+			image="universe/noel-photo_emmkgi"></Author> -->
 	</section>
 </template>
 

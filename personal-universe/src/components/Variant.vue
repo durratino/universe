@@ -64,6 +64,7 @@ export default {
 
 <style lang="scss" scoped>
 .variant {
+	flex: 1 1 100px;
 	display: flex;
 	flex-direction: column;
 	padding: calc(var(--base-padding) / 2);

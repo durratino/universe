@@ -20,7 +20,7 @@ export default {
   <header class="header">
     <nav>
       <RouterLink to="/" @click="reloadPage">Тест</RouterLink>
-      <a href="https://t.me/+Nnjp9AUn7oQ1MmEy" target="_blank">Канал Твоей вселенной</a>
+      <a href="https://t.me/+mq4_MMqTmuBhODIy" target="_blank">Творческая лаборатория</a>
 
       <RouterLink to="/course">КУРС</RouterLink>
     </nav>
