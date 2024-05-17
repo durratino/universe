@@ -105,6 +105,7 @@ a,
 
   @media (min-width: 64rem) {
     flex-direction: row;
+    font-size: .85em;
   }
 
 }
@@ -141,20 +142,27 @@ h2,
 h3,
 h4,
 h5,
-h6,
+h6 {
+  margin: 3em 0 .5em;
+
+  &:where(:first-child) {
+    margin-block-start: 0;
+  }
+
+  &:where(:last-child) {
+    margin-block-end: 0;
+  }
+}
+
 p,
 ul,
 ol,
 label,
 figure {
-  margin: 1em 0;
+  margin: 1em 0 0;
 
-  &:first-child {
+  &:where(first-child) {
     margin-top: 0;
-  }
-
-  &:last-child {
-    margin-bottom: 0;
   }
 }
 
@@ -162,21 +170,42 @@ h1,
 h2,
 h3 {
   font-family: 'El Messiri', serif;
+  line-height: 1;
 }
 
 h1 {
   line-height: 1;
+  font-size: 2.5em;
+
+  @media (min-width: 48rem) {
+    // 768px
+    font-size: 3em;
+  }
+
+  @media (min-width: 80rem) {
+    // 768px
+    font-size: 3.5em;
+  }
+}
+
+h2 {
   font-size: 2em;
 
   @media (min-width: 48rem) {
     // 768px
-    font-size: 3rem;
+    font-size: 2em;
   }
 }
 
 h3 {
+  font-size: 1.21em;
   line-height: 1.1;
   font-weight: normal;
+}
+
+h4, h5, h6 {
+  font-size: 1em;
+  line-height: 1.12;
 }
 
 h5, h6 {
@@ -201,8 +230,8 @@ li {
 	padding-left: 10px;
 	color: var(--color-powder-blue);
 
-	& + & {
-		margin-top: calc(var(--base-padding) / 4);
+	&:where(:not(:first-child)) {
+		margin-top: .5em;
 	}
 
 	&.highlight {

@@ -46,7 +46,7 @@ export default {
 					`
 :root {
 --swiper-pagination-bottom: -3px;
---swiper-pagination-color: #58A4B0;
+--swiper-pagination-color: #2AFC98;
 --swiper-pagination-bullet-inactive-color: #58A4B0;
 --swiper-navigation-color: #58A4B0;
 --swiper-navigation-sides-offset: 5px;
@@ -88,7 +88,7 @@ export default {
 
 			window.addEventListener('scroll', () => {
 				const button = document.querySelector('.button--floating');
-				if (window.scrollY > window.innerHeight * 1.1) {
+				if (window.scrollY > window.innerHeight * 1.5) {
 					button.classList.add('is-visible');
 				} else {
 					button.classList.remove('is-visible');
@@ -133,7 +133,10 @@ export default {
 
 <template>
 	<section class="course">
-		<Banner image="universe/banner_nbtczh">
+		<a href="https://forms.gle/JEdn86QVGE4yJrww6" target="_blank" class="button button--cta do-subscribe button--floating">
+			Записаться на курс</a>
+
+		<Banner image="banner">
 			<h1>Твоя Вселенная</h1>
 			<h2>творческий курс-путешествие</h2>
 			<h3>У каждого внутри есть своя Вселенная.<br>Как выглядит <em>твоя</em>?</h3>
@@ -147,62 +150,43 @@ export default {
 
 			<p class="sidenote">Мы хотим узнать наших будущих участников лучше, поэтому вместо прямой оплаты
 				предлагаем заполнить анкету предзаписи.</p>
-			<p class="sidenote"> Предзапись не&nbsp;обязывает
+				<p class="sidenote">	Предзапись не&nbsp;обязывает
 				вас приходить на&nbsp;курс, но&nbsp;закрепляет за&nbsp;вами место и&nbsp;стоимость участия.
 
 			</p>
 		</Banner>
 
-		<a href="https://forms.gle/JEdn86QVGE4yJrww6" target="_blank"
-			class="button button--cta do-subscribe button--floating">
-			Записаться на курс</a>
-
-		<FlyingText class="is-highlight">
+		<FlyingText>
 			<h2>
-				«Твоя Вселенная» —<br />это не курс по&nbsp;рисованию или&nbsp;писательству
+				Приглашение в&nbsp;ваш&nbsp;мир
 			</h2>
-			<h3>Это приглашение в&nbsp;ваш собственный мир.</h3>
-			<h3>В путешествие по&nbsp;лесам, по&nbsp;тропкам и&nbsp;закоулкам, по&nbsp;неизведанным местечкам.</h3>
-			<h3>Через творчество — к&nbsp;самим&nbsp;себе.</h3>
+			<p>
+				Мы зовем вас в&nbsp;путешествие по&nbsp;неизведанным землям — <strong>по&nbsp;вашим собственным
+					мирам</strong>. Они уже
+				живут внутри вас и&nbsp;наверняка надеятся проявиться!
+			</p>
+			<p>
+				Наш курс по&nbsp;рисованию или&nbsp;писательству. Мы берём два главных инструмента — рисунок
+				и&nbsp;текст, —
+				которые сами любим, и&nbsp;показываем вам, как можно <strong>использовать эти виды творчества вместе, чтобы
+					бережно достать
+					из&nbsp;себя свой мир и&nbsp;рассказать о&nbsp;нем</strong>.
+			</p>
 		</FlyingText>
 
-		<Banner image="universe/tent" class="is-text-left">
-			<h2>На курсе вы</h2>
-			<ul>
-				<li>поймете, как <strong>объединить самые разные увлечения и&nbsp;интересы</strong> общей идеей
-					и&nbsp;построите фундамент для своего творчества</li>
-				<li><strong>попробуете рисовать и&nbsp;писать</strong>, даже если никогда этого не&nbsp;делали</li>
-				<li>научитесь создавать персонажей, локации и&nbsp;сюжеты <strong>из&nbsp;головы</strong>...</li>
-				<li>...при этом не просто придумывать нечто фантастическое, а&nbsp;<strong>выражать свой
-						внутренний&nbsp;мир</strong>: рассказывать о&nbsp;том, что&nbsp;интересно именно вам</li>
-				<li>создадите <strong>масштабный и&nbsp;уникальный творческий проект</strong>, который будет
-					на&nbsp;100% отражать вас</li>
-			</ul>
-		</Banner>
+		<Clients heading="Наш курс для тех, кто&nbsp;хочет">
+		</Clients>
 
-		<!-- <Clients heading="Наш курс для тех, кто&nbsp;хочет">
-		</Clients> -->
-
-		<FlyingText class="is-highlight">
-			<h2>«Твоя Вселенная» —<br />это курс с&nbsp;атмосферой <strong>поддержки, принятия и&nbsp;творческой
-					свободы</strong></h2>
-			<h3>Группы на нашем курсе небольшие — это&nbsp;позволяет
-				нам ближе общаться с вами и&nbsp;погружаться в&nbsp;ваши&nbsp;миры.</h3>
-			<h3>Мы подсвечиваем ваши сильные стороны, задаем вопросы и&nbsp;подсказываем, как
-				можно развить ваши&nbsp;творения.</h3>
-			<h3>А выбор всегда остается за&nbsp;вами.</h3>
-			<h3><strong>Ведь
-					вы — самый главный человек в&nbsp;своей&nbsp;Вселенной</strong>.
-			</h3>
-
-			<!-- <p>Все многочисленные инструменты и методы, которые вы получите на курсе, можно
-				с легкостью подстраивать под себя.
+		<FlyingText>
+			<p> На курсе мы создаём тёплую атмосферу <strong>поддержки, принятия и&nbsp;творческой свободы</strong>.
+				Мы&nbsp;подсвечиваем ваши сильные
+				стороны, показываем, в каком направлении можно развить ваше творение, и&nbsp;всегда оставляем выбор за
+				вами.<br />
+				<strong>Ведь
+					вы — самый главный человек в&nbsp;своей Вселенной</strong>.
 			</p>
 
-			
-
-			<p>В конце каждого блока курса вас ждут два основных задания — на&nbsp;рисунок и&nbsp;на&nbsp;текст, —
-				которые
+			<p>В конце каждого блока курса вас ждут два основных задания — на&nbsp;рисунок и&nbsp;на&nbsp;текст, — которые
 				помогут вам
 				раскрыть частичку новой Вселенной. А&nbsp;дополнительные практики помогут вам лучше узнать себя, развить
 				воображение,
@@ -211,10 +195,9 @@ export default {
 					вашего
 					собственного мира</strong>.</p>
 
-			<p><strong>Все инструменты и&nbsp;методы, которые вы получите на курсе, помогут вам создавать свою Вселенную
-					так
+			<p><strong>Все инструменты и&nbsp;методы, которые вы получите на курсе, помогут вам создавать свою Вселенную так
 					долго, как
-					вы сами того захотите — месяц, год и&nbsp;целую жизнь!</strong></p> -->
+					вы сами того захотите — месяц, год и&nbsp;целую жизнь!</strong></p>
 		</FlyingText>
 
 		<Reasons heading="Но зачем вообще создавать вселенные?"></Reasons>
@@ -223,7 +206,7 @@ export default {
 
 		<FlyingText class="is-small">
 			<h3>Мастермайнды</h3>
-			<p>Онлайн-встречи, где вы <strong>изучите путь героя и создание персонажей</strong>.
+			<p>Онлайн-встречи, где вы будете <strong>изучать путь героя и создание персонажей</strong>.
 				Вы&nbsp;не&nbsp;просто послушаете полезную в&nbsp;создании
 				миров информацию, но&nbsp;и&nbsp;поучаствуете в&nbsp;групповых интерактивах и сразу <strong>попробуете
 					теорию на&nbsp;практике</strong>! Это
@@ -232,11 +215,10 @@ export default {
 
 			<h3>Арт-терапия</h3>
 			<p>Онлайн-встречи, на&nbsp;которых вы
-				<strong>познакомитесь со&nbsp;своими
-					субличностями</strong>, создадите через медитацию и&nbsp;рисунок <strong>безопасного
-					места</strong>,
-				которое может стать вашим новым местом силы и&nbsp;появиться в&nbsp;вашей Вселенной, 
-				а&nbsp;также найдете связь со&nbsp;своим внутренним Творцом.
+				<strong>познакомитесь с&nbsp;внутренним
+					самозванцем</strong>, чтобы снять оковы
+				творческих ограничений и&nbsp;создадите через медитацию и&nbsp;рисунок <strong>безопасного места</strong>,
+				которое может стать вашим новым местом силы и&nbsp;появиться в&nbsp;вашей Вселенной
 			</p>
 		</FlyingText>
 
@@ -274,8 +256,7 @@ export default {
 				1 неделя
 			</h5>
 			<p>Населяем ваш мир существами<br>
-				На этой неделе речь пойдет о персонажах. Вы поймете, кто живет в вашем мире, как они выглядят, как
-				чувствуют
+				На этой неделе речь пойдет о персонажах. Вы поймете, кто живет в вашем мире, как они выглядят, как чувствуют
 				и
 				действуют, и перенесете их на бумагу (или на планшет :))</p>
 
@@ -288,8 +269,7 @@ export default {
 				1 неделя
 			</h5>
 			<p>Смотрим на мир свысока и рисуем его карту<br>
-				На этой неделе вы расскажете об истории своего мира и подготовите почву для его дальнейшего развития.
-			</p>
+				На этой неделе вы расскажете об истории своего мира и подготовите почву для его дальнейшего развития.</p>
 
 			<p><em>Для тарифа Волшебник: Продумываем и во всех деталях создаём одну из сцен, которую прописывали в
 					сюжете.</em>
@@ -314,7 +294,7 @@ export default {
 
 		<Authors heading="Авторы и эксперты курса"></Authors>
 
-		<Gallery :images="images" heading="Кусочки вселенных участников" type="slider"></Gallery>
+		<Gallery :images="images" heading="Миры наших выпускников" type="slider"></Gallery>
 
 		<Gallery :images="testimonials" heading="Отзывы выпускников" type="stack"></Gallery>
 
@@ -327,34 +307,18 @@ export default {
 <style lang="scss">
 .course {
 	padding: 0 (calc(var(--base-padding) / 2));
-
-	&>h2 {
-		@media (min-width: 64rem) {
-			font-size: 2.7rem;
-		}
-
-		@media (min-width: 80rem) {
-			font-size: 3rem;
-		}
-	}
 }
 
 .course,
 .text {
 	&>h2 {
 		// max-width: 42rem;
-		margin-inline: auto;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 3em;
+		font-size: 2em;
+		line-height: 1;
 		text-align: center;
-	}
-}
-
-.text {
-	&>h2 {
-		// max-width: 42rem;
-		@media (max-width: 63.000005rem) {
-			font-size: 1.8em;
-		}
-		
 	}
 }
 
@@ -402,8 +366,7 @@ h3 {
 	font-size: .9em;
 
 	@media (min-width: 64rem) {
-		max-inline-size: 80%;
-		font-size: .7em;
+		font-size: .8em;
 	}
 }
 
@@ -418,7 +381,7 @@ h3 {
 		transform: translateY(calc(var(--base-padding) + 100%));
 
 		&:hover {
-			opacity: 1 !important;
+			opacity: 1!important;
 		}
 
 		&.is-visible {
@@ -430,22 +393,22 @@ h3 {
 
 @keyframes button-transparency {
 	0% {
-
+		
 		transform: scale(1);
 	}
 
 	45% {
-
+		
 		transform: scale(1);
 	}
 
 	50% {
-
+		
 		transform: scale(1.05);
 	}
 
 	65% {
-
+		
 		transform: scale(1);
 	}
 }

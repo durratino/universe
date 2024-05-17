@@ -18,8 +18,8 @@ export default {
 		</h3>
 		<h4 class="program-subtitle">
 			<span v-if="!item.durationWizard">{{ item.durationDreamer }}</span>
-			<span v-if="item.durationWizard">Мечтатель: {{ item.durationDreamer }}</span>
-			<span v-if="item.durationWizard">Исследователь: {{ item.durationWizard }}</span>
+			<span v-if="item.durationWizard">Волшебник: {{ item.durationDreamer }}</span>
+			<span v-if="item.durationWizard">Искатель: {{ item.durationWizard }}</span>
 		</h4>
 	</header>
 	<div class="program-text">
@@ -37,7 +37,7 @@ export default {
 		<ul v-if="item.objective && item.objective.length">
 			<li v-for="exercise in item.objective" class="highlight">{{ exercise }}</li>
 		</ul>
-		<h4 v-if="item.wizard && item.wizard.length">Для тарифа Исследователь:</h4>
+		<h4 v-if="item.wizard && item.wizard.length">Для тарифа Искатель:</h4>
 		<ul v-if="item.wizard && item.wizard.length">
 			<li v-for="exercise in item.wizard">{{ exercise }}</li>
 		</ul>

@@ -37,7 +37,7 @@ export default {
 <template>
 	<section class="banner">
 		<div class="banner-media">
-			<CloudinaryImage image="universe/banner_nbtczh" :width="imageWidth" :height="imageHeight"></CloudinaryImage>
+			<CloudinaryImage :image="image" :width="imageWidth" :height="imageHeight"></CloudinaryImage>
 		</div>
 		<div class="banner-text">
 			<slot></slot>
@@ -51,12 +51,19 @@ export default {
 	flex-direction: column;
 	width: 100vw;
 	margin-left: calc((100vw - 100%) / (-2));
-	margin-top: var(--margin, 0);
 
 	@media (min-width: 64rem) {
 		height: 100vh;
 		flex-direction: row;
-		align-items: center;
+		font-size: 1.35rem;
+	}
+
+	@media (min-width: 80rem) {
+		font-size: 1.5rem;
+	}
+
+	&:first-child {
+		margin-top: var(--margin, 0);
 	}
 
 	&-media {
@@ -68,7 +75,6 @@ export default {
 			max-height: 100%;
 		}
 
-
 		img {
 			object-fit: cover;
 			width: 100%;
@@ -77,21 +83,45 @@ export default {
 	}
 
 	&-text {
-		padding: var(--base-padding) var(--base-padding) 0;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		padding: var(--base-padding);
+		background: rgba(var(--color-accent-rgb), 0.15);
 
-		@media (min-width: 64rem) {
-			padding: var(--base-padding);
+		:where(.is-text-left) & {
+			@media (min-width: 64rem) {
+				order: -1;
+			}
 		}
 
-		h1 {
-			margin: 0 0 .6em;
-			font-size: 3em;
+		&>h1 {
+			margin: auto 0 0;
+			font-size: 2.5em;
+
+			@media (min-width: 80rem) {
+				font-size: 3.5em;
+			}
+
+			&+h2 {
+				margin: 0 0 0 .5em;
+				font-size: .9em;
+			}
 		}
 
-		h2 {
+		h3 {
 			margin: 1.5em 0;
 			text-align: left;
-			font-size: 1.5em;
+			font-size: 1.2em;
+		}
+
+		:where(.buttons) {
+			margin-block-start: auto;
+			;
+		}
+
+		:where(li) {
+			margin-block-start: .7em;
 		}
 	}
 }

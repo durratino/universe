@@ -18,7 +18,7 @@ export default {
 
 		<Reason image="chuder" author="Лена @kolenkfilm">
 			<h4>
-				...чтобы по-настоящему узнать себя как&nbsp;творца, увидеть свою самобытность и&nbsp;услышать свой голос
+				...чтобы увидеть свою самобытность и&nbsp;по-настоящему полюбить себя как&nbsp;творца
 			</h4>
 
 			<template #quote>
@@ -95,6 +95,10 @@ export default {
 		gap: calc(var(--base-padding) * 6);
 		padding: 0 calc(var(--base-padding) * 3);
 		font-size: 1em;
+	}
+
+	h2 + & {
+		margin-block-start: 4em;
 	}
 
 	h4 {
