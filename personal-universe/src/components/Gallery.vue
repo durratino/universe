@@ -46,6 +46,11 @@ export default {
 	mounted() {
 		this.setGalleryPosition();
 	},
+	computed: {
+		imageHeight() {
+			return window.innerWidth > 767 ? 'auto' : Math.floor(window.innerWidth * 3 / 4);
+		}
+	},
 	components: { CloudinaryImage }
 };
 
@@ -61,10 +66,10 @@ export default {
 				clickable: true
 			}" :navigation="true" :breakpoints="{
 	768: {
-		slidesPerView: 3,
+		slidesPerView: 2,
 	},
 	1200: {
-		slidesPerView: 4
+		slidesPerView: 3
 	}
 }">
 
