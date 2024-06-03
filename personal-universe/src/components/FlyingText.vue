@@ -21,7 +21,7 @@ export default {
 .text {
 	.course>& {
 		// max-width: 42rem;
-		margin: var(--base-padding) auto;
+		margin: calc(var(--base-padding) * 1.5) auto;
 		font-size: 1.15rem;
 
 		@media (min-width: 64rem) {
@@ -40,7 +40,7 @@ export default {
 	}
 
 	&:where(.is-highlight) {
-		min-height: 100svh;
+		// min-height: 100svh;
 		display: flex;
 		flex-direction: column;
 		align-items: center;

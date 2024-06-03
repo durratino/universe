@@ -84,9 +84,10 @@ export default {
 
 	&-text {
 		display: flex;
+		flex-grow: 1;
 		flex-direction: column;
 		justify-content: center;
-		padding: var(--base-padding);
+		padding: calc(var(--base-padding) * 1.5) var(--base-padding);
 		background: rgba(var(--color-accent-rgb), 0.15);
 
 		:where(.is-text-left) & {
@@ -107,6 +108,10 @@ export default {
 				margin: 0 0 0 .5em;
 				font-size: .9em;
 			}
+		}
+
+		h2 {
+			margin-bottom: 0;
 		}
 
 		h3 {

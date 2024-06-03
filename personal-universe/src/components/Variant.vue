@@ -40,7 +40,7 @@ export default {
 			<h3>
 				{{ name }}
 			</h3>
-			<h4 class="variant-subtitle">
+			<h4 class="variant-subtitle" v-if="duration">
 				длительность: {{ duration }}
 
 			</h4>

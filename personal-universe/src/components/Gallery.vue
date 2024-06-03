@@ -48,7 +48,7 @@ export default {
 	},
 	computed: {
 		imageHeight() {
-			return window.innerWidth > 767 ? 'auto' : Math.floor(window.innerWidth * 3 / 4);
+			return Math.floor(window.innerWidth * 3 / 4);
 		}
 	},
 	components: { CloudinaryImage }
@@ -65,12 +65,12 @@ export default {
 			:pagination="{
 				clickable: true
 			}" :navigation="true" :breakpoints="{
-	768: {
-		slidesPerView: 2,
-	},
-	1200: {
-		slidesPerView: 3
-	}
+	// 768: {
+	// 	slidesPerView: 2,
+	// },
+	// 1200: {
+	// 	slidesPerView: 3
+	// }
 }">
 
 			<swiper-slide v-for="image in images">
@@ -100,6 +100,16 @@ swiper-container {
 	margin-left: calc((100vw - 100%) / (-2));
 	padding-bottom: 10px;
 	margin-top: var(--margin, 0);
+
+	@media (min-aspect-ratio: 4/3) {
+		height: 100vh;
+	}
+}
+
+swiper-slide {
+	@media (min-aspect-ratio: 4/3) {
+		height: 100vh;
+	}
 }
 
 h2 {
