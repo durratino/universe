@@ -33,6 +33,10 @@ export default {
 			margin: calc(var(--base-padding) * 4) auto;
 			font-size: 1.72rem;
 		}
+
+		h3 {
+			font-size: 1em;
+		}
 	}
 
 	&:where(.is-small) {
@@ -46,9 +50,6 @@ export default {
 		align-items: center;
 		justify-content: center;
 		text-align: center;
-	}
-
-	
-
+	}	
 }
 </style>

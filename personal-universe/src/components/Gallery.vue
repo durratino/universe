@@ -118,7 +118,6 @@ h2 {
 	line-height: 1;
 	margin-left: auto;
 	margin-right: auto;
-	font-size: 2em;
 	text-align: center;
 
 	.gallery--stack & {
@@ -162,9 +161,14 @@ span {
 			transform: rotate(-4deg);
 		}
 
+		&:last-child {
+			margin-bottom: 50px;
+		}
+
 		img {
 			display: block;
 			max-height: calc(100vh - 200px);
+			border-radius: 4px;
 		}
 
 		span {

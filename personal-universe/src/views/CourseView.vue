@@ -104,8 +104,13 @@ export default {
 			});
 
 			const closeButton = dialog.querySelector('button');
-			button.addEventListener('click', () => {
-				dialog.closeModal();
+			closeButton.addEventListener('click', () => {
+				dialog.close();
+			});
+
+			const formButton = dialog.querySelector('a[href]');
+			formButton.addEventListener('click', () => {
+				dialog.close();
 			})
 		})
 	},
@@ -153,15 +158,13 @@ export default {
 			<h2>творческий курс-путешествие</h2>
 			<h3>У каждого внутри есть своя Вселенная.<br>Как выглядит <em>твоя</em>?</h3>
 			<div class="buttons">
-				<button class="button button--cta do-open-dialog">Оставить заявку</button>
+				<button class="button button--cta do-open-dialog">Отправиться на курс</button>
 				<a href="#program" class="button">Посмотреть программу</a>
 			</div>
 			<!--  -->
 		</Banner>
 
-		<a href="https://forms.gle/JEdn86QVGE4yJrww6" target="_blank"
-			class="button button--cta do-open-dialog button--floating">
-			Записаться на курс</a>
+		<button class="button button--cta do-open-dialog button--floating">Отправиться на курс</button>
 
 		<FlyingText class="is-highlight">
 			<h2>
@@ -192,6 +195,37 @@ export default {
 
 		<!-- <Clients heading="Наш курс для тех, кто&nbsp;хочет">
 		</Clients> -->
+
+		
+
+		<Reasons heading="Но зачем вообще создавать вселенные?"></Reasons>
+
+		<Variants heading="Варианты участия в&nbsp;курсе"></Variants>
+
+		<Program heading="План нашего путешествия" />
+
+		<!-- <FlyingText class="is-small">
+			<h3>Мастермайнды</h3>
+			<p>Онлайн-встречи, где вы <strong>изучите путь героя и создание персонажей</strong>.
+				Вы&nbsp;не&nbsp;просто послушаете полезную в&nbsp;создании
+				миров информацию, но&nbsp;и&nbsp;поучаствуете в&nbsp;групповых интерактивах и сразу <strong>попробуете
+					теорию на&nbsp;практике</strong>! Это
+				сплотит вас с&nbsp;другими участниками курса, позволит почувствовать свежую творческую волну
+				и&nbsp;вдохновит на&nbsp;собственные идеи.</p>
+
+			<h3>Арт-терапия</h3>
+			<p>Онлайн-встречи, на&nbsp;которых вы
+				<strong>познакомитесь со&nbsp;своими
+					субличностями</strong>, побываете в&nbsp;своем <strong>безопасном
+					месте</strong>,
+				которое может стать вашим новым местом силы и&nbsp;появиться в&nbsp;вашей Вселенной,
+				а&nbsp;еще найдете связь со&nbsp;своим внутренним Творцом.
+			</p>
+		</FlyingText> -->
+
+		<Authors heading="Авторы и эксперты курса"></Authors>
+
+		<Gallery :images="images" heading="Вселенные участников" type="slider"></Gallery>
 
 		<FlyingText class="is-highlight">
 			<h2>«Твоя Вселенная» —<br />это курс с&nbsp;атмосферой <strong>поддержки, принятия и&nbsp;творческой
@@ -227,36 +261,6 @@ export default {
 					вы сами того захотите — месяц, год и&nbsp;целую жизнь!</strong></p> -->
 		</FlyingText>
 
-		<Reasons heading="Но зачем вообще создавать вселенные?"></Reasons>
-
-		<Program heading="План нашего путешествия" />
-
-		<FlyingText class="is-small">
-			<h3>Мастермайнды</h3>
-			<p>Онлайн-встречи, где вы <strong>изучите путь героя и создание персонажей</strong>.
-				Вы&nbsp;не&nbsp;просто послушаете полезную в&nbsp;создании
-				миров информацию, но&nbsp;и&nbsp;поучаствуете в&nbsp;групповых интерактивах и сразу <strong>попробуете
-					теорию на&nbsp;практике</strong>! Это
-				сплотит вас с&nbsp;другими участниками курса, позволит почувствовать свежую творческую волну
-				и&nbsp;вдохновит на&nbsp;собственные идеи.</p>
-
-			<h3>Арт-терапия</h3>
-			<p>Онлайн-встречи, на&nbsp;которых вы
-				<strong>познакомитесь со&nbsp;своими
-					субличностями</strong>, побываете в&nbsp;своем <strong>безопасном
-					месте</strong>,
-				которое может стать вашим новым местом силы и&nbsp;появиться в&nbsp;вашей Вселенной,
-				а&nbsp;еще найдете связь со&nbsp;своим внутренним Творцом.
-			</p>
-		</FlyingText>
-
-		<Variants heading="Варианты участия в&nbsp;курсе"></Variants>
-
-
-		<Authors heading="Авторы и эксперты курса"></Authors>
-
-		<Gallery :images="images" heading="Кусочки вселенных участников" type="slider"></Gallery>
-
 		<Gallery :images="testimonials" heading="Отзывы выпускников" type="stack"></Gallery>
 
 		<dialog>
@@ -269,10 +273,10 @@ export default {
 				вас приходить на&nbsp;курс, но&nbsp;закрепляет за&nbsp;вами место и&nbsp;стоимость участия.
 			</p>
 			<div class="buttons">
+				<button>Пока осмотрюсь здесь</button>
 				<a href="https://forms.gle/JEdn86QVGE4yJrww6" target="_blank"
 				class="button button--cta do-subscribe">Лечу заполнять анкету!
 				</a>
-				<button>Пока осмотрюсь здесь</button>
 			</div>
 			
 		</dialog>
@@ -284,43 +288,9 @@ export default {
 </template>
 
 <style lang="scss">
-dialog {
-	box-sizing: border-box;
-	border: 0;
-	position: fixed;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	width: 100vw;
-	height: 100vh;
-	padding: var(--base-padding) Max(calc((100vw - 600px) / 2), 10vw);
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	z-index: 1000;
-	color: var(--color-background);
-	background-color: var(--color-text);
-
-	&[open] {
-		display: flex;
-	}
-
-	.buttons {
-		margin-top: 2em;
-	}
-}
-
-::backdrop {
-  background-image: linear-gradient(
-    45deg,
-   var(--color-accent),
-   rgba(2,0,36,1)
-  );
-  opacity: 0.75;
-}
 
 .course {
-	padding: 0 (calc(var(--base-padding) / 2));
+	padding: 0 (calc(var(--base-padding) / 2)) 100px;
 
 	&>h2 {
 		@media (min-width: 64rem) {
@@ -343,13 +313,8 @@ dialog {
 }
 
 .text {
-	&>h2 {
-
-		// max-width: 42rem;
-		@media (max-width: 63.000005rem) {
-			font-size: 1.5em;
-		}
-
+	&>h3 {
+		font-size: 1em;
 	}
 }
 

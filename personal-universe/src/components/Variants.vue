@@ -53,7 +53,7 @@ export default {
 	<div class="priceTag">* свободно 3 места!</div>
 	<div class="links">
 		
-		<a href="https://forms.gle/JEdn86QVGE4yJrww6" target="_blank" class="button do-subscribe">Записаться на курс</a>
+		<button class="button button--cta do-open-dialog">Записаться на курс</button>
 	</div>
 </template>
 
