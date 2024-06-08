@@ -19,7 +19,7 @@ export default {
 </script>
 
 <template>
-	<h2 v-if="heading">{{ heading }}</h2>
+	<h2 v-if="heading" id="rates">{{ heading }}</h2>
 	<section class="variants">
 		<Variant name="Волшебник" duration="8 недель" price="12900 Р" priceEuro="135 €"
 			exercises="более 30 разных инструментов и практик">

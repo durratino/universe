@@ -19,7 +19,7 @@ export default {
 </script>
 
 <template>
-	<h2 v-if="heading">{{ heading }}</h2>
+	<h2 v-if="heading" id="experts">{{ heading }}</h2>
 	<section class="authors">
 
 		<Author name="Оля" position="Художник, арт-терапевт, создатель миров, проводник в творчество" description="" image="universe/olya-photo_haitwk">

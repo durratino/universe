@@ -14,6 +14,9 @@ export default {
 		type: {
 			type: String,
 			default: "slider"
+		},
+		galleryId: {
+			type: String,
 		}
 	},
 	methods: {
@@ -49,7 +52,7 @@ export default {
 	computed: {
 		imageHeight() {
 			return Math.floor(window.innerWidth * 3 / 4);
-		}
+		},
 	},
 	components: { CloudinaryImage }
 };
@@ -59,7 +62,7 @@ export default {
 
 <template>
 	<section class="gallery" :class="type === 'slider' ? 'gallery--slider' : 'gallery--stack'">
-		<h2 v-if="heading">{{ heading }}</h2>
+		<h2 v-if="heading" :id="galleryId">{{ heading }}</h2>
 
 		<swiper-container v-if="type === 'slider'" init="false" :slides-per-view="1" :spaceBetween="30" :loop="true"
 			:pagination="{
@@ -122,7 +125,7 @@ h2 {
 
 	.gallery--stack & {
 		position: sticky;
-		top: 30px;
+		top: calc(var(--base-padding) * 2);
 	}
 }
 
@@ -167,7 +170,7 @@ span {
 
 		img {
 			display: block;
-			max-height: calc(100vh - 200px);
+			max-height: calc(100vh - 250px);
 			border-radius: 4px;
 		}
 

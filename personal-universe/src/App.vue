@@ -71,10 +71,11 @@ a,
 .link {
   color: var(--color-accent);
   cursor: pointer;
-  transition: color .2s ease-in-out;
+  transition: color .5s cubic-bezier(0.19, 1, 0.21, 1);
+  text-underline-offset: .1em;
 
   &:hover {
-    color: var(--color-accent-bright);
+    color: var(--color-contrast);
   }
 }
 
@@ -124,6 +125,7 @@ button,
   background: transparent;
   cursor: pointer;
   transition: all .3s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: background-color .5s cubic-bezier(0.19, 1, 0.21, 1), color .5s cubic-bezier(0.19, 1, 0.21, 1), border-color .5s cubic-bezier(0.19, 1, 0.21, 1);;
 
   &:hover {
     background: rgba(var(--color-accent-rgb), .1);
@@ -292,6 +294,27 @@ dialog {
 
     &:hover {
       color: var(--color-platinum-grey);
+    }
+  }
+
+  .closeButton {
+    position: absolute;
+    top: var(--base-padding);
+    right: var(--base-padding);
+    width: calc(var(--base-padding));
+    height: calc(var(--base-padding));
+    padding: 5px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+
+    }
+
+    &::after {
+      content: 'x';
+
     }
   }
 }

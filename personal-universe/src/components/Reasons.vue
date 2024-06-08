@@ -13,7 +13,7 @@ export default {
 </script>
 
 <template>
-	<h2 v-if="heading">{{ heading }}</h2>
+	<h2 v-if="heading" id="why">{{ heading }}</h2>
 	<section class="reasons">
 
 		<Reason image="chuder" author="Лена @kolenkfilm">

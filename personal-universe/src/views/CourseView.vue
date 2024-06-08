@@ -8,6 +8,7 @@ import Variants from '../components/Variants.vue';
 import Authors from '../components/Authors.vue';
 import Clients from '../components/Clients.vue';
 import Reasons from '../components/Reasons.vue';
+import Menu from '../components/Menu.vue';
 
 export default {
 	data() {
@@ -34,7 +35,8 @@ export default {
 		Variants,
 		Authors,
 		Clients,
-		Reasons
+		Reasons,
+		Menu
 	},
 	mounted() {
 		const swiperEls = document.querySelectorAll('swiper-container');
@@ -103,10 +105,13 @@ export default {
 				});
 			});
 
-			const closeButton = dialog.querySelector('button');
-			closeButton.addEventListener('click', () => {
-				dialog.close();
+			const closeButtons = dialog.querySelectorAll('button');
+			closeButtons.forEach(button => {
+				button.addEventListener('click', () => {
+					dialog.close();
+				});
 			});
+
 
 			const formButton = dialog.querySelector('a[href]');
 			formButton.addEventListener('click', () => {
@@ -137,6 +142,16 @@ export default {
 				{ image: 'masha' },
 
 			]
+		},
+		menuItems() {
+			return [
+				{ name: 'О курсе', href: '#about' },
+				{ name: 'Тарифы', href: '#rates' },
+				{ name: 'Программа', href: '#program' },
+				{ name: 'Эксперты', href: '#experts' },
+				{ name: 'Работы участников', href: '#projects' },
+				{ name: 'Отзывы', href: '#testimonials' },
+			]
 		}
 	},
 	methods: {
@@ -159,15 +174,17 @@ export default {
 			<h3>У каждого внутри есть своя Вселенная.<br>Как выглядит <em>твоя</em>?</h3>
 			<div class="buttons">
 				<button class="button button--cta do-open-dialog">Отправиться на курс</button>
-				<a href="#program" class="button">Посмотреть программу</a>
+				<!-- <a href="#program" class="button">Посмотреть программу</a> -->
 			</div>
 			<!--  -->
 		</Banner>
 
+		<Menu :items="menuItems"></Menu>
+
 		<button class="button button--cta do-open-dialog button--floating">Отправиться на курс</button>
 
 		<FlyingText class="is-highlight">
-			<h2>
+			<h2 id="about">
 				«Твоя Вселенная» —<br />это не курс по&nbsp;рисованию или&nbsp;писательству
 			</h2>
 			<h3>Это приглашение в&nbsp;ваш собственный мир.</h3>
@@ -196,7 +213,7 @@ export default {
 		<!-- <Clients heading="Наш курс для тех, кто&nbsp;хочет">
 		</Clients> -->
 
-		
+
 
 		<Reasons heading="Но зачем вообще создавать вселенные?"></Reasons>
 
@@ -225,12 +242,12 @@ export default {
 
 		<Authors heading="Авторы и эксперты курса"></Authors>
 
-		<Gallery :images="images" heading="Вселенные участников" type="slider"></Gallery>
+		<Gallery :images="images" heading="Вселенные участников" type="slider" galleryId="projects"></Gallery>
 
 		<FlyingText class="is-highlight">
 			<h2>«Твоя Вселенная» —<br />это курс с&nbsp;атмосферой <strong>поддержки, принятия и&nbsp;творческой
 					свободы</strong></h2>
-			<h3>Группы на нашем курсе небольшие — это&nbsp;позволяет
+			<h3>Группы на нашем курсе небольшие (до 10 человек) — это&nbsp;позволяет
 				нам ближе общаться с вами и&nbsp;погружаться в&nbsp;ваши&nbsp;миры.</h3>
 			<h3>Мы подсвечиваем ваши сильные стороны, задаем вопросы и&nbsp;подсказываем, как
 				можно развить ваши&nbsp;творения.</h3>
@@ -261,9 +278,10 @@ export default {
 					вы сами того захотите — месяц, год и&nbsp;целую жизнь!</strong></p> -->
 		</FlyingText>
 
-		<Gallery :images="testimonials" heading="Отзывы выпускников" type="stack"></Gallery>
+		<Gallery :images="testimonials" heading="Отзывы выпускников" type="stack" galleryId="testimonials"></Gallery>
 
 		<dialog>
+			<button class="closeButton"></button>
 			<h3>Послание путешественникам</h3>
 			<p>Мы набираем очень маленькую группу творцов-странников и хотим узнать наших будущих попутчиков
 				получше.</p>
@@ -275,10 +293,10 @@ export default {
 			<div class="buttons">
 				<button>Пока осмотрюсь здесь</button>
 				<a href="https://forms.gle/JEdn86QVGE4yJrww6" target="_blank"
-				class="button button--cta do-subscribe">Лечу заполнять анкету!
+					class="button button--cta do-subscribe">Лечу заполнять анкету!
 				</a>
 			</div>
-			
+
 		</dialog>
 
 	</section>
@@ -288,7 +306,6 @@ export default {
 </template>
 
 <style lang="scss">
-
 .course {
 	padding: 0 (calc(var(--base-padding) / 2)) 100px;
 
@@ -309,6 +326,12 @@ export default {
 		// max-width: 42rem;
 		margin-inline: auto;
 		text-align: center;
+	}
+}
+
+h2 {
+	&[id] {
+		scroll-margin-block-start: calc(var(--base-padding) * 2);
 	}
 }
 
