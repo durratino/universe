@@ -64,7 +64,7 @@ export default {
 	<section class="gallery" :class="type === 'slider' ? 'gallery--slider' : 'gallery--stack'">
 		<h2 v-if="heading" :id="galleryId">{{ heading }}</h2>
 
-		<swiper-container v-if="type === 'slider'" init="false" :slides-per-view="1" :spaceBetween="30" :loop="true" :centerMode="true"
+		<swiper-container v-if="type === 'slider'" init="false" :slides-per-view="1" :spaceBetween="30" :loop="true" :centerMode="true" 
 			:pagination="{
 				clickable: true
 			}" :navigation="true" :breakpoints="{
@@ -108,6 +108,8 @@ swiper-container {
 	margin-left: calc((100vw - 100%) / (-2));
 	padding-bottom: 30px;
 	margin-top: var(--margin, 0);
+	position: relative;
+	z-index: 2000000;
 }
 
 swiper-slide {
