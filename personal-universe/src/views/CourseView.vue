@@ -125,20 +125,25 @@ export default {
 			// 	.filter(result => result.image !== 'your-own' && result.image !== 'kur-cheret' && result.image !== 'north-sea')
 			// 	.map(result => { return { image: result.cloudinary, url: result.url, urlText: result.urlText } });
 			
-			const imgs = [
-				{image: "universe/noname"},
+			let imgs = [
+				{image: "universe/noname2"},
 				{image: "universe/solid"},
-				{image: "universe/ulliverse"},
+				{image: "universe/ulliverse2"},
 				{image: "universe/evomagea"},
 				{image: "universe/lunorozje"},
 				{image: "universe/salamjarrn"},
-				{image: "universe/alenis"},
+				{image: "universe/alenis2"},
 				{image: "universe/foreston"},
 				{image: "universe/nineislands"},
 				{image: "universe/magicplants"},
+				{image: "universe/ptichka"},
 			];
 			
-				return this.shuffleArray(imgs);
+				imgs = this.shuffleArray(imgs);
+				imgs.push({image: "universe/kolenkfilm"});
+
+				return imgs;
+
 		},
 		testimonials() {
 			return [
