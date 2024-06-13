@@ -52,17 +52,17 @@ export default {
 --swiper-pagination-bullet-inactive-color: #58A4B0;
 --swiper-navigation-color: #58A4B0;
 --swiper-navigation-sides-offset: 5px;
---swiper-navigation-size: 1.5rem;
+--swiper-navigation-size: 1.2rem;
 }
 .swiper-button-next,
 .swiper-button-prev {
 	background: white;
     padding: 5px;
     border-radius: 15px;
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
 	font-weight: bold;
-	opacity: .8;
+	opacity: .5;
 	transition: opacity .1s cubic-bezier(0.075, 0.82, 0.165, 1);
 	cursor: pointer;
 }
@@ -121,10 +121,24 @@ export default {
 	},
 	computed: {
 		images() {
-			const imgs = results
-				.filter(result => result.image !== 'your-own' && result.image !== 'kur-cheret' && result.image !== 'north-sea')
-				.map(result => { return { image: result.cloudinary, url: result.url, urlText: result.urlText } });
-			return this.shuffleArray(imgs);
+			// const imgs = results
+			// 	.filter(result => result.image !== 'your-own' && result.image !== 'kur-cheret' && result.image !== 'north-sea')
+			// 	.map(result => { return { image: result.cloudinary, url: result.url, urlText: result.urlText } });
+			
+			const imgs = [
+				{image: "universe/noname"},
+				{image: "universe/solid"},
+				{image: "universe/ulliverse"},
+				{image: "universe/evomagea"},
+				{image: "universe/lunorozje"},
+				{image: "universe/salamjarrn"},
+				{image: "universe/alenis"},
+				{image: "universe/foreston"},
+				{image: "universe/nineislands"},
+				{image: "universe/magicplants"},
+			];
+			
+				return this.shuffleArray(imgs);
 		},
 		testimonials() {
 			return [

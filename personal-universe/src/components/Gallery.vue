@@ -51,7 +51,7 @@ export default {
 	},
 	computed: {
 		imageHeight() {
-			return Math.floor(window.innerWidth * 3 / 4);
+			return Math.floor(window.innerWidth * 9 / 16);
 		},
 	},
 	components: { CloudinaryImage }
@@ -64,7 +64,7 @@ export default {
 	<section class="gallery" :class="type === 'slider' ? 'gallery--slider' : 'gallery--stack'">
 		<h2 v-if="heading" :id="galleryId">{{ heading }}</h2>
 
-		<swiper-container v-if="type === 'slider'" init="false" :slides-per-view="1" :spaceBetween="30" :loop="true"
+		<swiper-container v-if="type === 'slider'" init="false" :slides-per-view="1" :spaceBetween="30" :loop="true" :centerMode="true"
 			:pagination="{
 				clickable: true
 			}" :navigation="true" :breakpoints="{
@@ -78,9 +78,14 @@ export default {
 
 			<swiper-slide v-for="image in images">
 				<CloudinaryImage :image="image.image" :width="imageWidth" :height="imageHeight"></CloudinaryImage>
-				<span v-if="image.urlText">{{ image.urlText }}</span>
+				<!-- <span v-if="image.urlText">{{ image.urlText }}</span> -->
 			</swiper-slide>
 		</swiper-container>
+
+		<div class="links"  v-if="type === 'slider'" >
+				<a href="https://drive.google.com/drive/folders/1jFYMCyQ8-3KfjPgzRIf6SDUnbW7rmw3F?usp=drive_link" target="_blank">Полистать презентации</a>
+				<a href="https://www.youtube.com/watch?v=ls3Vldmwu-0&list=PLMV62AbhrfBCIdIEW8GVxGVDspSlQAgea" target="_blank">Посмотреть выпускные</a>
+			</div>
 
 		<div v-if="type === 'stack'" class="gallery-stack">
 			<div class="gallery-stack-slide" v-for="image in images">
@@ -101,18 +106,26 @@ export default {
 swiper-container {
 	width: 100vw;
 	margin-left: calc((100vw - 100%) / (-2));
-	padding-bottom: 10px;
+	padding-bottom: 30px;
 	margin-top: var(--margin, 0);
-
-	@media (min-aspect-ratio: 4/3) {
-		height: 100vh;
-	}
 }
 
 swiper-slide {
 	@media (min-aspect-ratio: 4/3) {
-		height: 100vh;
+		aspect-ratio: 16/9;
+		overflow: hidden;
 	}
+
+	img {
+		aspect-ratio: 16/9;
+		object-fit: cover;
+	}
+}
+
+.links {
+	margin-block: 1.5em 5em;
+	gap: 2em;
+	flex-direction: row;
 }
 
 h2 {
