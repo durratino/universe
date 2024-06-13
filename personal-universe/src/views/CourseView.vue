@@ -182,7 +182,7 @@ export default {
 
 <template>
 	<section class="course">
-		<Banner image="universe/banner_nbtczh">
+		<Banner image="universe/siren">
 			<h1>Твоя Вселенная</h1>
 			<h2>творческий курс-путешествие</h2>
 			<h3>У каждого внутри есть своя Вселенная.<br>Как выглядит <em>твоя</em>?</h3>
@@ -207,7 +207,7 @@ export default {
 			<h3>Через творчество — к&nbsp;самим&nbsp;себе.</h3>
 		</FlyingText>
 
-		<Banner image="universe/tent" class="is-text-left">
+		<Banner image="universe/auzi" class="is-text-left">
 			<h2>На курсе вы</h2>
 			<ul>
 				<li>научитесь <strong>объединять самые разные увлечения и&nbsp;интересы</strong> общей идеей
