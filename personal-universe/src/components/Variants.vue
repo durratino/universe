@@ -50,7 +50,7 @@ export default {
 
 
 	</section>
-	<div class="priceTag">* свободно 3 места!</div>
+	<div class="priceTag">* свободно 2 места!</div>
 	<div class="links">
 		
 		<button class="button button--cta do-open-dialog">Записаться на курс</button>
