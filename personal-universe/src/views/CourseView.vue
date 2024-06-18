@@ -237,9 +237,6 @@ export default {
 
 		<Variants heading="Варианты участия в&nbsp;курсе"></Variants>
 
-		<Clients heading="Наш курс для тех, кто&nbsp;хочет">
-		</Clients>
-
 		<Program heading="План нашего путешествия" />
 
 		<!-- <FlyingText class="is-small">
