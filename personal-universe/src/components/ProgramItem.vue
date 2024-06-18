@@ -75,8 +75,13 @@ header {
 	}
 
 	img {
-		max-width: calc(100% + var(--base-padding) * 2);
-		margin: calc(-1 * var(--base-padding)) calc(-1 * var(--base-padding)) var(--base-padding);
+		max-width: calc(100% + var(--base-padding));
+		margin: calc(-1 * var(--base-padding) / 2) calc(-1 * var(--base-padding) / 2) var(--base-padding);
+
+		@media (min-width: 64rem) {
+			max-width: calc(100% + var(--base-padding) * 2);
+			margin: calc(-1 * var(--base-padding)) calc(-1 * var(--base-padding)) var(--base-padding);
+		}
 	}
 }
 
