@@ -6,12 +6,23 @@ export default {
 			required: true
 		},
 	},
+	computed: {
+		imageSrc() {
+			try {
+				const url = new URL(`../assets/images/${this.item.image}.jpg`, import.meta.url).href;
+				return url;
+			} catch (error) {
+				console.error(error)
+				return '';
+			}
+		}
+	}
 }
 </script>
 
 <template>
 	<header>
-		<!-- <img v-if="image" src="imageSrc" alt=""> -->
+		<img :src="imageSrc" loading="lazy">
 		<h3>
 			<span>{{ item.block }}:</span>
 			{{ item.name }}
@@ -61,6 +72,11 @@ header {
 		width: 100px;
 		border: dotted var(--color-accent);
 		border-width: 3px 0 0 0;
+	}
+
+	img {
+		max-width: calc(100% + var(--base-padding) * 2);
+		margin: calc(-1 * var(--base-padding)) calc(-1 * var(--base-padding)) var(--base-padding);
 	}
 }
 

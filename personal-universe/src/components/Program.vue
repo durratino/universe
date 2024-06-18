@@ -25,6 +25,7 @@ export default {
 					wizard: [
 						'ОНЛАЙН-ВСТРЕЧА: Арт-терапевтическая практика 4 метафорических автопортрета'
 					],
+					image: 'chapter0'
 				},
 				{
 					name: 'Начало путешествия',
@@ -44,7 +45,8 @@ export default {
 					objective: [
 						'Автопортрет',
 						'Словарик автопортрета'
-					]
+					],
+					image: 'chapter1'
 				},
 				{
 					name: 'Осмотр достопримечательностей',
@@ -65,7 +67,8 @@ export default {
 					objective: [
 						'Глазами путешественника',
 						'Портрет местности'
-					]
+					],
+					image: 'chapter2'
 				},
 				{
 					name: 'Знакомство с местными жителями',
@@ -81,7 +84,8 @@ export default {
 					objective: [
 						'Персонажи',
 						'Лаборатория характера'
-					]
+					],
+					image: 'chapter3'
 				},
 				{
 					name: 'Полет на облаке',
@@ -99,7 +103,8 @@ export default {
 					objective: [
 						'Карта',
 						'Слово Создателя'
-					]
+					],
+					image: 'chapter4'
 				},
 				{
 					name: 'Разбор фотокарточек',
@@ -110,6 +115,7 @@ export default {
 						'МАСТЕР-КЛАСС: Организация вселенной',
 						'ВЫПУСКНЫЕ Твоей Вселенной'
 					],
+					image: 'chapter5'
 				}
 			]
 		}
@@ -199,6 +205,7 @@ swiper-slide {
 	padding: calc(var(--base-padding) / 2);
 	border: 2px solid var(--color-accent);
 	border-radius: calc(var(--base-padding) / 2);
+	overflow: hidden;
 
 	@media (min-width: 64rem) {
 		padding: var(--base-padding);

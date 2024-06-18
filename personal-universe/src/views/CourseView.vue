@@ -229,14 +229,16 @@ export default {
 			</ul>
 		</Banner>
 
-		<!-- <Clients heading="Наш курс для тех, кто&nbsp;хочет">
-		</Clients> -->
+		
 
 
 
 		<Reasons heading="Но зачем вообще создавать вселенные?"></Reasons>
 
 		<Variants heading="Варианты участия в&nbsp;курсе"></Variants>
+
+		<Clients heading="Наш курс для тех, кто&nbsp;хочет">
+		</Clients>
 
 		<Program heading="План нашего путешествия" />
 
