@@ -107,8 +107,8 @@ export default {
 	<form @submit.prevent="sendGuessing">
 		<article>
 			<p v-if="isFormLocked">
-				Кажется, твои ответы уже есть в&nbsp;нашей копилочке предсказаний. 
-				Можешь еще раз посмотреть на&nbsp;них и&nbsp;зменить при&nbsp;желании :)
+				Кажется, твои ответы уже есть в&nbsp;нашей копилочке предсказаний.
+				Можешь еще раз посмотреть на&nbsp;них и&nbsp;изменить при&nbsp;желании :)
 			</p>
 			<picture>
 				<CloudinaryImage image="baby" :width=300 :height=300 />
@@ -165,8 +165,11 @@ article {
 	}
 
 	&>p {
-		grid-column: span 2;
 		margin-block-start: 0;
+
+		@container (min-width: 48rem) {
+			grid-column: span 2;
+		}
 	}
 
 	img {
@@ -176,25 +179,41 @@ article {
 
 .info {
 	display: grid;
-	gap: .7em;
+	gap: 1.5em;
+
+	@container (min-width: 48rem) {
+		gap: .7em;
+	}
 }
 
 label {
 	display: flex;
-	align-items: center;
+	flex-direction: column;
 	gap: .5em;
 	margin: 0;
+
+	@container (min-width: 48rem) {
+		flex-direction: row;
+		align-items: center;
+	}
 
 	span {
 		inset-block-start: 0;
 		z-index: 1;
-		font-size: .75em;
+		font-size: .9em;
+
+		@container (min-width: 48rem) {
+			font-size: .7em;
+		}
 	}
 
 	&:has(textarea) {
 		flex-direction: column;
 		align-items: stretch;
-		grid-column: span 2;
+
+		@container (min-width: 48rem) {
+			grid-column: span 2;
+		}
 
 		div {
 			display: grid;
@@ -241,7 +260,7 @@ label {
 
 		&[disabled] {
 			background-color: transparent;
-			color: oklch(from var(--color-violet) l c h / 0.5);
+			color: oklch(from var(--color-violet) l c h / 0.7);
 			border: 0;
 		}
 	}
@@ -304,7 +323,10 @@ label {
 }
 
 .button {
-	grid-column: span 2;
 	padding: 0;
+
+	@container (min-width: 48rem) {
+		grid-column: span 2;
+	}
 }
 </style>

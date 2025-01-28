@@ -49,8 +49,8 @@ export default {
 			предположения.
 		</p>
 		<p>
-			После рождения малыша здесь появится карточка с&nbsp;твоими предположениями и&nbsp;реальными
-			данными о&nbsp;малыше. Можно будет посмотреть, насколько близки были твои догадки!
+			После рождения малыша здесь появится карточка с&nbsp;реальными
+			данными о&nbsp;малыше, и&nbsp;можно будет посмотреть, насколько близки были твои догадки!
 		</p>
 	</header>
 	<section class="baby">
@@ -68,12 +68,13 @@ export default {
 		<Ultrasound />
 	</section>
 	<section class="third">
-		<h3>Зацепка #3: Подготовка к прибытию космонавтика</h3>
+		<h3>Зацепка #3: Подготовка к&nbsp;прибытию космонавтика</h3>
 		<Preparations />
 	</section>
 </template>
 
 <style lang="scss">
+@import url('https://fonts.googleapis.com/css2?family=Neucha&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Yomogi&display=swap');
 body:has(.baby) {
 	--color-white: oklch(100% 0 0);
 	--color-grey: oklch(70% 0 0);
@@ -96,6 +97,12 @@ body:has(.baby) {
 	main {
 		inline-size: 96vw;
 		max-inline-size: 120rem;
+		font-family: 'Nunito', sans-serif;
+
+		&>section {
+			container: section / inline-size;
+			margin-block: 4em;
+		}
 	}
 
 	header {
@@ -104,12 +111,19 @@ body:has(.baby) {
 
 	}
 
-	section {
-		container: section / inline-size;
+	h1,
+	h2,
+	h4 {
+		font-family: 'Neucha', sans-serif;
+	}
 
-		&+section {
-			margin-block-start: 4em;
-		}
+	h1, h2 {
+		letter-spacing: .1em;
+	}
+
+	h3 {
+		font-family: 'Nunito', sans-serif;
+		font-weight: 500;
 	}
 
 	h1 {
