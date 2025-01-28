@@ -17,6 +17,10 @@ export default {
 			type: String,
 			required: true
 		},
+		aspectRatio: {
+			type: Number,
+			default: undefined
+		},
 		width: {
 			type: Number,
 			default: window.innerWidth
@@ -33,14 +37,16 @@ export default {
 
 	data() {
 		return {
-			myImg: null
+			myImg: null,
+			currentHeight: this.height
 		}
 	},
 
 	created() {
 		this.myImg = cld.image(this.image);
+		this.currentHeight = Math.round(this.aspectRatio ? this.width / this.aspectRatio : this.height);
 		this.myImg
-			.resize(fill().width(this.width).height(this.height))
+			.resize(fill().width(this.width).height(this.currentHeight))
 			.delivery(dpr(2))
 	}
 }

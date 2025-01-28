@@ -11,6 +11,7 @@
     "@cloudinary/url-gen": "^1.10.0",
     "@cloudinary/vue": "^1.11.2",
     "@vueuse/head": "^1.1.23",
+    "firebase": "^11.2.0",
     "swiper": "^9.2.3",
     "vue": "^3.2.47",
     "vue-router": "^4.1.6"

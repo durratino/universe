@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import BabyView from '../views/BabyView.vue'
 import CourseView from '../views/CourseView.vue'
 import TestView from '../views/TestView.vue'
 import Result from '../components/Result.vue'
@@ -76,7 +76,12 @@ const router = createRouter({
           },
         ]
       }
-    }
+    },
+    {
+      path: '/baby',
+      name: 'baby',
+      component: BabyView
+    },
   ]
 })
 

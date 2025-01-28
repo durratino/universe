@@ -1,0 +1,38 @@
+[
+	{
+		"photo": "ultrasound",
+		"photoRatio": 1,
+		"date": "26/06/2024",
+		"babyAge": "7 недель 3 дня",
+		"babyWeight": null,
+		"babySize": 0.91,
+		"babySizeMethod": "от затылка до копчика"
+	},
+	{
+		"photo": "ultrasound2",
+		"photoRatio": 0.5625,
+		"date": "18/07/2024",
+		"babyAge": "10 недель 4 дня",
+		"babyWeight": null,
+		"babySize": 3.6,
+		"babySizeMethod": "от затылка до копчика"
+	},
+	{
+		"photo": "ultrasound3",
+		"photoRatio": 1,
+		"date": "18/09/2024",
+		"babyAge": "19 недель 3 дня",
+		"babyWeight": 286,
+		"babySize": 20,
+		"babySizeMethod": "от затылка до пяток"
+	},
+	{
+		"photo": null,
+		"photoRatio": null,
+		"date": "20/01/2025",
+		"babyAge": "37 недель 1 день",
+		"babyWeight": 3095,
+		"babySize": 50.2,
+		"babySizeMethod": "от затылка до пяток"
+	}
+]

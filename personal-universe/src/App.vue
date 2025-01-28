@@ -1,5 +1,4 @@
 <script>
-import { RouterLink, RouterView } from 'vue-router';
 import { register } from 'swiper/element/bundle';
 
 register();
@@ -128,7 +127,7 @@ button,
   transition: background-color .5s cubic-bezier(0.19, 1, 0.21, 1), color .5s cubic-bezier(0.19, 1, 0.21, 1), border-color .5s cubic-bezier(0.19, 1, 0.21, 1);;
 
   &:hover {
-    background: rgba(var(--color-accent-rgb), .1);
+    background-color: oklch(from var(--color-accent) l c h / 0.1);
     border-color: var(--color-accent);
     color: var(--color-accent);
   }

@@ -1,0 +1,28 @@
+{
+	"persons": [
+		{
+			"id": 1,
+			"role": "мама",
+			"name": "Оля",
+			"photo": "oly",
+			"photo_baby": "oly_baby2",
+			"birthDate": "1993-03-21T23:50:00",
+			"height": 55,
+			"weight": 3775,
+			"eyeColor": "карие",
+			"hairColor": "темно-шоколадные"
+		},
+		{
+			"id": 2,
+			"role": "папа",
+			"name": "Сева",
+			"photo": "seva",
+			"photo_baby": "seva_baby2",
+			"birthDate": "1993-08-23T23:50:00",
+			"height": 55,
+			"weight": 3850,
+			"eyeColor": "серо-зелено-голубые",
+			"hairColor": "когда-то рыжие, теперь отсутствующие"
+		}
+	]
+}
