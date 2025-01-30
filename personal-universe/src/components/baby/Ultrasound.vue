@@ -16,7 +16,26 @@ export default {
 			currentMeasurements,
 			imageWidth: window.innerWidth > 1920 ? 750 : window.innerWidth < 880 ? window.innerWidth : Math.round(window.innerWidth / 41 * 16),
 		};
-	}
+	},
+	methods: {
+		showUltrasoundInfo() {
+			const images = document.querySelectorAll('.ultrasound-image');
+			const threshold = window.innerHeight * 0.05;
+			const isMobile = window.innerWidth < 880;
+			images.forEach((image, i) => {
+				const rect = image.getBoundingClientRect();
+				setTimeout(() => {
+					if (rect.bottom >= 0 && rect.bottom <= window.innerHeight - threshold) {
+						image.classList.add('is-active');
+					}
+				}, isMobile ? 0 : i * 600);
+			});
+		}
+	},
+	mounted() {
+		this.showUltrasoundInfo();
+		window.addEventListener('scroll', this.showUltrasoundInfo);
+	},
 };
 </script>
 
@@ -37,7 +56,7 @@ export default {
 			<p>
 				<span>Вес: {{ currentMeasurements.babyWeight }}г</span>
 				<span>Рост: {{ currentMeasurements.babySize }}см</span>
-				<span>Предполагаемая дата рождения: 9 февраля 2025</span>
+				<span>Предполагаемая дата рождения: 9&nbsp;февраля&nbsp;2025</span>
 			</p>
 		</div>
 	</div>
@@ -81,11 +100,19 @@ export default {
 		}
 
 		&-info {
+			&>* {
+				opacity: 0;
+				transition: opacity cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s;
+			}
+
+			.is-active & {
+				&>* {
+					opacity: 1;
+				}
+			}
+
 			h4 {
 				position: absolute;
-				// inset-block-start: .7em;
-				// inset-inline-start: 50%;
-				// transform: translateX(-50%);
 				inset-block-end: calc(1.5em + 1lh);
 				inset-inline-end: .9em;
 				inline-size: max-content;
@@ -119,11 +146,13 @@ export default {
 				&:nth-of-type(1) {
 					inset-block-end: 1em;
 					inset-inline-end: 1em;
+					transition-delay: .1s;
 				}
 
 				&:nth-of-type(2) {
 					inset-block-start: 63%;
 					inset-inline-end: 2em;
+					transition-delay: .3s;
 
 					.ultrasound-image:nth-child(2) & {
 						inset-block-start: 29%;
@@ -143,6 +172,7 @@ export default {
 				&:nth-of-type(3) {
 					inset-block-end: 2em;
 					inset-inline-start: 2em;
+					transition-delay: .5s;
 				}
 			}
 		}
@@ -159,6 +189,7 @@ export default {
 
 			@container (min-width: 48rem) {
 				flex-direction: row;
+				align-items: center;
 			}
 
 			span {
@@ -178,6 +209,9 @@ export default {
 			flex-direction: column;
 			gap: 1em;
 			margin: 0;
+			padding: .1em .3em;
+			background-color: oklch(from var(--color-white) l c h / 0.8);
+			border-radius: .3em;
 			font-size: 1.5em;
 
 			@container (min-width: 48rem) {

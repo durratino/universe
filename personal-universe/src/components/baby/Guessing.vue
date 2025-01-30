@@ -158,7 +158,7 @@ article {
 	margin: auto;
 	padding: 2em;
 	border-radius: 1em;
-	background-color: var(--color-white);
+	background-color: oklch(from var(--color-white) l c h / 0.8);
 
 	@container (min-width: 48rem) {
 		grid-template-columns: 300px 1fr;
@@ -247,6 +247,7 @@ label {
 		accent-color: var(--color-accent);
 		font: inherit;
 		color: var(--color-violet);
+		background: transparent;
 
 		&:focus {
 			outline: none;

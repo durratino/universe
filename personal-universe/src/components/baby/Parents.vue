@@ -28,21 +28,15 @@ export default {
 			const parents = document.querySelectorAll('.parent');
 			const threshold = window.innerHeight * 0.05;
 			const isMobile = window.innerWidth < 880;
-			parents.forEach(parent => {
+			parents.forEach((parent, i) => {
 				const rect = parent.getBoundingClientRect();
-				if (isMobile) {
-					if (rect.bottom >= threshold && rect.bottom <= window.innerHeight) {
+				setTimeout(() => {
+					if (rect.bottom >= 0 && rect.bottom <= window.innerHeight - threshold) {
 						parent.classList.add('is-active');
 					} else {
 						parent.classList.remove('is-active');
 					}
-				} else {
-					if (rect.top >= threshold && rect.bottom <= window.innerHeight - threshold) {
-						parent.classList.add('is-active');
-					} else {
-						parent.classList.remove('is-active');
-					}
-				}
+				}, isMobile ? 0 : i * 600);
 			});
 		}
 	}
@@ -98,6 +92,7 @@ export default {
 
 .parent {
 	position: relative;
+	cursor: pointer;
 
 	&:nth-child(1) {
 		@container (min-width: 48rem) {
@@ -118,39 +113,21 @@ export default {
 					}
 				}
 			}
-
-
 		}
 	}
 
 	&:nth-child(2) {
 		@container (min-width: 48rem) {
 			grid-column: 14 / 19;
-
-			&.is-active {
-				.parent-details p {
-					&:nth-of-type(1) {
-						transition-delay: 1.2s;
-					}
-
-					&:nth-of-type(2) {
-						transition-delay: .9s;
-					}
-
-					&:nth-of-type(3) {
-						transition-delay: .7s;
-					}
-				}
-
-				.parent-photo_baby  {
-					transition-delay: .6s;
-				}
-			}
 		}
 	}
 
-	&:hover,
 	&.is-active {
+		&:hover {
+			.parent-photo_baby {
+				opacity: 0;
+			}
+		}
 
 		.parent-photo_baby,
 		.parent-details p {

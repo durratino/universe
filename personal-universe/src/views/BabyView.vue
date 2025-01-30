@@ -7,6 +7,7 @@ import Guessing from "../components/baby/Guessing.vue";
 import Parents from "../components/baby/Parents.vue";
 import Ultrasound from "../components/baby/Ultrasound.vue";
 import Preparations from "../components/baby/Preparations.vue";
+import Sponsorship from "../components/baby/Sponsorship.vue";
 
 export default {
 	data() {
@@ -21,7 +22,8 @@ export default {
 		Guessing,
 		Parents,
 		Ultrasound,
-		Preparations
+		Preparations,
+		Sponsorship
 	},
 
 	async mounted() {
@@ -45,19 +47,20 @@ export default {
 		<p>
 			Привет! Ты оказался на этой страничке, а&nbsp;значит, нам очень любопытно, как ты
 			представляешь себе нашего малыша. Если тебе интересно поучаствовать в&nbsp;этой
-			странноватой игре, заполни форму ниже и&nbsp;отправь нам свои
+			игре, заполни форму ниже и&nbsp;отправь нам свои
 			предположения.
 		</p>
 		<p>
-			После рождения малыша здесь появится карточка с&nbsp;реальными
-			данными о&nbsp;малыше, и&nbsp;можно будет посмотреть, насколько близки были твои догадки!
+			После рождения здесь появится карточка с&nbsp;реальными
+			данными о&nbsp;малыше, и&nbsp;можно будет посмотреть, насколько близки были твои&nbsp;догадки!
 		</p>
 	</header>
 	<section class="baby">
 		<Guessing />
 	</section>
 
-	<h2>Нужно больше информации?</h2>
+	<h2>— А есть какая&#8209;то информация?! Мне&nbsp;что, просто пальцем в&nbsp;небо тыкать?</h2>
+	<h2>Ладно, даем тебе три зацепки...</h2>
 
 	<section class="first">
 		<h3>Зацепка #1: Будущие родители</h3>
@@ -71,6 +74,10 @@ export default {
 		<h3>Зацепка #3: Подготовка к&nbsp;прибытию космонавтика</h3>
 		<Preparations />
 	</section>
+	<h2>Ну а раз ты долистал до этого места...</h2>
+	<section class="fourth">
+		<Sponsorship />
+	</section>
 </template>
 
 <style lang="scss">
@@ -83,12 +90,14 @@ body:has(.baby) {
 	--color-violet: oklch(48.07% 0.0258 296.86);
 	--color-turquoise: oklch(66.6% 0.0647 211.69);
 	--color-dark: oklch(35.47% 0.0032 345.38);
-
 	--color-text: var(--color-dark);
 	--color-accent: var(--color-turquoise);
 
 	background: var(--color-beige);
 	color: var(--color-dark);
+
+	background-image: 
+		url('../assets/images/malysh-bg.png');
 
 	.header {
 		display: none;
@@ -108,7 +117,13 @@ body:has(.baby) {
 	header {
 		max-inline-size: 50rem;
 		margin: 0 auto 2em;
-
+		padding: 2em;
+		background-color: oklch(from var(--color-white) l c h / 0.8);
+		border-radius: 1em;
+		
+		p {
+			font-size: 1.2em;
+		}
 	}
 
 	h1,
@@ -119,21 +134,35 @@ body:has(.baby) {
 
 	h1, h2 {
 		letter-spacing: .1em;
+		padding: .2em .1em .1em;
+		background-color: oklch(from var(--color-white) l c h / 0.8);
+		border-radius: .3em;
+		max-inline-size: 50rem;
+		margin-inline: auto;
 	}
 
 	h3 {
 		font-family: 'Nunito', sans-serif;
 		font-weight: 500;
+		padding: .1em .3em;
+		background-color: oklch(from var(--color-white) l c h / 0.8);
+		border-radius: .3em;
 	}
 
 	h1 {
-		font-size: 4rem;
+		font-size: 4.5em;
 		text-align: center;
-		margin: 1em 0;
+		margin-block: 1em;
 	}
 
 	h2 {
+		font-size: 3em;
 		text-align: center;
+		text-wrap: balance;
+
+		& + h2 {
+			margin-block-start: 1em;
+		}
 	}
 
 	h3 {
