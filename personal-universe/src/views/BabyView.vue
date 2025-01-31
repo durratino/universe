@@ -8,16 +8,19 @@ import Parents from "../components/baby/Parents.vue";
 import Ultrasound from "../components/baby/Ultrasound.vue";
 import Preparations from "../components/baby/Preparations.vue";
 import Sponsorship from "../components/baby/Sponsorship.vue";
+import CloudinaryImage from '../components/CloudinaryImage.vue';
 
 export default {
 	data() {
 		return {
 			persons,
-
+			backgroundWidth: window.innerWidth >= 1280 ? 1280 : window.innerWidth,
+			backgroundHeight: window.innerWidth >= 1280 ? 2000 : window.innerWidth / 0.64
 		}
 	},
 
 	components: {
+		CloudinaryImage,
 		Card,
 		Guessing,
 		Parents,
@@ -36,7 +39,24 @@ export default {
 			// docSnap.data() will be undefined in this case
 			console.log("No such document!");
 		}
-	}
+
+		this.handleParallax();
+	},
+
+	methods: {
+		handleParallax() {
+			const layers = document.querySelectorAll('.background-layer');
+			const multiplier = window.innerWidth < 880 ? 0.6 : 1;
+			window.addEventListener('scroll', () => {
+				const scrollPosition = window.scrollY;
+				layers.forEach(layer => {
+					const depth = layer.getAttribute('data-depth');
+					const movement = -(scrollPosition * depth * multiplier);
+					layer.style.transform = `translateY(${movement}px)`;
+				});
+			});
+		}
+	},
 }
 
 </script>
@@ -78,10 +98,29 @@ export default {
 	<section class="fourth">
 		<Sponsorship />
 	</section>
+	<section class="background" :style="{ '--background-height': `${backgroundHeight}px` }">
+		<CloudinaryImage class="background-layer background-layer-1" :image="'malysh-bg-1'" :width="backgroundWidth"
+			aspect-ratio="0.64" data-depth="0.1" />
+		<CloudinaryImage class="background-layer background-layer-2" :image="'malysh-bg-2'" :width="backgroundWidth"
+			aspect-ratio="0.64" data-depth="0.21" />
+		<CloudinaryImage class="background-layer background-layer-3" :image="'malysh-bg-3'" :width="backgroundWidth"
+			aspect-ratio="0.64" data-depth="0.14" />
+		<CloudinaryImage class="background-layer background-layer-4" :image="'malysh-bg-4'" :width="backgroundWidth"
+			aspect-ratio="0.64" data-depth="0.155" />
+		<CloudinaryImage class="background-layer background-layer-5" :image="'malysh-bg-5'" :width="backgroundWidth"
+			aspect-ratio="0.64" data-depth="0.19" />
+		<CloudinaryImage class="background-layer background-layer-6" :image="'malysh-bg-6'" :width="backgroundWidth"
+			aspect-ratio="0.64" data-depth="0.3" />
+		<CloudinaryImage class="background-layer background-layer-7" :image="'malysh-bg-7'" :width="backgroundWidth"
+			aspect-ratio="0.64" data-depth="0.22" />
+		<CloudinaryImage class="background-layer background-layer-8" :image="'malysh-bg-8'" :width="backgroundWidth"
+			aspect-ratio="0.64" data-depth="0.13" />
+	</section>
 </template>
 
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Neucha&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Yomogi&display=swap');
+
 body:has(.baby) {
 	--color-white: oklch(100% 0 0);
 	--color-grey: oklch(70% 0 0);
@@ -96,8 +135,10 @@ body:has(.baby) {
 	background: var(--color-beige);
 	color: var(--color-dark);
 
-	background-image: 
-		url('../assets/images/malysh-bg.png');
+	@media (min-width: 1280px) {
+		--background-height: 2000px;
+	}
+
 
 	.header {
 		display: none;
@@ -120,7 +161,7 @@ body:has(.baby) {
 		padding: 2em;
 		background-color: oklch(from var(--color-white) l c h / 0.8);
 		border-radius: 1em;
-		
+
 		p {
 			font-size: 1.2em;
 		}
@@ -132,7 +173,8 @@ body:has(.baby) {
 		font-family: 'Neucha', sans-serif;
 	}
 
-	h1, h2 {
+	h1,
+	h2 {
 		letter-spacing: .1em;
 		padding: .2em .1em .1em;
 		background-color: oklch(from var(--color-white) l c h / 0.8);
@@ -160,7 +202,7 @@ body:has(.baby) {
 		text-align: center;
 		text-wrap: balance;
 
-		& + h2 {
+		&+h2 {
 			margin-block-start: 1em;
 		}
 	}
@@ -189,6 +231,55 @@ body:has(.baby) {
 		&:hover {
 			background-color: var(--color-accent);
 			color: var(--color-white);
+		}
+	}
+
+	.background {
+		position: fixed;
+		inset-inline: 0;
+		inset-block-start: 0;
+		z-index: -1;
+		block-size: Max(200vh, var(--background-height));
+		margin: 0;
+
+		&-layer {
+			position: absolute;
+
+			&-1 {
+				inset-block-start: 0;
+			}
+
+			&-2 {
+				inset-block-start: 25%;
+			}
+
+			&-3 {
+				inset-block-start: 20%;
+			}
+
+			&-4 {
+				inset-block-start: 36%;
+			}
+
+			&-5 {
+				inset-block-start: 70%;
+			}
+
+			&-6 {
+				inset-block-start: 120%;
+			}
+
+			&-7 {
+				inset-block-end: 0;
+			}
+
+			&-8 {
+				inset-block-end: 5%;
+			}
+
+			@media (min-width: 880px) {
+				inset: 0;
+			}
 		}
 	}
 }

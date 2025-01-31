@@ -26,20 +26,21 @@ export default {
 			деньгами дочитывают до&nbsp;этого&nbsp;места)</p>
 		<p>
 			Возможно, ты&nbsp;хочешь поддержать нас и&nbsp;нашего малыша? Тут-то твои лишние 5&nbsp;евро
-			как&nbsp;раз придутся кстати :) Они могут стать решающими в&nbsp;сборе на&nbsp;коляску!
+			как&nbsp;раз придутся кстати! Они могут стать решающими в&nbsp;сборе на&nbsp;коляску.
 		</p>
 		<p>
 			Ты&nbsp;знаешь, сколько сейчас стоят коляски?..
-			Наведи на картинку и ужаснись...
+			<span class="sponsorship-text--hover">Наведи</span><span class="sponsorship-text--touch">Нажми</span> на картинку и ужаснись...
 		</p>
 		<figure class="stroller">
 			<CloudinaryImage image="stroller" :aspectRatio="2.1" />
 			<figcaption>
-				<span>8</span><span>2</span><span>9</span> <span>е</span><span>в</span><span>р</span><span>о</span><span>!</span>
+				<span>8</span><span>2</span><span>9</span>
+				<span>е</span><span>в</span><span>р</span><span>о</span><span>!</span>
 			</figcaption>
 		</figure>
 		<p>
-			Ну, поужасались и&nbsp;хватит! А мы&nbsp;правда будем рады любой поддержке, 
+			Ну, поужасались и&nbsp;хватит! А мы&nbsp;правда будем рады любой поддержке,
 			так что если у&nbsp;тебя есть желание помочь, переводи любую сумму.
 			Фото нашего малыша после&nbsp;этого тебе гарантированы!
 			(Или наоборот, можешь откупиться от&nbsp;фотографий своим&nbsp;переводом!)
@@ -49,6 +50,7 @@ export default {
 			<p><strong>IBAN (Olga Misevica):</strong> <span>DE45120300001087672836</span></p>
 			<p><strong>PayPal:</strong> <span>ol.misevich@gmail.com</span></p>
 			<p><strong>Revolut:</strong> <span>@durratino</span></p>
+			<p>Большое спасибо!</p>
 		</footer>
 	</article>
 </template>
@@ -60,6 +62,26 @@ export default {
 	padding: 2em;
 	border-radius: 1em;
 	background-color: oklch(from var(--color-white) l c h / 0.8);
+
+	&-text {
+		&--hover {
+			display: none;
+		}
+
+		&--touch {
+			display: inline;
+		}
+
+		@media (hover: hover) {
+			&--hover {
+				display: inline;
+			}
+
+			&--touch {
+				display: none;
+			}
+		}
+	}
 
 	figure {
 		position: relative;
@@ -89,20 +111,23 @@ export default {
 			transform: translate(-50%, -50%);
 			inline-size: max-content;
 			font-family: 'Neucha', sans-serif;
-			font-size: 6em;
+			font-size: 3em;
 			letter-spacing: .1em;
 			color: var(--color-accent);
 			transition: opacity 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-			text-shadow: 
+			text-shadow:
 				-0.03em -0.03em 0 var(--color-white),
 				0.03em -0.03em 0 var(--color-white),
 				-0.03em 0.03em 0 var(--color-white),
 				0.03em 0.03em 0 var(--color-white);
 
+			@container (min-width: 48rem) {
+				font-size: 6em;
+			}
+
 			span {
 				opacity: 0;
 				transition: opacity 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-				
 
 				&:nth-child(-n + 3) {
 					font-weight: bold;
@@ -119,13 +144,10 @@ export default {
 		p {
 			margin-block: .5em;
 
-			strong {
-				font-weight: bold;
+			&:last-child {
+				margin-block: 1em 0;
+				font-size: 1.2em;
 			}
-
-			// span {
-			// 	color: var(--color-accent);
-			// }
 		}
 	}
 }
