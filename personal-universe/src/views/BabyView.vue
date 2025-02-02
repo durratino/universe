@@ -31,6 +31,10 @@ export default {
 
 	async mounted() {
 		this.handleParallax();
+
+		console.info(`Привет братьям и сестрам-разработчикам! Этот сайт делался на десятом (да, их десять, если считать по четыре недели!) месяце беременности и буквально на коленке (на икеевском столике для кровати), между походами в туалет, болями в спине и подготовкой к малышу. 
+
+Поэтому очень прошу не пытаться ломать его специально и просто сообщить мне (Оле), если что-то не работает!`);
 	},
 
 	methods: {
@@ -56,7 +60,7 @@ export default {
 	<header class="baby-header">
 		<p>
 			Привет! Ты оказался на этой страничке, а&nbsp;значит, нам очень любопытно, как ты
-			представляешь себе нашего малыша. Если тебе интересно поучаствовать в&nbsp;этой
+			представляешь себе нашего будущего малыша. Если тебе интересно поучаствовать в&nbsp;этой
 			игре, заполни форму ниже и&nbsp;отправь нам свои
 			предположения.
 		</p>
@@ -90,21 +94,21 @@ export default {
 	</section>
 	<section class="background" :style="{ '--background-height': `${backgroundHeight}px` }">
 		<CloudinaryImage class="background-layer background-layer-1" :image="'malysh-bg-1'" :width="backgroundWidth"
-			aspect-ratio="0.64" data-depth="0.1" />
+			:aspect-ratio=0.64 data-depth="0.1" />
 		<CloudinaryImage class="background-layer background-layer-2" :image="'malysh-bg-2'" :width="backgroundWidth"
-			aspect-ratio="0.64" data-depth="0.21" />
+			:aspect-ratio=0.64 data-depth="0.21" />
 		<CloudinaryImage class="background-layer background-layer-3" :image="'malysh-bg-3'" :width="backgroundWidth"
-			aspect-ratio="0.64" data-depth="0.14" />
+			:aspect-ratio=0.64 data-depth="0.14" />
 		<CloudinaryImage class="background-layer background-layer-4" :image="'malysh-bg-4'" :width="backgroundWidth"
-			aspect-ratio="0.64" data-depth="0.155" />
+			:aspect-ratio=0.64 data-depth="0.155" />
 		<CloudinaryImage class="background-layer background-layer-5" :image="'malysh-bg-5'" :width="backgroundWidth"
-			aspect-ratio="0.64" data-depth="0.19" />
+			:aspect-ratio=0.64 data-depth="0.19" />
 		<CloudinaryImage class="background-layer background-layer-6" :image="'malysh-bg-6'" :width="backgroundWidth"
-			aspect-ratio="0.64" data-depth="0.3" />
+			:aspect-ratio=0.64 data-depth="0.3" />
 		<CloudinaryImage class="background-layer background-layer-7" :image="'malysh-bg-7'" :width="backgroundWidth"
-			aspect-ratio="0.64" data-depth="0.22" />
+			:aspect-ratio=0.64 data-depth="0.22" />
 		<CloudinaryImage class="background-layer background-layer-8" :image="'malysh-bg-8'" :width="backgroundWidth"
-			aspect-ratio="0.64" data-depth="0.13" />
+			:aspect-ratio=0.64 data-depth="0.13" />
 	</section>
 </template>
 

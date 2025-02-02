@@ -25,16 +25,18 @@ export default {
 			},
 			isFormLocked: false,
 			showStats: false,
-			showThankYouMessage: false
+			showThankYouMessage: false,
+			showWarning: false
 		}
 	},
 	methods: {
 		async sendGuessing() {
 			if (!this.validateGuessing()) {
-				console.log('Заполните все поля');
+				this.showWarning = true;
 				return;
 			}
 
+			this.showWarning = false;
 			this.guessing.guessingDate = new Date();
 
 			this.saveGuessingToCookie();
@@ -127,7 +129,7 @@ export default {
 				Ответы выглядят идеально? Можешь не менять их и <span type="button" @click="displayStats()" class="link">вернуться к общей 
 				статистике</span> :)
 			</p>
-			
+			<p v-if="showWarning" class="warning">Пожалуйста, заполни все поля!</p>
 			<picture>
 				<CloudinaryImage image="baby" :width=300 :height=300 />
 			</picture>
@@ -360,5 +362,11 @@ label {
 	@container (min-width: 48rem) {
 		grid-column: span 2;
 	}
+}
+
+.warning {
+	color: var(--color-coral);
+	font-size: 1.2em;
+	font-weight: 500;
 }
 </style>

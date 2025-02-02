@@ -19,7 +19,7 @@ export default {
 <template>
 	<div class="preparations">
 		<div v-for="(image, index) in images" :key="index" class="preparation">
-			<CloudinaryImage :image="image.photo" :aspectRatio="image.aspectRatio" :width="imageWidth2" />
+			<CloudinaryImage :image="image.photo" :aspectRatio="image.aspectRatio" :width="imageWidth" />
 			<p class="preparation-caption">{{ image.caption }}</p>
 		</div>
 	</div>
