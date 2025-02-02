@@ -19,6 +19,18 @@ export default {
 		}
 	},
 
+	head() {
+		return {
+			title: 'Разгадай малыша!',
+			meta: [ 
+				{ name: 'og:title', content: 'Разгадай малыша!' }, 
+				{ name: 'og:description', content: 'Оля и Сева сходят с ума и предлагают всем родственникам и друзьям угадывать черты их пока что спрятанного в животике малыша' }, 
+				{ name: 'og:site_name', content: 'Разгадай малыша!'},
+				{ name: 'og:url', content: 'https://apersonaluniverse.com/baby'},
+			],
+		}
+	},
+
 	components: {
 		CloudinaryImage,
 		Card,
