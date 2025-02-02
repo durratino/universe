@@ -3,6 +3,7 @@ import { collection, addDoc } from "firebase/firestore";
 import { db } from '@/firebase';
 import CloudinaryImage from '../CloudinaryImage.vue';
 import Field from './Field.vue';
+import GuessingStats from './GuessingStats.vue';
 
 export default {
 	props: {
@@ -22,7 +23,9 @@ export default {
 				userMessage: '',
 				guessingDate: null
 			},
-			isFormLocked: false
+			isFormLocked: false,
+			showStats: false,
+			showThankYouMessage: false
 		}
 	},
 	methods: {
@@ -39,6 +42,10 @@ export default {
 
 			const docRef = await addDoc(collection(db, "guessings"), this.guessing);
 			console.log("Document written with ID: ", docRef.id);
+
+			this.isFormLocked = true;
+			this.showThankYouMessage = true;
+			this.showStats = true;
 		},
 
 		validateGuessing() {
@@ -79,6 +86,11 @@ export default {
 			textarea.addEventListener('input', () => {
 				textarea.parentElement.dataset.replicatedValue = textarea.value;
 			});
+		},
+		displayStats() {
+			this.showStats = true;
+			this.showThankYouMessage = false;
+			this.isFormLocked = true;
 		}
 	},
 	computed: {
@@ -98,18 +110,24 @@ export default {
 	},
 	components: {
 		CloudinaryImage,
-		Field
+		Field,
+		GuessingStats
 	}
 }
 </script>
 
 <template>
-	<form @submit.prevent="sendGuessing">
+	<form v-if="!showStats" @submit.prevent="sendGuessing">
 		<article>
 			<p v-if="isFormLocked">
 				Кажется, твои ответы уже есть в&nbsp;нашей копилочке предсказаний.
-				Можешь еще раз посмотреть на&nbsp;них и&nbsp;изменить при&nbsp;желании :)
+				Можешь еще раз почитать&nbsp;их и&nbsp;изменить при&nbsp;желании или <span type="button" @click="displayStats()" class="link">посмотреть общую статистику по&nbsp;всем собранным ответам</span> :)
 			</p>
+			<p v-if="!isFormLocked && this.guessing.guessingDate">
+				Ответы выглядят идеально? Можешь не менять их и <span type="button" @click="displayStats()" class="link">вернуться к общей 
+				статистике</span> :)
+			</p>
+			
 			<picture>
 				<CloudinaryImage image="baby" :width=300 :height=300 />
 			</picture>
@@ -146,8 +164,11 @@ export default {
 			<button v-else type="button" @click="isFormLocked = false" class="button">Изменить ответы</button>
 		</article>
 	</form>
-
-
+	<article v-else>
+		<h4 v-if="showThankYouMessage">Большое спасибо за твои ответы! Да, они уже учтены в статистике ниже :)</h4>
+		<GuessingStats />
+		<button @click="showStats = false" class="button">Вернуться к своим ответам</button>
+	</article>
 </template>
 
 <style lang="scss" scoped>
@@ -158,7 +179,7 @@ article {
 	margin: auto;
 	padding: 2em;
 	border-radius: 1em;
-	background-color: oklch(from var(--color-white) l c h / 0.8);
+	background-color: oklch(from var(--color-white) l c h / 0.9);
 
 	@container (min-width: 48rem) {
 		grid-template-columns: 300px 1fr;
@@ -174,6 +195,15 @@ article {
 
 	img {
 		border-radius: .3em;
+	}
+
+	& > h4 {
+		grid-column: span 2;
+		margin-block-end: 2em;
+	}
+
+	.link {
+		cursor: pointer;
 	}
 }
 
@@ -261,7 +291,8 @@ label {
 
 		&[disabled] {
 			background-color: transparent;
-			color: oklch(from var(--color-violet) l c h / 0.7);
+			font-weight: 500;
+			// color: oklch(from var(--color-violet) l c h / 0.7);
 			border: 0;
 		}
 	}

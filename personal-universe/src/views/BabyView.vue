@@ -30,16 +30,6 @@ export default {
 	},
 
 	async mounted() {
-		const docRef = doc(db, "guessings", "secret");
-		const docSnap = await getDoc(docRef);
-
-		if (docSnap.exists()) {
-			// console.log("Document data:", docSnap.data());
-		} else {
-			// docSnap.data() will be undefined in this case
-			console.log("No such document!");
-		}
-
 		this.handleParallax();
 	},
 
@@ -159,7 +149,7 @@ body:has(.baby) {
 		max-inline-size: 50rem;
 		margin: 0 auto 2em;
 		padding: 2em;
-		background-color: oklch(from var(--color-white) l c h / 0.8);
+		background-color: oklch(from var(--color-white) l c h / 0.9);
 		border-radius: 1em;
 
 		p {
@@ -231,6 +221,21 @@ body:has(.baby) {
 		&:hover {
 			background-color: var(--color-accent);
 			color: var(--color-white);
+		}
+	}
+
+	.link {
+		color: var(--color-accent);
+		text-decoration: none;
+		background: none;
+		border: none;
+		font: inherit;
+		padding: 0;
+		cursor: pointer;
+		inline-size: max-content;
+
+		&:hover {
+			text-decoration: underline;
 		}
 	}
 

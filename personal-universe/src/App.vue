@@ -112,24 +112,26 @@ a,
 
 button,
 .button {
-  display: inline-flex;
-  align-items: center;
-  height: 3rem;
-  padding: 1em;
-  border: 1px solid var(--color-text);
-  border-radius: .2rem;
-  font: inherit;
-  text-decoration: none;
-  color: var(--color-text);
-  background: transparent;
-  cursor: pointer;
-  transition: all .3s cubic-bezier(0.075, 0.82, 0.165, 1);
-  transition: background-color .5s cubic-bezier(0.19, 1, 0.21, 1), color .5s cubic-bezier(0.19, 1, 0.21, 1), border-color .5s cubic-bezier(0.19, 1, 0.21, 1);;
+  &:not(.link) {
+    display: inline-flex;
+    align-items: center;
+    height: 3rem;
+    padding: 1em;
+    border: 1px solid var(--color-text);
+    border-radius: .2rem;
+    font: inherit;
+    text-decoration: none;
+    color: var(--color-text);
+    background: transparent;
+    cursor: pointer;
+    transition: all .3s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: background-color .5s cubic-bezier(0.19, 1, 0.21, 1), color .5s cubic-bezier(0.19, 1, 0.21, 1), border-color .5s cubic-bezier(0.19, 1, 0.21, 1);
 
-  &:hover {
-    background-color: oklch(from var(--color-accent) l c h / 0.1);
-    border-color: var(--color-accent);
-    color: var(--color-accent);
+    &:hover {
+      background-color: oklch(from var(--color-accent) l c h / 0.1);
+      border-color: var(--color-accent);
+      color: var(--color-accent);
+    }
   }
 
   &--cta {
@@ -144,6 +146,7 @@ button,
     }
   }
 }
+
 
 h1,
 h2,
@@ -307,9 +310,7 @@ dialog {
     justify-content: center;
     align-items: center;
 
-    &:hover {
-
-    }
+    &:hover {}
 
     &::after {
       content: 'x';

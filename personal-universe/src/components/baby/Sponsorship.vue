@@ -43,7 +43,7 @@ export default {
 			Ну, поужасались и&nbsp;хватит! А мы&nbsp;правда будем рады любой поддержке,
 			так что если у&nbsp;тебя есть желание помочь, переводи любую сумму.
 			Фото нашего малыша после&nbsp;этого тебе гарантированы!
-			(Или наоборот, можешь откупиться от&nbsp;фотографий своим&nbsp;переводом!)
+			(Или наоборот, можешь откупиться от&nbsp;фотографий своим&nbsp;переводом — главное, сообщи нам свои предпочтения :D)
 		</p>
 		<footer>
 			<p><strong>Российская карта (Tinkoff):</strong> <span>4377723772853325</span></p>
@@ -61,7 +61,7 @@ export default {
 	margin: auto;
 	padding: 2em;
 	border-radius: 1em;
-	background-color: oklch(from var(--color-white) l c h / 0.8);
+	background-color: oklch(from var(--color-white) l c h / 0.9);
 
 	&-text {
 		&--hover {

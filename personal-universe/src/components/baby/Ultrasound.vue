@@ -210,7 +210,7 @@ export default {
 			gap: 1em;
 			margin: 0;
 			padding: .1em .3em;
-			background-color: oklch(from var(--color-white) l c h / 0.8);
+			background-color: oklch(from var(--color-white) l c h / 0.9);
 			border-radius: .3em;
 			font-size: 1.5em;
 
