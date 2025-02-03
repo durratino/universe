@@ -165,7 +165,7 @@ export default {
 							<option value="зеленые">зеленые</option>
 							<option value="голубые">голубые</option>
 							<option value="серые">серые</option>
-							<option value="голубо-серые">серо-голубые</option>
+							<option value="серо-голубые">серо-голубые</option>
 						</datalist>
 			</section>
 			<p v-if="!isFormLocked">
