@@ -140,17 +140,33 @@ export default {
 					<label><input type="radio" name="gender" value="female" v-model="guessing.gender"
 							:disabled="isFormLocked"><span>девочка</span></label>
 				</div>
-				<label><span>Имя</span><input type="text" v-model="guessing.name" :disabled="isFormLocked"></label>
-				<label><span>Дата и время рождения</span><input type="datetime-local" v-model="guessing.birthDate"
+				<label><span>Имя</span><input type="text" v-model="guessing.name" :disabled="isFormLocked" maxlength="30"></label>
+				<label><span>Дата и время рождения</span><input type="datetime-local" v-model="guessing.birthDate" min="2025-02-01T00:00" max="2025-02-28T23:59"
 						:disabled="isFormLocked"></label>
 				<label><span>Рост при рождении (см)</span><input type="number" min="20" max="100"
 						v-model="guessing.height" :disabled="isFormLocked"></label>
 				<label><span>Вес при рождении (г)</span><input type="number" min="1000" max="10000" step="5"
 						v-model="guessing.weight" :disabled="isFormLocked"></label>
-				<label><span>Цвет волос</span><input type="text" v-model="guessing.hairColor"
+				<label><span>Цвет волос</span><input type="text" v-model="guessing.hairColor" list="hairColor" maxlength="25"
 						:disabled="isFormLocked"></label>
-				<label><span>Цвет глаз</span><input type="text" v-model="guessing.eyeColor"
+						<datalist id="hairColor">
+							<option value="черные">черные</option>
+							<option value="темно-каштановые">темно-каштановые</option>
+							<option value="каштановые">каштановые</option>
+							<option value="русые">русые</option>
+							<option value="светло-русые">светло-русые</option>
+							<option value="рыжие">рыжие</option>
+							<option value="светлые">светлые</option>
+						</datalist>
+				<label><span>Цвет глаз</span><input type="text" v-model="guessing.eyeColor" list="eyeColor" maxlength="25"
 						:disabled="isFormLocked"></label>
+						<datalist id="eyeColor">
+							<option value="карие">карие</option>
+							<option value="зеленые">зеленые</option>
+							<option value="голубые">голубые</option>
+							<option value="серые">серые</option>
+							<option value="голубо-серые">голубо-серые</option>
+						</datalist>
 			</section>
 			<p v-if="!isFormLocked">
 				Заполни информацию о себе, чтобы мы знали, кто наша новая Ванга и&nbsp;могли
@@ -294,7 +310,6 @@ label {
 		&[disabled] {
 			background-color: transparent;
 			font-weight: 500;
-			// color: oklch(from var(--color-violet) l c h / 0.7);
 			border: 0;
 		}
 	}
