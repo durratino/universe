@@ -123,11 +123,14 @@ export default {
 		<article>
 			<p v-if="isFormLocked">
 				Кажется, твои ответы уже есть в&nbsp;нашей копилочке предсказаний.
-				Можешь еще раз почитать&nbsp;их и&nbsp;изменить при&nbsp;желании или <span type="button" @click="displayStats()" class="link">посмотреть общую статистику по&nbsp;всем собранным ответам</span> :)
+				Можешь еще раз почитать&nbsp;их и&nbsp;изменить при&nbsp;желании или <span type="button"
+					@click="displayStats()" class="link">посмотреть общую статистику по&nbsp;всем собранным
+					ответам</span> :)
 			</p>
 			<p v-if="!isFormLocked && this.guessing.guessingDate">
-				Ответы выглядят идеально? Можешь не менять их и <span type="button" @click="displayStats()" class="link">вернуться к общей 
-				статистике</span> :)
+				Ответы выглядят идеально? Можешь не менять их и <span type="button" @click="displayStats()"
+					class="link">вернуться к общей
+					статистике</span> :)
 			</p>
 			<p v-if="showWarning" class="warning">Пожалуйста, заполни все поля!</p>
 			<picture>
@@ -140,33 +143,34 @@ export default {
 					<label><input type="radio" name="gender" value="female" v-model="guessing.gender"
 							:disabled="isFormLocked"><span>девочка</span></label>
 				</div>
-				<label><span>Имя</span><input type="text" v-model="guessing.name" :disabled="isFormLocked" maxlength="30"></label>
-				<label><span>Дата и время рождения</span><input type="datetime-local" v-model="guessing.birthDate" min="2025-02-01T00:00" max="2025-02-28T23:59"
-						:disabled="isFormLocked"></label>
+				<label><span>Имя</span><input type="text" v-model="guessing.name" :disabled="isFormLocked"
+						maxlength="30"></label>
+				<label><span>Дата и время рождения</span><input type="datetime-local" v-model="guessing.birthDate"
+						min="2025-02-01T00:00" max="2025-02-28T23:59" :disabled="isFormLocked"></label>
 				<label><span>Рост при рождении (см)</span><input type="number" min="20" max="100"
 						v-model="guessing.height" :disabled="isFormLocked"></label>
-				<label><span>Вес при рождении (г)</span><input type="number" min="1000" max="10000" step="5"
+				<label><span>Вес при рождении (г)</span><input type="number" min="1000" max="10000"
 						v-model="guessing.weight" :disabled="isFormLocked"></label>
-				<label><span>Цвет волос</span><input type="text" v-model="guessing.hairColor" list="hairColor" maxlength="25"
-						:disabled="isFormLocked"></label>
-						<datalist id="hairColor">
-							<option value="черные">черные</option>
-							<option value="темно-каштановые">темно-каштановые</option>
-							<option value="каштановые">каштановые</option>
-							<option value="русые">русые</option>
-							<option value="светло-русые">светло-русые</option>
-							<option value="рыжие">рыжие</option>
-							<option value="светлые">светлые</option>
-						</datalist>
-				<label><span>Цвет глаз</span><input type="text" v-model="guessing.eyeColor" list="eyeColor" maxlength="25"
-						:disabled="isFormLocked"></label>
-						<datalist id="eyeColor">
-							<option value="карие">карие</option>
-							<option value="зеленые">зеленые</option>
-							<option value="голубые">голубые</option>
-							<option value="серые">серые</option>
-							<option value="серо-голубые">серо-голубые</option>
-						</datalist>
+				<label><span>Цвет волос</span><input type="text" v-model="guessing.hairColor" list="hairColor"
+						maxlength="25" :disabled="isFormLocked"></label>
+				<datalist id="hairColor">
+					<option value="черные">черные</option>
+					<option value="темно-каштановые">темно-каштановые</option>
+					<option value="каштановые">каштановые</option>
+					<option value="русые">русые</option>
+					<option value="светло-русые">светло-русые</option>
+					<option value="рыжие">рыжие</option>
+					<option value="светлые">светлые</option>
+				</datalist>
+				<label><span>Цвет глаз</span><input type="text" v-model="guessing.eyeColor" list="eyeColor"
+						maxlength="25" :disabled="isFormLocked"></label>
+				<datalist id="eyeColor">
+					<option value="карие">карие</option>
+					<option value="зеленые">зеленые</option>
+					<option value="голубые">голубые</option>
+					<option value="серые">серые</option>
+					<option value="серо-голубые">серо-голубые</option>
+				</datalist>
 			</section>
 			<p v-if="!isFormLocked">
 				Заполни информацию о себе, чтобы мы знали, кто наша новая Ванга и&nbsp;могли
@@ -175,8 +179,9 @@ export default {
 			<label><span>Твое имя</span><input type="text" v-model="guessing.userName" :disabled="isFormLocked"></label>
 			<label><span>Контакт (телеграм / email)</span><input type="text" v-model="guessing.userContact"
 					:disabled="isFormLocked"></label>
-			<label><span>Вопросы, напутствия, пожелания нам, малышу или миру в целом :)</span>
-				<div><textarea v-model="guessing.userMessage" rows="1" :disabled="isFormLocked"></textarea></div>
+			<label class="user-message"><span>Вопросы, напутствия, пожелания нам, малышу или миру в целом :)</span>
+				<div v-if="!isFormLocked"><textarea v-model="guessing.userMessage" rows="1"></textarea></div>
+				<div v-else>{{ guessing.userMessage }}</div>
 			</label>
 			<input v-if="!isFormLocked" type="submit" value="Отправить ответы" class="button">
 			<button v-else type="button" @click="isFormLocked = false" class="button">Изменить ответы</button>
@@ -215,7 +220,7 @@ article {
 		border-radius: .3em;
 	}
 
-	& > h4 {
+	&>h4 {
 		grid-column: span 2;
 		margin-block-end: 2em;
 	}
@@ -256,13 +261,6 @@ label {
 	}
 
 	&:has(textarea) {
-		flex-direction: column;
-		align-items: stretch;
-
-		@container (min-width: 48rem) {
-			grid-column: span 2;
-		}
-
 		div {
 			display: grid;
 			line-height: normal;
@@ -312,6 +310,20 @@ label {
 			font-weight: 500;
 			border: 0;
 		}
+	}
+}
+
+.user-message {
+	flex-direction: column;
+	align-items: stretch;
+
+	@container (min-width: 48rem) {
+		grid-column: span 2;
+	}
+
+	div {
+		color: var(--color-violet);
+		font-weight: 500;
 	}
 }
 
