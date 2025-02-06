@@ -221,8 +221,11 @@ article {
 	}
 
 	&>h4 {
-		grid-column: span 2;
 		margin-block-end: 2em;
+
+		@container (min-width: 48rem) {
+			grid-column: span 2;
+		}
 	}
 
 	.link {
